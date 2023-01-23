@@ -1,1 +1,1 @@
-web: gunicorn the-maintenance-co.wsgi
+web: gunicorn the_maintenance_co.wsgi
