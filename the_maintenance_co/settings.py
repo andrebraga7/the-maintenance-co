@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["the-maintenace-co.herokuapp.com", "localhost"]
+ALLOWED_HOSTS = ["the-maintenance-co.herokuapp.com", "localhost"]
 
 
 # Application definition
@@ -56,8 +56,8 @@ INSTALLED_APPS = [
 SITE_ID = 1
 
 
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = '/'
+# LOGOUT_REDIRECT_URL = '/'
 
 
 MIDDLEWARE = [
@@ -155,6 +155,5 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
