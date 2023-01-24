@@ -1,6 +1,9 @@
-body {
+html, body {
     height: 100%;
+    background-color: #f0f0f0;
 }
+
+/* Home */
 
 #landing_page {
     background-image: url("/static/images/hero_1.jpeg");
@@ -28,4 +31,14 @@ body {
 #home_footer {
     background-color: #202020;
     height: 15vh;
+}
+
+/* Dashboard */
+
+#dash_main {
+    min-height: 74vh;
+}
+
+#dash_menu_2 a {
+    color: #202020;
 }
