@@ -16,6 +16,15 @@ body {
     color: #234F1E;
 }
 
+#home_headline {
+    position: absolute;
+    top: 25vh;
+}
+
+#home_headline h1 {
+    color: #234F1E;
+}
+
 #home_footer {
     background-color: #202020;
     height: 15vh;
