@@ -48,5 +48,11 @@ class Job(models.Model):
             self.title = self.generate_title()
         super(Subject, self).save(*args, **kwargs)
 
+    class Meta:
+        permissions = [
+            ('is_manager', 'Is manager'),
+            ('is_employee', 'Is employee'),
+            ('is_client', 'Is client')]
+
     def __str__(self):
         return self.title
