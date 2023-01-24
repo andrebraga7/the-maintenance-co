@@ -1,0 +1,31 @@
+ id |       app        |                   name                   |            applied            
+----+------------------+------------------------------------------+-------------------------------
+  1 | contenttypes     | 0001_initial                             | 2023-01-23 22:24:47.814935+00
+  2 | auth             | 0001_initial                             | 2023-01-23 22:24:48.116386+00
+  3 | admin            | 0001_initial                             | 2023-01-23 22:24:48.203782+00
+  4 | admin            | 0002_logentry_remove_auto_add            | 2023-01-23 22:24:48.23149+00
+  5 | admin            | 0003_logentry_add_action_flag_choices    | 2023-01-23 22:24:48.265234+00
+  6 | contenttypes     | 0002_remove_content_type_name            | 2023-01-23 22:24:48.322164+00
+  7 | auth             | 0002_alter_permission_name_max_length    | 2023-01-23 22:24:48.363851+00
+  8 | auth             | 0003_alter_user_email_max_length         | 2023-01-23 22:24:48.405325+00
+  9 | auth             | 0004_alter_user_username_opts            | 2023-01-23 22:24:48.439115+00
+ 10 | auth             | 0005_alter_user_last_login_null          | 2023-01-23 22:24:48.480918+00
+ 11 | auth             | 0006_require_contenttypes_0002           | 2023-01-23 22:24:48.508936+00
+ 12 | auth             | 0007_alter_validators_add_error_messages | 2023-01-23 22:24:48.54213+00
+ 13 | auth             | 0008_alter_user_username_max_length      | 2023-01-23 22:24:48.586203+00
+ 14 | auth             | 0009_alter_user_last_name_max_length     | 2023-01-23 22:24:48.625796+00
+ 15 | auth             | 0010_alter_group_name_max_length         | 2023-01-23 22:24:48.667063+00
+ 16 | auth             | 0011_update_proxy_permissions            | 2023-01-23 22:24:48.702347+00
+ 17 | auth             | 0012_alter_user_first_name_max_length    | 2023-01-23 22:24:48.742648+00
+ 18 | sessions         | 0001_initial                             | 2023-01-23 22:24:48.814901+00
+ 19 | account          | 0001_initial                             | 2023-01-23 22:50:37.460023+00
+ 20 | account          | 0002_email_max_length                    | 2023-01-23 22:50:37.502898+00
+ 21 | sites            | 0001_initial                             | 2023-01-23 22:50:37.549386+00
+ 22 | sites            | 0002_alter_domain_unique                 | 2023-01-23 22:50:37.606929+00
+ 23 | socialaccount    | 0001_initial                             | 2023-01-23 22:50:37.856262+00
+ 24 | socialaccount    | 0002_token_max_lengths                   | 2023-01-23 22:50:37.931501+00
+ 25 | socialaccount    | 0003_extra_data_default_dict             | 2023-01-23 22:50:37.971357+00
+ 26 | client_dashboard | 0001_initial                             | 2023-01-24 18:32:49.441394+00
+ 27 | client_dashboard | 0002_alter_job_options                   | 2023-01-24 19:01:46.020971+00
+(27 rows)
+
