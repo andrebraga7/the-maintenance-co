@@ -1,0 +1,22 @@
+body {
+    height: 100%;
+}
+
+#landing_page {
+    background-image: url("/static/images/hero_1.jpeg");
+    background-size: cover;
+    height: 85vh;
+}
+
+#home_menu >li >a {
+    color: #202020;
+}
+
+#home_menu >li >a:hover {
+    color: #234F1E;
+}
+
+#home_footer {
+    background-color: #202020;
+    height: 15vh;
+}
