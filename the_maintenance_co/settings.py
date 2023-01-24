@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'home_page',
     'manager_dashboard',
+    'client_dashboard',
 ]
 
 
