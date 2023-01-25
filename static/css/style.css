@@ -39,8 +39,21 @@ html, body {
     min-height: 74vh;
 }
 
-#dash_menu_2 a {
-    color: #202020;
+#dash_menu_2_toggle {
+    color: inherit;
+    border: none;
+    padding: 8px 0;
+    font-size: inherit;
+    text-decoration: none;
+    box-shadow: none;
+}
+
+.dash-menu-2-a {
+    color: inherit;
+}
+
+.dash-menu-2-a:hover {
+    color: #234F1E;
 }
 
 /* Accordion */
