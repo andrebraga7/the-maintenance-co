@@ -56,6 +56,10 @@ html, body {
     color: #234F1E;
 }
 
+.active {
+    border-bottom: 3px solid #234F1E;
+}
+
 /* Accordion */
 
 .accordion {
