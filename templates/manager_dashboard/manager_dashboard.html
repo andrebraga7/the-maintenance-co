@@ -1,3 +1,7 @@
+{% extends "../dashboard_base.html" %}
+
+{% block dashboard_content %}
+<!-- Secondary menu -->
 <div id="dash_menu_2" class="container">
     <div class="row">
         <div class="col-md-6 offset-md-1 mt-4 mb-2">
@@ -18,3 +22,8 @@
         </div>
     </div>
 </div>
+
+    {% block main %}
+    {% endblock %}
+
+{% endblock %}

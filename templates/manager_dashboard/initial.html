@@ -1,0 +1,37 @@
+{% extends "manager_dashboard/manager_dashboard.html" %}
+
+{% block main %}
+<div class="container-fluid">
+    <div class="row mt-2 p-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="accordion" id="dash_accordion">
+                {% for job in jobs %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <span>{{ job.id }}</span> - {{ job.title }}
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#dash_accordion">
+                        <div class="accordion-body">
+                            <p>{{ job.category }}</p>
+                            <p>{{ job.equipment }}</p>
+                            <p>{{ job.client }}</p>
+                            <p>{{ job.description }}</p>
+                            <p>{{ job.assignment }}</p>
+                            <p>{{ job.created_on }}</p>
+                            <p>{{ job.updated_on }}</p>
+                            <p>{{ job.status }}</p>
+                            <p>{{ job.feedback }}</p>
+                            <p>{{ job.deletion }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

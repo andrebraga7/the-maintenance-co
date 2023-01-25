@@ -32,7 +32,7 @@ class Job(models.Model):
     deletion = models.BooleanField(default=False)
 
     def generate_title(self):
-        return f'Job for {self.equipment} in {self.category}'
+        return f'{self.equipment} in {self.category}'
 
     def save(self, *args, **kwargs):
         if not self.title:

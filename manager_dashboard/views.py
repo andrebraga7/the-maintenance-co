@@ -1,8 +1,11 @@
 from django.shortcuts import render
 from django.views import View
+from client_dashboard.models import Job
 
 
-class ManagerDashboard(View):
+class Initial(View):
 
     def get(self, request):
-        return render(request, 'dashboard_base.html')
+        jobs = Job.objects.all()
+
+        return render(request, 'manager_dashboard/initial.html', {'jobs': jobs})

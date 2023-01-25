@@ -1,6 +1,6 @@
 html, body {
     height: 100%;
-    background-color: #f0f0f0;
+    background-color: #E4E4E4;
 }
 
 /* Home */
@@ -41,4 +41,23 @@ html, body {
 
 #dash_menu_2 a {
     color: #202020;
+}
+
+/* Accordion */
+
+.accordion {
+    --bs-accordion-color: inherit;
+    --bs-accordion-bg: #f0f0f0;
+    --bs-accordion-border-width: 1px;
+    --bs-accordion-btn-padding-x: 1.25rem;
+    --bs-accordion-btn-padding-y: 1rem;
+    --bs-accordion-btn-focus-border-color: none;
+    --bs-accordion-btn-focus-box-shadow: none;
+    --bs-accordion-btn-bg: #fafafa;
+    --bs-accordion-active-color: #202020;
+    --bs-accordion-active-bg: #fafafa;
+}
+
+.accordion:hover {
+    --bs-accordion-btn-color: #234F1E;
 }
