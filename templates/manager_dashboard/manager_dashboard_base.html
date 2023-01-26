@@ -1,0 +1,39 @@
+{% extends "../dashboard_base.html" %}
+
+{% block dashboard_content %}
+<!-- Manager dashboard menu -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-1 mt-4 mb-2">
+
+            <nav class="navbar navbar-expand-md">
+                <div class="container-fluid">
+                    <a id="dash_menu_2_toggle" class="navbar-toggler fw-semibold" data-bs-toggle="collapse" href="#dropdown_options"
+                        aria-controls="dropdown_options" aria-expanded="false" aria-label="Toggle navigation">Active <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="collapse navbar-collapse" id="dropdown_options">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="{% url 'manager' %}" class="nav-link dash-menu-2-a">New</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'manager_active' %}" class="nav-link dash-menu-2-a">Active</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'manager_completed' %}" class="nav-link dash-menu-2-a">Completed</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link dash-menu-2-a">Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+</div>
+    <!-- Manager dashboard content goes here -->
+    {% block manager_content %}
+    {% endblock %}
+
+{% endblock %}

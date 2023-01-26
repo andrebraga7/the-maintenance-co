@@ -25,12 +25,12 @@ class ActiveJobs(View):
             {'jobs': jobs})
 
 
-class CompleteJobs(View):
+class CompletedJobs(View):
 
     def get(self, request):
         jobs = Job.objects.filter(status=2)
 
         return render(
             request,
-            'manager_dashboard/complete_jobs.html',
+            'manager_dashboard/completed_jobs.html',
             {'jobs': jobs})
