@@ -1,0 +1,75 @@
+{% extends "../dashboard_base.html" %}
+
+{% block dashboard_content %}
+<!-- Secondary menu -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-1 mt-4 mb-2">
+
+            <nav class="navbar navbar-expand-md">
+                <div class="container-fluid">
+                    <a id="dash_menu_2_toggle" class="navbar-toggler fw-semibold" data-bs-toggle="collapse" href="#dropdown_options"
+                        aria-controls="dropdown_options" aria-expanded="false" aria-label="Toggle navigation">New <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="collapse navbar-collapse" id="dropdown_options">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="{% url 'manager' %}" class="nav-link dash-menu-2-a active">New</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'manager_active' %}" class="nav-link dash-menu-2-a">Active</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'manager_complete' %}" class="nav-link dash-menu-2-a">Complete</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link dash-menu-2-a">Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+</div>
+
+<!-- Jobs accordion -->
+<div class="container-fluid">
+    <div class="row mt-2 p-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="accordion" id="dash_accordion">
+                {% for job in jobs %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne">
+                            <span>{{ job.id }} - {{ job.title }}</span>
+                        </button>
+                    </h2>
+                    <div id="{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#dash_accordion">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Description:</strong><br>
+                                <span>{{ job.description }}</span>
+                            </p>
+                            <p>
+                                <strong>Created on:</strong> {{ job.created_on }}<br>
+                                <strong>Last updated on:</strong> {{ job.updated_on }}
+                            </p>
+                            <p>
+                                <strong>Status:</strong> {{ job.assignment }}
+                            </p>
+                            <p>
+                                <strong>Feedback given:</strong> {{ job.feedback }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
