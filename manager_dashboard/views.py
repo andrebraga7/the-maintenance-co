@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.views import View
 from client_dashboard.models import Job
 from allauth.account.views import SignupView
-from django.contrib.auth.models import User, Permission
 
 
 class NewJobs(View):
@@ -41,8 +40,6 @@ class CompletedJobs(View):
 class CustomSignupView(SignupView):
 
     def form_valid(self, form):
-
-        user = form.save(self.request)
 
         if user.type == 'manager':
             permission = Permission.objects.get(codename='is_manager')

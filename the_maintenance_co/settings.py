@@ -162,4 +162,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
-ACCOUNT_SIGNUP_FORM_CLASS = 'manager_dashboard.forms.UserForm'
+ACCOUNT_SIGNUP_FORM_CLASS = 'manager_dashboard.forms.CustomSignupForm'

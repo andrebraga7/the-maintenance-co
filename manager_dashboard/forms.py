@@ -1,8 +1,7 @@
 from django import forms
-from django.contrib.auth.models import User, Permission
 
 
-class UserForm(forms.Form):
+class CustomSignupForm(forms.Form):
 
     USER_TYPES = (
         ('client', 'Client'),
@@ -16,4 +15,3 @@ class UserForm(forms.Form):
         user.name = self.cleaned_data['name']
         user.type = self.cleaned_data['type']
         user.save()
-
