@@ -17,17 +17,3 @@ class UserForm(forms.Form):
         user.type = self.cleaned_data['type']
         user.save()
 
-        if user.type == 'manager':
-            permission = Permission.objects.get(codename='is_manager')
-            user.user_permissions.add(permission)
-            user.is_staff = True
-            user.is_superuser = True
-            user.save()
-        elif user.type == 'employee':
-            permission = Permission.objects.get(codename='is_employee')
-            user.user_permissions.add(permission)
-        elif user.type == 'client':
-            permission = Permission.objects.get(codename='is_client')
-            user.user_permissions.add(permission)
-        else:
-            pass
