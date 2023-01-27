@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.models import User
 
 
 class CustomSignupForm(forms.Form):
@@ -15,3 +16,10 @@ class CustomSignupForm(forms.Form):
         user.name = self.cleaned_data['name']
         user.type = self.cleaned_data['type']
         user.save()
+
+
+class EditUserForm(forms.ModelForm):
+
+    class Meta:
+        model = User
+        fields = ('username', 'email')

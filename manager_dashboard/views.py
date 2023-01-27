@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.views.generic import UpdateView
 from client_dashboard.models import Job
 from allauth.account.views import SignupView
+from django.urls import reverse_lazy
+from .forms import EditUserForm
+from django.contrib.auth.models import User
 
 
 class NewJobs(View):
@@ -41,6 +45,8 @@ class CustomSignupView(SignupView):
 
     def form_valid(self, form):
 
+        user = form.save(self.request)
+
         if user.type == 'manager':
             permission = Permission.objects.get(codename='is_manager')
             user.user_permissions.add(permission)
@@ -55,3 +61,21 @@ class CustomSignupView(SignupView):
             user.user_permissions.add(permission)
 
         return redirect('dashboard')
+
+
+class ShowUsers(View):
+
+    def get(self, request):
+        users = User.objects.all()
+
+        return render(
+            request,
+            'manager_dashboard/show_users.html',
+            {'users': users})
+
+
+# class EditUserView(UpdateView):
+#     model = User
+#     form_class = EditUserForm
+#     template_name = 'manager_dashboard/edit_user.html'
+#     success_url = reverse_lazy('dashboard')
