@@ -2,7 +2,6 @@
 $( document ).ready(function() {
     
     path = location.pathname;
-    console.log(path);
 
     if (path == "/manager/") {
         $("a[href$='/manager/']").addClass("active")

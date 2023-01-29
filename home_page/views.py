@@ -13,7 +13,7 @@ class Dashboard(View):
 
     def get(self, request):
 
-        if request.user.has_perm('client_dashboard.is_manager'):
+        if request.user.has_perm('manager_dashboard.manager'):
             return redirect('manager')
         else:
             return redirect('home')

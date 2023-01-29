@@ -13,13 +13,7 @@ class CustomSignupForm(forms.Form):
     type = forms.ChoiceField(choices=USER_TYPES)
 
     def signup(self, request, user):
-        user.name = self.cleaned_data['name']
-        user.type = self.cleaned_data['type']
-        user.save()
-
-
-class EditUserForm(forms.ModelForm):
-
-    class Meta:
-        model = User
-        fields = ('username', 'email')
+        up = user.profile
+        up.name = self.cleaned_data['name']
+        up.type = self.cleaned_data['type']
+        up.save()
