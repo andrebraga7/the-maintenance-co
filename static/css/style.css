@@ -3,6 +3,7 @@ html, body {
     background-color: #E4E4E4;
 }
 
+
 /* Home */
 
 #landing_page {
@@ -11,11 +12,11 @@ html, body {
     height: 85vh;
 }
 
-#home_menu >li >a {
+#home_menu li a {
     color: #202020;
 }
 
-#home_menu >li >a:hover {
+#home_menu li a:hover {
     color: #234F1E;
 }
 
@@ -33,6 +34,7 @@ html, body {
     height: 15vh;
 }
 
+
 /* Dashboard */
 
 #dash_main {
@@ -48,17 +50,38 @@ html, body {
     box-shadow: none;
 }
 
-.dash-menu-2-a {
+#dropdown_options ul li a{
     color: inherit;
+    font-weight: 600;
 }
 
-.dash-menu-2-a:hover {
+#dropdown_options ul li a:hover {
     color: #234F1E;
 }
 
-.active {
+.strong-underline {
     border-bottom: 3px solid #234F1E;
 }
+
+
+/* Jobs tab */
+
+#myTab li button {
+    color: inherit;
+    border: none;
+}
+
+#myTab li button:hover {
+    border: none;
+    color: white;
+    background-color: #202020;
+}
+
+#myTab li button.active {
+    color: white;
+    background-color: #202020;
+}
+
 
 /* Accordion */
 

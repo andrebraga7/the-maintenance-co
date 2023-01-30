@@ -14,6 +14,6 @@ class Dashboard(View):
     def get(self, request):
 
         if request.user.has_perm('manager_dashboard.manager'):
-            return redirect('manager')
+            return redirect('jobs_list')
         else:
             return redirect('home')

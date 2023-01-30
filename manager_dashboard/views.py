@@ -5,37 +5,22 @@ from allauth.account.views import SignupView
 from django.contrib.auth.models import User, Permission
 
 
-class NewJobs(View):
+class JobsList(View):
 
     def get(self, request):
-        jobs = Job.objects.filter(status=0)
+        jobs = Job.objects.all()
+        new_jobs = jobs.filter(status=0)
+        active_jobs = jobs.filter(status=1)
+        completed_jobs = jobs.filter(status=2)
 
         return render(
             request,
-            'manager_dashboard/new_jobs.html',
-            {'jobs': jobs})
-
-
-class ActiveJobs(View):
-
-    def get(self, request):
-        jobs = Job.objects.filter(status=1)
-
-        return render(
-            request,
-            'manager_dashboard/active_jobs.html',
-            {'jobs': jobs})
-
-
-class CompletedJobs(View):
-
-    def get(self, request):
-        jobs = Job.objects.filter(status=2)
-
-        return render(
-            request,
-            'manager_dashboard/completed_jobs.html',
-            {'jobs': jobs})
+            'manager_dashboard/jobs_list.html',
+            {
+                'new_jobs': new_jobs,
+                'active_jobs': active_jobs,
+                'completed_jobs': completed_jobs,
+            })
 
 
 class ShowUsers(View):

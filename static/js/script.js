@@ -3,14 +3,15 @@ $( document ).ready(function() {
     
     path = location.pathname;
 
-    if (path == "/manager/") {
-        $("a[href$='/manager/']").addClass("active")
-    } else if (path == "/manager_active/") {
-        $("a[href$='/manager_active/']").addClass("active")
-    } else if (path == "/manager_completed/") {
-        $("a[href$='/manager_completed/']").addClass("active")
-    } else if (path == "/accounts/signup/") {
-        $("a[href$='/accounts/signup/']").addClass("active")
+    if (path == "/manager/jobs-list") {
+        $("a[href$='/manager/jobs-list']").addClass("strong-underline")
+        $("#dash_menu_2_toggle").html('Jobs <i class="fa-solid fa-chevron-down"></i>')
+    } else if (path == "/manager/signup") {
+        $("a[href$='/manager/signup']").addClass("strong-underline")
+        $("#dash_menu_2_toggle").html('Add User <i class="fa-solid fa-chevron-down"></i>')
+    } else if (path == "/manager/show-users") {
+        $("a[href$='/manager/show-users']").addClass("strong-underline")
+        $("#dash_menu_2_toggle").html('Users <i class="fa-solid fa-chevron-down"></i>')
     }
 
 });
