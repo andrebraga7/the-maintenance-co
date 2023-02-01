@@ -4,10 +4,13 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+USER_TYPES = ((3, 'Client'), (2, 'Employee'), (1, 'Manager'))
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
-    type = models.CharField(max_length=15)
+    type = models.IntegerField(choices=USER_TYPES, default=3)
 
     class Meta:
         permissions = [
@@ -20,8 +23,3 @@ class Profile(models.Model):
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user=instance)
-
-
-# @receiver(post_save, sender=User)
-# def save_user_profile(sender, instance, **kwargs):
-#     instance.profile.save()

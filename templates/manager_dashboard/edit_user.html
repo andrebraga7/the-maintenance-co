@@ -1,0 +1,19 @@
+{% extends "manager_dashboard/manager_dashboard_base.html" %}
+
+{% block manager_content %}
+<div class="container-fluid">
+    <div class="row mt-2 p-4">
+        <div class="col-md-8 offset-md-2">
+            <h5 class="pb-2 ps-2">Edit user</h5>
+            <div class="card card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form1.as_p }}
+                    {{ form2.as_p }}
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+       </div>
+    </div>
+</div>
+{% endblock %}

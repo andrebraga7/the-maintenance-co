@@ -101,3 +101,17 @@ html, body {
 .accordion:hover {
     --bs-accordion-btn-color: #234F1E;
 }
+
+.edit-user-btn {
+    color: white;
+    background-color: #234F1E;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    width: 100px;
+}
+
+.edit-user-btn:hover {
+    color: white;
+    background-color: #393939;
+}

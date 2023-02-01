@@ -12,20 +12,31 @@
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne">
-                            <span>{{ user }}</span>
+                            <span>{{ user.profile.name }}</span>
                         </button>
                     </h2>
                     <div id="{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="headingOne"
                         data-bs-parent="#dash_accordion">
                         <div class="accordion-body">
                             <p>
+                                <strong>Username:</strong><br>
+                                <span>{{ user }}</span>
+                            </p>
+                            <p>
+                                <strong>Id:</strong><br>
+                                <span>{{ user.id }}</span>
+                            </p>
+                            <p>
+                                <strong>Email:</strong><br>
+                                <span>{{ user.email }}</span>
+                            </p>
+                            <p>
                                 <strong>Type:</strong><br>
                                 <span>{{ user.profile.type }}</span>
                             </p>
-                            <p>
-                                <strong>Name:</strong><br>
-                                <span>{{ user.profile.name }}</span>
-                            </p>
+                            <a href="{% url 'edit_user' user.id %}">
+                                <button class="edit-user-btn">Edit</button>
+                            </a>
                         </div>
                     </div>
                 </div>
