@@ -73,3 +73,16 @@ class EditUser(View):
                 'form1': form1,
                 'form2': form2,
             })
+
+    def post(self, request, user_id, *args, **kwargs):
+        edit_user = get_object_or_404(User, id=user_id)
+        form1 = EditUserForm(request.POST, instance=edit_user)
+        form2 = EditProfileForm(request.POST, instance=edit_user.profile)
+
+        if form1.is_valid() and form2.is_valid():
+            form1.save()
+            form2.save()
+            return redirect('show_users')
+        else:
+            form1 = EditUserForm()
+            form2 = EditProfileForm()
