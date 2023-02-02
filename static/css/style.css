@@ -3,6 +3,10 @@ html, body {
     background-color: #E4E4E4;
 }
 
+a {
+    text-decoration: none;
+}
+
 
 /* Home */
 
@@ -112,6 +116,20 @@ html, body {
 }
 
 .green-btn:hover {
+    color: white;
+    background-color: #393939;
+}
+
+.grey-btn {
+    color: white;
+    background-color: #202020;
+    border: none;
+    border-radius: 2px;
+    padding: 5px;
+    width: 100px;
+}
+
+.grey-btn:hover {
     color: white;
     background-color: #393939;
 }

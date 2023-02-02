@@ -49,8 +49,7 @@ class JobsList(View):
 class ShowUsers(View):
 
     def get(self, request):
-        users = User.objects.all().filter(
-            profile__name__isnull=False).order_by('profile__name')
+        users = User.objects.all().order_by('profile__name')
 
         return render(
             request,
@@ -63,8 +62,8 @@ class EditUser(View):
 
     def get(self, request, user_id, *args, **kwargs):
         edit_user = get_object_or_404(User, id=user_id)
-        form1 = EditUserForm(instance=edit_user)
-        form2 = EditProfileForm(instance=edit_user.profile)
+        form1 = EditProfileForm(instance=edit_user.profile)
+        form2 = EditUserForm(instance=edit_user)
 
         return render(
             request,
@@ -76,13 +75,29 @@ class EditUser(View):
 
     def post(self, request, user_id, *args, **kwargs):
         edit_user = get_object_or_404(User, id=user_id)
-        form1 = EditUserForm(request.POST, instance=edit_user)
-        form2 = EditProfileForm(request.POST, instance=edit_user.profile)
+        form1 = EditProfileForm(request.POST, instance=edit_user.profile)
+        form2 = EditUserForm(request.POST, instance=edit_user)
 
         if form1.is_valid() and form2.is_valid():
             form1.save()
             form2.save()
             return redirect('show_users')
         else:
-            form1 = EditUserForm()
-            form2 = EditProfileForm()
+            form1 = EditProfileForm()
+            form2 = EditUserForm()
+
+
+class DeleteUser(View):
+
+    def get(self, request, user_id):
+        delete_user = get_object_or_404(User, id=user_id)
+
+        return render(
+            request,
+            'manager_dashboard/delete_user.html',
+            {'delete_user': delete_user})
+
+    def post(self, request, user_id):
+        delete_user = get_object_or_404(User, id=user_id)
+        delete_user.delete()
+        return redirect('show_users')

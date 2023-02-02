@@ -10,7 +10,7 @@ USER_TYPES = ((3, 'Client'), (2, 'Employee'), (1, 'Manager'))
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=20)
-    type = models.IntegerField(choices=USER_TYPES)
+    type = models.IntegerField(choices=USER_TYPES, default=3)
 
     class Meta:
         permissions = [

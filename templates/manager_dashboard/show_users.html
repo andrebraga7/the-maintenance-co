@@ -23,19 +23,26 @@
                                 <span>{{ user }}</span>
                             </p>
                             <p>
-                                <strong>Id:</strong><br>
-                                <span>{{ user.id }}</span>
-                            </p>
-                            <p>
                                 <strong>Email:</strong><br>
                                 <span>{{ user.email }}</span>
                             </p>
                             <p>
                                 <strong>Type:</strong><br>
-                                <span>{{ user.profile.type }}</span>
+                                {% if user.profile.type == '1' %}
+                                <span>Manager</span>
+                                {% elif user.profile.type == '2' %}
+                                <span>Employee</span>
+                                {% elif user.profile.type == '3' %}
+                                <span>Client</span>
+                                {% else %}
+                                <span>Unknown type</span>
+                                {% endif %}
                             </p>
                             <a href="{% url 'edit_user' user.id %}">
                                 <button class="green-btn">Edit</button>
+                            </a>
+                            <a href="{% url 'delete_user' user.id %}">
+                                <button class="grey-btn">Delete</button>
                             </a>
                         </div>
                     </div>
