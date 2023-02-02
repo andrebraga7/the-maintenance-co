@@ -102,7 +102,7 @@ html, body {
     --bs-accordion-btn-color: #234F1E;
 }
 
-.edit-user-btn {
+.green-btn {
     color: white;
     background-color: #234F1E;
     border: none;
@@ -111,7 +111,7 @@ html, body {
     width: 100px;
 }
 
-.edit-user-btn:hover {
+.green-btn:hover {
     color: white;
     background-color: #393939;
 }

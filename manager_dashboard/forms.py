@@ -21,9 +21,12 @@ class EditUserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'email']
+        help_texts = {
+            'username': None,
+        }
 
 
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
-        fields = ['name', 'type']
+        fields = ['name']
