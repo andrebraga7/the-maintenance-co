@@ -15,5 +15,7 @@ class Dashboard(View):
 
         if request.user.has_perm('manager_dashboard.manager'):
             return redirect('jobs_list')
+        elif request.user.has_perm('manager_dashboard.client'):
+            return redirect('client_jobs_list')
         else:
             return redirect('home')

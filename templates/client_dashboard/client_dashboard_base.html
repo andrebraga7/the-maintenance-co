@@ -1,0 +1,36 @@
+{% extends "../dashboard_base.html" %}
+
+{% block dashboard_content %}
+<!-- Manager dashboard menu -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-1 mt-4 mb-2">
+
+            <nav class="navbar navbar-expand-md">
+                <div class="container-fluid">
+                    <a id="dash_menu_2_toggle" class="navbar-toggler fw-semibold" data-bs-toggle="collapse" href="#dropdown_options"
+                        aria-controls="dropdown_options" aria-expanded="false" aria-label="Toggle navigation">Active <i class="fa-solid fa-chevron-down"></i></a>
+                    <div class="collapse navbar-collapse" id="dropdown_options">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="{% url 'client_jobs_list' %}" class="nav-link">Jobs list</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Add new job</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">Settings</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+</div>
+    <!-- Client dashboard content goes here -->
+    {% block client_content %}
+    {% endblock %}
+
+{% endblock %}

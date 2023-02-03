@@ -22,7 +22,7 @@ class Job(models.Model):
     title = models.CharField(max_length=50, blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     equipment = models.ForeignKey(Equipment, on_delete=models.CASCADE)
-    client = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField(max_length=200)
     assignment = models.CharField(max_length=20, default='unassigned')
     created_on = models.DateTimeField(auto_now_add=True)
