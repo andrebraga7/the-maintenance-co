@@ -3,8 +3,8 @@
 {% block dashboard_content %}
 <!-- Manager dashboard menu -->
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 offset-md-1 mt-4 mb-2">
+    <div class="row align-items-center mt-4">
+        <div class="col-6 offset-md-1">
 
             <nav class="navbar navbar-expand-md">
                 <div class="container-fluid">
@@ -16,9 +16,6 @@
                                 <a href="{% url 'client_jobs_list' %}" class="nav-link">Jobs list</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Add new job</a>
-                            </li>
-                            <li class="nav-item">
                                 <a href="#" class="nav-link">Settings</a>
                             </li>
                         </ul>
@@ -26,6 +23,11 @@
                 </div>
             </nav>
 
+        </div>
+        <div class="col-5 col-sm-4 col-md-3 ms-auto">
+            <a href="#">
+                <button class="green-btn">Create new job</button>
+            </a>
         </div>
     </div>
 </div>

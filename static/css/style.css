@@ -112,7 +112,7 @@ a {
     border: none;
     border-radius: 2px;
     padding: 5px;
-    width: 100px;
+    min-width: 100px;
 }
 
 .green-btn:hover {
@@ -126,7 +126,7 @@ a {
     border: none;
     border-radius: 2px;
     padding: 5px;
-    width: 100px;
+    min-width: 100px;
 }
 
 .grey-btn:hover {
