@@ -1,0 +1,60 @@
+{% extends "client_dashboard/client_dashboard_base.html" %}
+
+{% block client_content %}
+<div class="container-fluid">
+    <div class="row mt-2 p-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card" id="card-content">
+                <!-- Tabs navigation -->
+                <div class="card-header pb-4">
+                    <ul class="nav nav-tab" id="myTab">
+                        <li class="nav-item">
+                            <a href="{% url 'categories' %}">
+                                <button class="nav-link">Categories</button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'equipments' %}" aria-current="page">
+                                <button class="nav-link active">Equipments</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tabs content -->
+                <div class="card-body">
+                    <div class="px-md-5 py-2">
+                        <a href="{% url 'add_equipment' %}">
+                            <button type="button" class="green-btn">Add equipment</button>
+                        </a>
+                    </div>
+
+                    <!-- Categories loop with equipments -->
+                    {% for category in categories %}
+                    <div class="category px-md-5 py-3">
+                        <h5>{{ category }}</h5>
+                        {% for equipment in equipments %}
+                        {% if equipment.category == category %}
+                        <div class="row">
+                            <div class="col-6">
+                                {{ equipment }}
+                            </div>
+                            <div class="col-3 offset-3 offset-md-0">
+                                <a href="{% url 'edit_equipment' equipment.id %}">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                                <a href="{% url 'delete_equipment' equipment.id %}">
+                                    <i class="fa-solid fa-xmark ps-2 category-delete"></i>
+                                </a>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

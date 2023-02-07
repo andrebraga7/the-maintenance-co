@@ -14,7 +14,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#">
+                            <a href="{% url 'equipments' %}">
                                 <button class="nav-link">Equipments</button>
                             </a>
                         </li>
@@ -37,17 +37,6 @@
                             <button class="category-button" type="button" data-bs-toggle="collapse" data-bs-target="#delete_{{ category.id }}" aria-expanded="false" aria-controls="deletion confirmation">
                                 <i class="fa-solid fa-xmark ps-2 category-delete"></i>
                             </button>
-                        </div>
-
-                        <!-- Edit form collapse -->
-                        <div class="collapse col-md-6" id="edit_{{ category.id }}">
-                            <form method="post" action="{% url 'edit_category' category.id %}">
-                                {% csrf_token %}
-                                {{ form }}
-                                <span>
-                                    <button type="submit" class="green-btn-small">Save</button>
-                                </span>
-                            </form>
                         </div>
 
                         <!-- Deletion warning collapse content -->

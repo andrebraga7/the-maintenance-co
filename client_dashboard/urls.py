@@ -13,4 +13,15 @@ urlpatterns = [
     path(
         'client/categories/edit_<category_id>',
         views.EditCategory.as_view(), name='edit_category'),
+    path(
+        'client/equipments', views.EquipmentList.as_view(), name='equipments'),
+    path(
+        'client/add_equipment',
+        views.AddEquipment.as_view(), name='add_equipment'),
+    path(
+        'client/edit_<equipment_id>',
+        views.EditEquipment.as_view(), name='edit_equipment'),
+    path(
+        'client/delete_<equipment_id>',
+        views.DeleteEquipment.as_view(), name='delete_equipment'),
 ]

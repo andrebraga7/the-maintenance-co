@@ -1,5 +1,5 @@
 from django import forms
-from .models import Category
+from .models import Category, Equipment
 
 
 class CategoryForm(forms.ModelForm):
@@ -14,3 +14,10 @@ class CategoryForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Name'}),
         }
+
+
+class EquipmentForm(forms.ModelForm):
+
+    class Meta:
+        model = Equipment
+        fields = ['category', 'name']
