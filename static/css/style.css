@@ -180,7 +180,7 @@ a {
 
 .grey-btn {
     color: white;
-    background-color: #202020;
+    background-color: #393939;
     border: none;
     border-radius: 5px;
     padding: 5px;
@@ -188,7 +188,7 @@ a {
 }
 
 .grey-btn:hover {
-    background-color: #393939;
+    background-color: #202020;
 }
 
 .grey-btn-small {

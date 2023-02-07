@@ -1,5 +1,5 @@
 from django import forms
-from .models import Category, Equipment
+from .models import Category, Equipment, Job
 
 
 class CategoryForm(forms.ModelForm):
@@ -21,3 +21,10 @@ class EquipmentForm(forms.ModelForm):
     class Meta:
         model = Equipment
         fields = ['category', 'name']
+
+
+class JobForm(forms.ModelForm):
+
+    class Meta:
+        model = Job
+        fields = ['category', 'equipment', 'description']

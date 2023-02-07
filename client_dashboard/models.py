@@ -29,7 +29,8 @@ class Job(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(default=0)
-    feedback = models.TextField(max_length=200, blank=True)
+    feedback = models.TextField(
+        max_length=200, blank=True, default='No feedback given so far.')
     deletion = models.BooleanField(default=False)
 
     def generate_title(self):
