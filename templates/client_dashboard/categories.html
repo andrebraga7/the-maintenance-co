@@ -6,7 +6,7 @@
         <div class="col-md-8 offset-md-2">
             <div class="card" id="card-content">
                 <!-- Tabs navigation -->
-                <div class="card-header">
+                <div class="card-header pb-4">
                     <ul class="nav nav-tab" id="myTab">
                         <li class="nav-item">
                             <a href="#" aria-current="page">
@@ -22,9 +22,9 @@
                 </div>
 
                 <!-- Tabs content -->
-                <div class="card-body row">
+                <div class="card-body">
                     {% for category in categories %}
-                    <div class="category px-5 pb-2">
+                    <div class="category px-md-5 py-2">
                         <strong>{{ category.name }}</strong>
                         <span class="ps-5">
                             <a href="#">
@@ -38,7 +38,7 @@
                     {% empty %}
                     <p>No categories registered.</p>
                     {% endfor %}
-                    <div class="p-3">
+                    <div class="px-5 py-4">
                         <a href="#">
                             <button class="green-btn">Add category</button>
                         </a>
