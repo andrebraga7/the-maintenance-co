@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from ..models import Category
 from ..forms import AddCategoryForm
@@ -23,3 +23,11 @@ class Categories(View):
             form.instance.user = request.user
             form.save()
             return redirect('categories')
+
+
+class DeleteCategory(View):
+
+    def get(self, request, category_id):
+        category = get_object_or_404(Category, id=category_id)
+        category.delete()
+        return redirect('categories')
