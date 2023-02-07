@@ -1,0 +1,51 @@
+{% extends "client_dashboard/client_dashboard_base.html" %}
+
+{% block client_content %}
+<div class="container-fluid">
+    <div class="row mt-2 p-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card" id="card-content">
+                <!-- Tabs navigation -->
+                <div class="card-header">
+                    <ul class="nav nav-tab" id="myTab">
+                        <li class="nav-item">
+                            <a href="#" aria-current="page">
+                                <button class="nav-link active">Categories</button>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#">
+                                <button class="nav-link">Equipments</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Tabs content -->
+                <div class="card-body row">
+                    {% for category in categories %}
+                    <div class="category px-5 pb-2">
+                        <strong>{{ category.name }}</strong>
+                        <span class="ps-5">
+                            <a href="#">
+                                <i class="fa-solid fa-pen-to-square ps-2"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fa-solid fa-xmark ps-2"></i>
+                            </a>
+                        </span>
+                    </div>
+                    {% empty %}
+                    <p>No categories registered.</p>
+                    {% endfor %}
+                    <div class="p-3">
+                        <a href="#">
+                            <button class="green-btn">Add category</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

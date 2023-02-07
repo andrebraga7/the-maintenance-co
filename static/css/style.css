@@ -1,9 +1,10 @@
 html, body {
     height: 100%;
-    background-color: #E4E4E4;
+    background-color: #e4e4e4;
 }
 
 a {
+    color: inherit;
     text-decoration: none;
 }
 
@@ -21,7 +22,7 @@ a {
 }
 
 #home_menu li a:hover {
-    color: #234F1E;
+    color: #386034;
 }
 
 #home_headline {
@@ -30,7 +31,7 @@ a {
 }
 
 #home_headline h1 {
-    color: #234F1E;
+    color: #386034;
 }
 
 #home_footer {
@@ -60,30 +61,57 @@ a {
 }
 
 #dropdown_options ul li a:hover {
-    color: #234F1E;
+    color: #386034;
 }
 
 .strong-underline {
-    border-bottom: 3px solid #234F1E;
+    border-bottom: 3px solid #386034;
 }
 
 
-/* Jobs tab */
+/* Card content */
 
-#myTab li button {
+#card-content {
+    background-color: #f2f2f2;
+    box-shadow: 0px 2px 10px #c4c4c4;
+}
+
+.card-header {
+    background-color: #f2f2f2;
+    border: none;
+}
+
+
+/* Tab nav */
+
+#myTab {
+    border: none;
+}
+
+#myTab button {
     color: inherit;
+    font-weight: 600;
     border: none;
+    background-color: #f2f2f2;
 }
 
-#myTab li button:hover {
-    border: none;
-    color: white;
-    background-color: #202020;
+#myTab button:hover {
+    color: #386034;
 }
 
-#myTab li button.active {
-    color: white;
-    background-color: #202020;
+#myTab button.active {
+    color: #386034;
+    border-bottom: 2px solid #386034;
+}
+
+/* Category */
+
+.category {
+    font-size: 1.2em;
+}
+
+.category a:hover {
+    color: grey;
 }
 
 
@@ -103,14 +131,17 @@ a {
 }
 
 .accordion:hover {
-    --bs-accordion-btn-color: #234F1E;
+    --bs-accordion-btn-color: #386034;
 }
+
+
+/* Custom buttons */
 
 .green-btn {
     color: white;
-    background-color: #234F1E;
+    background-color: #386034;
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
     padding: 5px;
     min-width: 100px;
 }
@@ -124,7 +155,7 @@ a {
     color: white;
     background-color: #202020;
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
     padding: 5px;
     min-width: 100px;
 }
@@ -132,4 +163,16 @@ a {
 .grey-btn:hover {
     color: white;
     background-color: #393939;
+}
+
+.grey-btn-small {
+    color: white;
+    font-weight: 300;
+    background-color: #393939;
+    border: none;
+    border-radius: 2px;
+}
+
+.grey-btn-small:hover {
+    background-color: #202020;
 }
