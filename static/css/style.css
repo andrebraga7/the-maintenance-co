@@ -188,7 +188,6 @@ a {
 }
 
 .grey-btn:hover {
-    color: white;
     background-color: #393939;
 }
 
@@ -202,6 +201,19 @@ a {
 
 .grey-btn-small:hover {
     background-color: #202020;
+}
+
+.red-btn {
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 100px;
+}
+
+.red-btn:hover {
+    background-color: darkred;
 }
 
 .red-btn-small {

@@ -7,8 +7,10 @@ from ..forms import EquipmentForm
 class EquipmentList(View):
 
     def get(self, request):
-        equipments = Equipment.objects.all().filter(user=request.user)
-        categories = Category.objects.all().filter(user=request.user)
+        equipments = Equipment.objects.all().filter(
+            user=request.user).order_by('name')
+        categories = Category.objects.all().filter(
+            user=request.user).order_by('name')
 
         return render(
             request,
@@ -25,9 +27,7 @@ class AddEquipment(View):
         return render(
             request,
             'client_dashboard/add_equipment.html',
-            {
-                'form': EquipmentForm()
-            })
+            {'form': EquipmentForm()})
 
     def post(self, request):
         form = EquipmentForm(request.POST)
@@ -49,10 +49,7 @@ class EditEquipment(View):
         return render(
             request,
             'client_dashboard/edit_equipment.html',
-            {
-                'edit_form': edit_form,
-            }
-            )
+            {'edit_form': edit_form, })
 
     def post(self, request, equipment_id):
         equipment = get_object_or_404(Equipment, id=equipment_id)
@@ -68,4 +65,15 @@ class EditEquipment(View):
 class DeleteEquipment(View):
 
     def get(self, request, equipment_id):
+        equipment = get_object_or_404(Equipment, id=equipment_id)
+
+        return render(
+            request,
+            'client_dashboard/delete_equipment.html',
+            {'equipment': equipment, })
+
+    def post(self, request, equipment_id):
+        equipment = get_object_or_404(Equipment, id=equipment_id)
+        equipment.delete()
+
         return redirect('equipments')
