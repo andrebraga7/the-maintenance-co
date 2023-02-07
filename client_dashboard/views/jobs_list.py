@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render
 from django.views import View
-from .models import Job, Category
+from ..models import Job
 
 
 class ClientJobsList(View):
@@ -19,14 +19,3 @@ class ClientJobsList(View):
                 'active_jobs': active_jobs,
                 'completed_jobs': completed_jobs,
             })
-
-
-class Categories(View):
-
-    def get(self, request):
-        categories = Category.objects.all().filter(user=request.user)
-
-        return render(
-            request,
-            'client_dashboard/categories.html',
-            {'categories': categories})
