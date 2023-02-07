@@ -12,6 +12,12 @@ $( document ).ready(function() {
     } else if (path == "/manager/show-users") {
         $("a[href$='/manager/show-users']").addClass("strong-underline")
         $("#dash_menu_2_toggle").html('Users <i class="fa-solid fa-chevron-down"></i>')
+    } else if (path == "/client/jobs-list") {
+        $("a[href$='/client/jobs-list']").addClass("strong-underline")
+        $("#dash_menu_2_toggle").html('Jobs <i class="fa-solid fa-chevron-down"></i>')
+    } else if (path == "/client/categories") {
+        $("a[href$='/client/categories']").addClass("strong-underline")
+        $("#dash_menu_2_toggle").html('Settings <i class="fa-solid fa-chevron-down"></i>')
     }
 
 });

@@ -19,3 +19,13 @@ class ClientJobsList(View):
                 'active_jobs': active_jobs,
                 'completed_jobs': completed_jobs,
             })
+
+
+class AddJob(View):
+
+    def get(self, request):
+
+        return render(
+            request,
+            'client_dashboard/add_job.html',
+            )

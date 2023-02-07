@@ -24,4 +24,5 @@ urlpatterns = [
     path(
         'client/delete_<equipment_id>',
         views.DeleteEquipment.as_view(), name='delete_equipment'),
+    path('client/add_job', views.AddJob.as_view(), name='add_job'),
 ]

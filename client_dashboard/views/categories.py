@@ -7,7 +7,8 @@ from ..forms import CategoryForm
 class Categories(View):
 
     def get(self, request):
-        categories = Category.objects.all().filter(user=request.user)
+        categories = Category.objects.all().filter(
+            user=request.user).order_by('name')
 
         return render(
             request,
