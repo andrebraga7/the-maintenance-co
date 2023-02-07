@@ -24,24 +24,30 @@
                 <!-- Tabs content -->
                 <div class="card-body">
                     {% for category in categories %}
-                    <div class="category px-md-5 py-2">
-                        <strong>{{ category.name }}</strong>
-                        <span class="ps-5">
+                    <div class="category px-md-5 py-2 row">
+                        <div class="col-6">
+                            <strong>{{ category.name }}</strong>
+                        </div>
+                        <div class="col-3 offset-3 offset-md-0">
                             <a href="#">
-                                <i class="fa-solid fa-pen-to-square ps-2"></i>
+                                <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                             <a href="#">
-                                <i class="fa-solid fa-xmark ps-2"></i>
+                                <i class="fa-solid fa-xmark ps-2 category-delete"></i>
                             </a>
-                        </span>
+                        </div>
                     </div>
                     {% empty %}
                     <p>No categories registered.</p>
                     {% endfor %}
                     <div class="px-5 py-4">
-                        <a href="#">
-                            <button class="green-btn">Add category</button>
-                        </a>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form }}
+                            <span>
+                                <button type="submit" class="green-btn-small">Add</button>
+                            </span>
+                        </form>
                     </div>
                 </div>
             </div>

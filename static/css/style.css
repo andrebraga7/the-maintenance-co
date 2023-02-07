@@ -110,8 +110,8 @@ a {
     font-size: 1.2em;
 }
 
-.category a:hover {
-    color: grey;
+.category-delete:hover {
+    color: red;
 }
 
 
@@ -148,6 +148,18 @@ a {
 
 .green-btn:hover {
     color: white;
+    background-color: #393939;
+}
+
+.green-btn-small {
+    color: white;
+    background-color: #386034;
+    border: none;
+    border-radius: 2px;
+    padding: 3px 10px;
+}
+
+.green-btn-small:hover {
     background-color: #393939;
 }
 

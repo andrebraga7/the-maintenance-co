@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from ..models import Category
+from ..forms import AddCategoryForm
 
 
 class Categories(View):
@@ -11,4 +12,14 @@ class Categories(View):
         return render(
             request,
             'client_dashboard/categories.html',
-            {'categories': categories})
+            {
+                'categories': categories,
+                'form': AddCategoryForm(),
+            })
+
+    def post(self, request):
+        form = AddCategoryForm(request.POST)
+        if form.is_valid():
+            form.instance.user = request.user
+            form.save()
+            return redirect('categories')
