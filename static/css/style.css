@@ -81,6 +81,10 @@ a {
     border: none;
 }
 
+.card-body {
+    min-height: 40vh;
+}
+
 
 /* Tab nav */
 
@@ -106,12 +110,23 @@ a {
 
 /* Category */
 
-.category {
-    font-size: 1.2em;
+.category-button {
+    border: none;
+    padding: 0;
+    margin: none;
+    background: none;
 }
 
 .category-delete:hover {
     color: red;
+}
+
+.category-warning {
+    color: white;
+    font-weight: inherit;
+    background-color: #202020;
+    border-radius: 5px;
+    padding: 15px;
 }
 
 
@@ -179,12 +194,36 @@ a {
 
 .grey-btn-small {
     color: white;
-    font-weight: 300;
     background-color: #393939;
     border: none;
     border-radius: 2px;
+    padding: 3px 10px;
 }
 
 .grey-btn-small:hover {
     background-color: #202020;
+}
+
+.red-btn-small {
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 2px;
+    padding: 3px 10px;
+}
+
+.red-btn-small:hover {
+    background-color: darkred;
+}
+
+.light-btn-small {
+    color: white;
+    background-color: dimgray;
+    border: none;
+    border-radius: 2px;
+    padding: 3px 10px;
+}
+
+.light-btn-small:hover {
+    background-color: #393939;
 }

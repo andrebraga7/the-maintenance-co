@@ -9,7 +9,7 @@
                 <div class="card-header pb-4">
                     <ul class="nav nav-tab" id="myTab">
                         <li class="nav-item">
-                            <a href="#" aria-current="page">
+                            <a href="{% url 'categories' %}" aria-current="page">
                                 <button class="nav-link active">Categories</button>
                             </a>
                         </li>
@@ -25,22 +25,49 @@
                 <div class="card-body">
                     {% for category in categories %}
                     <div class="category px-md-5 py-2 row">
+
+                        <!-- Category -->
                         <div class="col-6">
-                            <strong>{{ category.name }}</strong>
+                            <strong class="fs-5">{{ category.name }}</strong>
                         </div>
                         <div class="col-3 offset-3 offset-md-0">
-                            <a href="#">
+                            <a href="{% url 'edit_category' category.id %}">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
-                            <a href="{% url 'delete_category' category.id %}">
+                            <button class="category-button" type="button" data-bs-toggle="collapse" data-bs-target="#delete_{{ category.id }}" aria-expanded="false" aria-controls="deletion confirmation">
                                 <i class="fa-solid fa-xmark ps-2 category-delete"></i>
-                            </a>
+                            </button>
                         </div>
+
+                        <!-- Edit form collapse -->
+                        <div class="collapse col-md-6" id="edit_{{ category.id }}">
+                            <form method="post" action="{% url 'edit_category' category.id %}">
+                                {% csrf_token %}
+                                {{ form }}
+                                <span>
+                                    <button type="submit" class="green-btn-small">Save</button>
+                                </span>
+                            </form>
+                        </div>
+
+                        <!-- Deletion warning collapse content -->
+                        <div class="collapse col-md-6 category-warning text-center" id="delete_{{ category.id }}">
+                            <p>Warning!</p>
+                            <p>Are you sure you would like to delete <strong>{{ category.name }}</strong>?
+                                This will delete all related equipments and jobs!</p>
+                            <a href="{% url 'delete_category' category.id %}">
+                                <button class="red-btn-small">Delete</button>
+                            </a>
+                            <button class="category-button light-btn-small" type="button" data-bs-toggle="collapse" data-bs-target="#delete_{{ category.id }}" aria-expanded="false" aria-controls="deletion confirmation">
+                                Cancel
+                            </button>
+                        </div>
+
                     </div>
                     {% empty %}
                     <p>No categories registered.</p>
                     {% endfor %}
-                    <div class="px-5 py-4">
+                    <div class="px-md-5 py-5">
                         <form method="post">
                             {% csrf_token %}
                             {{ form }}
