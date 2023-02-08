@@ -10,7 +10,7 @@
                 <div class="card-body px-md-5 py-4">
                     <h4>Add new job:</h4>
                     <div class="pt-4">
-                        <form method="post">
+                        <form method="post" id="create-job" data-fetch-equipments-url="{% url 'fetch_equipments' %}">
                             {% csrf_token %}
                             {{ form.as_p }}
                             <p>

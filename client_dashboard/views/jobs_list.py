@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from ..models import Job
+from django.http import JsonResponse
+from ..models import Job, Equipment
 from ..forms import JobForm
 
 
@@ -36,9 +37,21 @@ class AddJob(View):
         form = JobForm(request.POST)
 
         if form.is_valid():
+            equipment = form.instance.equipment
+            category = form.instance.category
+            form.instance.title = f'{equipment} in {category}'
             form.instance.user = request.user
             form.save()
             return redirect('client_jobs_list')
+
+
+class FetchEquipments(View):
+
+    def get(self, request):
+        category_id = request.GET.get('category_id')
+        equipments = Equipment.objects.filter(category=category_id)
+
+        return JsonResponse(list(equipments.values('id', 'name')), safe=False)
 
 
 class EditJob(View):
@@ -58,6 +71,9 @@ class EditJob(View):
         edit_form = JobForm(request.POST, instance=job)
 
         if edit_form.is_valid():
+            equipment = edit_form.instance.equipment
+            category = edit_form.instance.category
+            edit_form.instance.title = f'{equipment} in {category}'
             edit_form.save()
 
             return redirect('client_jobs_list')

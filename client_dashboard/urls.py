@@ -27,4 +27,7 @@ urlpatterns = [
     path('client/jobs/add_job', views.AddJob.as_view(), name='add_job'),
     path(
         'client/jobs/edit_<job_id>', views.EditJob.as_view(), name='edit_job'),
+    path(
+        'client/jobs/fetch_equipments',
+        views.FetchEquipments.as_view(), name='fetch_equipments'),
 ]

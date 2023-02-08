@@ -33,13 +33,5 @@ class Job(models.Model):
         max_length=200, blank=True, default='No feedback given so far.')
     deletion = models.BooleanField(default=False)
 
-    def generate_title(self):
-        return f'{self.equipment} in {self.category}'
-
-    def save(self, *args, **kwargs):
-        if not self.title:
-            self.title = self.generate_title()
-        super(Job, self).save(*args, **kwargs)
-
     def __str__(self):
         return self.title
