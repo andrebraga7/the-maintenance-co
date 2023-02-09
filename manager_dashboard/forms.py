@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from .models import Profile
+from client_dashboard.models import Job
 
 
 USER_TYPES = ((3, 'Client'), (2, 'Employee'), (1, 'Manager'))
@@ -30,3 +31,15 @@ class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['name']
+
+
+class AssignJobForm(forms.ModelForm):
+    class Meta:
+        model = Job
+        fields = ['assignment']
+
+    assignment = forms.ModelChoiceField(User.objects.filter(profile__type='2'))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['assignment'].label = ""

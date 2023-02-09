@@ -193,10 +193,11 @@ a {
 
 .grey-btn-small {
     color: white;
+    font-size: .9rem;
     background-color: #393939;
     border: none;
     border-radius: 2px;
-    padding: 3px 10px;
+    padding: 3px 15px;
 }
 
 .grey-btn-small:hover {

@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from client_dashboard.models import Job
-from ..forms import EditUserForm
+from ..forms import AssignJobForm
 
 
 class JobsList(View):
@@ -19,4 +19,5 @@ class JobsList(View):
                 'new_jobs': new_jobs,
                 'active_jobs': active_jobs,
                 'completed_jobs': completed_jobs,
+                'assign_form':  AssignJobForm(),
             })
