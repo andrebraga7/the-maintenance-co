@@ -1,0 +1,29 @@
+{% extends "manager_dashboard/manager_dashboard_base.html" %}
+
+{% block manager_content %}
+<div class="container-fluid">
+    <div class="row mt-2 p-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card" id="card-content">
+
+                <!-- Tabs content -->
+                <div class="card-body px-md-5 py-4">
+                    <h4>Edit job:</h4>
+                    <div class="pt-4">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ edit_form.as_p }}
+                            <p>
+                                <button type="submit" class="green-btn-small">Save</button>
+                                <a href="{% url 'jobs_list' %}">
+                                    <button type="button" class="grey-btn-small">Go back</button>
+                                </a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

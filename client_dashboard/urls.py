@@ -26,8 +26,12 @@ urlpatterns = [
         views.DeleteEquipment.as_view(), name='delete_equipment'),
     path('client/jobs/add_job', views.AddJob.as_view(), name='add_job'),
     path(
-        'client/jobs/edit_<job_id>', views.EditJob.as_view(), name='edit_job'),
+        'client/jobs/edit_<job_id>',
+        views.EditJob.as_view(), name='client_edit_job'),
     path(
         'client/jobs/fetch_equipments',
         views.FetchEquipments.as_view(), name='fetch_equipments'),
+    path(
+        'client/jobs/delete_<job_id>',
+        views.DeleteJob.as_view(), name='client_delete_job'),
 ]

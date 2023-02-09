@@ -168,10 +168,11 @@ a {
 
 .green-btn-small {
     color: white;
+    font-size: .9rem;
     background-color: #386034;
     border: none;
     border-radius: 2px;
-    padding: 3px 10px;
+    padding: 3px 15px;
 }
 
 .green-btn-small:hover {
@@ -219,10 +220,11 @@ a {
 
 .red-btn-small {
     color: white;
+    font-size: .9rem;
     background-color: red;
     border: none;
     border-radius: 2px;
-    padding: 3px 10px;
+    padding: 3px 15px;
 }
 
 .red-btn-small:hover {
@@ -231,10 +233,11 @@ a {
 
 .light-btn-small {
     color: white;
+    font-size: .9rem;
     background-color: dimgray;
     border: none;
     border-radius: 2px;
-    padding: 3px 10px;
+    padding: 3px 15px;
 }
 
 .light-btn-small:hover {

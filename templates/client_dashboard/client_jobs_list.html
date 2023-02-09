@@ -49,7 +49,7 @@
                                     </h2>
                                     <div id="{{ forloop.counter }}" class="accordion-collapse collapse"
                                         aria-labelledby="headingOne" data-bs-parent="#dash_accordion">
-                                        <div class="accordion-body">
+                                        <div class="accordion-body pb-4">
                                             <p>
                                                 <strong>Description:</strong><br>
                                                 {{ job.description }}
@@ -65,9 +65,29 @@
                                                 <strong>Feedback given:</strong><br>
                                                 {{ job.feedback }}
                                             </p>
-                                            <a href="{% url 'edit_job' job.id %}">
-                                                <button type="button" class="grey-btn">Edit</button>
+                                            <a href="{% url 'client_edit_job' job.id %}">
+                                                <button type="button" class="grey-btn-small">
+                                                    <i class="fa-solid fa-pen-to-square"></i><span class="ps-2">Edit job</span>
+                                                </button>
                                             </a>
+                                            <button class="grey-btn-small" type="button" data-bs-toggle="collapse" data-bs-target="#delete_{{ job.id }}" aria-expanded="false" aria-controls="assign job">
+                                                <i class="fa-solid fa-xmark"></i><span class="ps-2">Delete job</span>
+                                            </button>
+
+                                            <!-- Deletion warning collapse content -->
+                                            <div class="collapse pt-4" id="delete_{{ job.id }}">
+                                                <h5>Warning!</h5>
+                                                <p>Are you sure you would like to delete this job?</p>
+                                                <a href="{% url 'client_delete_job' job.id %}">
+                                                    <button class="red-btn-small">Delete</button>
+                                                </a>
+                                                <button class="grey-btn-small" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#delete_{{ job.id }}"
+                                                    aria-expanded="false" aria-controls="deletion cancelation">
+                                                    Cancel
+                                                </button>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -92,7 +112,7 @@
                                     </h2>
                                     <div id="{{ forloop.counter }}" class="accordion-collapse collapse"
                                         aria-labelledby="headingOne" data-bs-parent="#dash_accordion2">
-                                        <div class="accordion-body">
+                                        <div class="accordion-body pb-4">
                                             <p>
                                                 <strong>Description:</strong><br>
                                                 {{ job.description }}
@@ -132,7 +152,7 @@
                                     </h2>
                                     <div id="{{ forloop.counter }}" class="accordion-collapse collapse"
                                         aria-labelledby="headingOne" data-bs-parent="#dash_accordion3">
-                                        <div class="accordion-body">
+                                        <div class="accordion-body pb-4">
                                             <p>
                                                 <strong>Description:</strong><br>
                                                 {{ job.description }}
