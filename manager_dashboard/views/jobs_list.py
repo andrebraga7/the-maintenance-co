@@ -21,3 +21,15 @@ class JobsList(View):
                 'completed_jobs': completed_jobs,
                 'assign_form':  AssignJobForm(),
             })
+
+
+class AssignJob(View):
+
+    def post(self, request, job_id):
+        job = get_object_or_404(Job, id=job_id)
+        assign_form = AssignJobForm(request.POST, instance=job)
+
+        if assign_form.is_valid():
+            assign_form.instance.status = 1
+            assign_form.save()
+            return redirect('jobs_list')

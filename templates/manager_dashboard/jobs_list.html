@@ -74,11 +74,12 @@
 
                                             <!-- Assign job collapsable field -->
                                             <div class="collapse pt-4" id="assign_{{ job.id }}">
-                                                <form method="post">
+                                                <form method="post" action="{% url 'assign_job' job.id %}">
                                                     {% csrf_token %}
                                                     <p>
                                                         <strong>Assign job to:</strong> {{ assign_form }}
                                                     </p>
+                                                    <button type="submit" class="green-btn-small">Save</button>
                                                 </form>
                                             </div>
                                         </div>
