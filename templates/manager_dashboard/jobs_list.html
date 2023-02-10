@@ -73,7 +73,7 @@
                                             <button class="grey-btn-small" type="button" data-bs-toggle="collapse" data-bs-target="#assign_{{ job.id }}" aria-expanded="false" aria-controls="assign job">
                                                 <i class="fa-solid fa-user-plus"></i><span class="ps-2">Assign job</span>
                                             </button>
-                                            <button class="grey-btn-small" type="button" data-bs-toggle="modal" data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="assign job">
+                                            <button class="grey-btn-small" type="button" data-bs-toggle="modal" data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
                                                 <i class="fa-solid fa-xmark"></i><span class="ps-2">Delete job</span>
                                             </button>
 
@@ -153,9 +153,43 @@
                                                 <strong>Feedback given:</strong><br>
                                                 {{ job.feedback }}
                                             </p>
+                                            <a href="{% url 'edit_job' job.id %}">
+                                                <button type="button" class="grey-btn-small">
+                                                    <i class="fa-solid fa-pen-to-square"></i><span class="ps-2"> Edit job</span>
+                                                </button>
+                                            </a>
+                                            <button class="grey-btn-small" type="button" data-bs-toggle="modal" data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
+                                                <i class="fa-solid fa-xmark"></i><span class="ps-2">Delete job</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Delete job Modal -->
+                                <div class="modal fade" id="modal_{{ job.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header justify-content-center p-4 p-md-5">
+                                                <strong class="text-center">Are you sure you would like to delete this job?</strong>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <div class="container-fluid">
+                                                    <div class="row modal-buttons">
+                                                        <div class="col-6 modal-button-border p-2">
+                                                            <button type="button" class="modal-light-btn" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                        <div class="col-6 p-2">
+                                                            <a href="{% url 'delete_job' job.id %}">
+                                                                <button class="modal-red-btn">Delete</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                
                                 {% empty %}
                                 <p>There are currently no new jobs.</p>
                                 {% endfor %}
@@ -193,9 +227,38 @@
                                                 <strong>Feedback given:</strong><br>
                                                 {{ job.feedback }}
                                             </p>
+                                            <button class="grey-btn-small" type="button" data-bs-toggle="modal" data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
+                                                <i class="fa-solid fa-xmark"></i><span class="ps-2">Delete job</span>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
+
+                                <!-- Delete job Modal -->
+                                <div class="modal fade" id="modal_{{ job.id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+                                            <div class="modal-header justify-content-center p-4 p-md-5">
+                                                <strong class="text-center">Are you sure you would like to delete this job?</strong>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <div class="container-fluid">
+                                                    <div class="row modal-buttons">
+                                                        <div class="col-6 modal-button-border p-2">
+                                                            <button type="button" class="modal-light-btn" data-bs-dismiss="modal">Close</button>
+                                                        </div>
+                                                        <div class="col-6 p-2">
+                                                            <a href="{% url 'delete_job' job.id %}">
+                                                                <button class="modal-red-btn">Delete</button>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                    </div>
+                                </div>
+
                                 {% empty %}
                                 <p>There are currently no new jobs.</p>
                                 {% endfor %}

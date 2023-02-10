@@ -85,3 +85,17 @@ class DeleteJob(View):
         job = get_object_or_404(Job, id=job_id)
         job.delete()
         return redirect('client_jobs_list')
+
+
+class RequestJobDeletion(View):
+
+    def get(self, request, job_id):
+        job = get_object_or_404(Job, id=job_id)
+
+        if job.deletion:
+            job.deletion = False
+            job.save()
+        else:
+            job.deletion = True
+            job.save()
+        return redirect('client_jobs_list')
