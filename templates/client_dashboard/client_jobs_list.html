@@ -12,20 +12,20 @@
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="new-tab" data-bs-toggle="tab"
                                 data-bs-target="#new-tab-pane" type="button" role="tab" aria-controls="new-tab-pane"
-                                aria-selected="true">{{ new_jobs|length }}
-                                New</button>
+                                aria-selected="true">New ({{ new_jobs|length }})
+                            </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="active-tab" data-bs-toggle="tab"
                                 data-bs-target="#active-tab-pane" type="button" role="tab"
-                                aria-controls="active-tab-pane" aria-selected="false">{{ active_jobs|length }}
-                                Active</button>
+                                aria-controls="active-tab-pane" aria-selected="false">Active ({{ active_jobs|length }})
+                            </button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="completed-tab" data-bs-toggle="tab"
                                 data-bs-target="#completed-tab-pane" type="button" role="tab"
-                                aria-controls="completed-tab-pane" aria-selected="false">{{ completed_jobs|length }}
-                                Completed</button>
+                                aria-controls="completed-tab-pane" aria-selected="false">Completed ({{ completed_jobs|length }})
+                            </button>
                         </li>
                     </ul>
                 </div>
@@ -119,13 +119,18 @@
                             <div class="accordion" id="dash_accordion2">
                                 {% for job in active_jobs %}
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header">
+                                    <div class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#{{ forloop.counter }}" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            <span>{{ job.id }} - {{ job.title }}</span>
+                                            <span>
+                                                <strong class="testing">Id: {{ job.id }} | {{ job.title }}</strong>
+                                                {% if job.deletion %}
+                                                <i class="fa-regular fa-clock"></i> Awaiting deletion
+                                                {% endif %}
+                                            </span>
                                         </button>
-                                    </h2>
+                                    </div>
                                     <div id="{{ forloop.counter }}" class="accordion-collapse collapse"
                                         aria-labelledby="headingOne" data-bs-parent="#dash_accordion2">
                                         <div class="accordion-body pb-4">
@@ -146,7 +151,7 @@
                                             </p>
                                             {% if job.deletion %}
                                             <p>
-                                                <strong>Awaiting aproval to delete job.</strong>
+                                                <i class="fa-regular fa-clock"></i><strong class="fst-italic"> Awaiting aproval to delete job.</strong>
                                             </p>
                                             <p>
                                                 <a href="{% url 'request_job_deletion' job.id %}">

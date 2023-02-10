@@ -40,13 +40,18 @@
                             <div class="accordion" id="dash_accordion">
                                 {% for job in new_jobs %}
                                 <div class="accordion-item">
+
                                     <div class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#{{ forloop.counter }}" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            <span><strong class="testing">Id: {{ job.id }} | {{ job.title }}</strong> - {{ job.user.profile.name }}</span>
+                                            <span>
+                                                <strong class="testing">Id: {{ job.id }} | {{ job.title }}</strong>
+                                                - {{ job.user.profile.name }}
+                                            </span>
                                         </button>
                                     </div>
+
                                     <div id="{{ forloop.counter }}" class="accordion-collapse collapse"
                                         aria-labelledby="headingOne" data-bs-parent="#dash_accordion">
                                         <div class="accordion-body pb-4">
@@ -70,11 +75,11 @@
                                                     <i class="fa-solid fa-pen-to-square"></i><span class="ps-2"> Edit job</span>
                                                 </button>
                                             </a>
-                                            <button class="grey-btn-small" type="button" data-bs-toggle="collapse" data-bs-target="#assign_{{ job.id }}" aria-expanded="false" aria-controls="assign job">
-                                                <i class="fa-solid fa-user-plus"></i><span class="ps-2">Assign job</span>
-                                            </button>
                                             <button class="grey-btn-small" type="button" data-bs-toggle="modal" data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
                                                 <i class="fa-solid fa-xmark"></i><span class="ps-2">Delete job</span>
+                                            </button>
+                                            <button class="grey-btn-small" type="button" data-bs-toggle="collapse" data-bs-target="#assign_{{ job.id }}" aria-expanded="false" aria-controls="assign job">
+                                                <i class="fa-solid fa-user-plus"></i><span class="ps-2">Assign job</span>
                                             </button>
 
                                             <!-- Assign job collapsable field -->
@@ -128,16 +133,31 @@
                             <div class="accordion" id="dash_accordion2">
                                 {% for job in active_jobs %}
                                 <div class="accordion-item">
-                                    <h2 class="accordion-header">
+
+                                    <div class="accordion-header">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#{{ forloop.counter }}" aria-expanded="true"
                                             aria-controls="collapseOne">
-                                            <span><strong class="testing">Id: {{ job.id }} | {{ job.title }}</strong> - {{ job.user.profile.name }}</span>
+                                            <span>
+                                                <strong class="testing">Id: {{ job.id }} | {{ job.title }}</strong>
+                                                - {{ job.user.profile.name }}
+                                                {% if job.deletion %}
+                                                <i class="fa-regular fa-clock"></i> Awaiting deletion
+                                                {% endif %}
+                                            </span>
                                         </button>
-                                    </h2>
+                                    </div>
+
                                     <div id="{{ forloop.counter }}" class="accordion-collapse collapse"
                                         aria-labelledby="headingOne" data-bs-parent="#dash_accordion2">
                                         <div class="accordion-body pb-4">
+                                            {% if job.deletion %}
+                                            <p>
+                                                <button class="grey-btn-small" type="button" data-bs-toggle="modal" data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
+                                                    <i class="fa-solid fa-check"></i><span class="ps-2"> Aprove job deletion</span>
+                                                </button>
+                                            </p>
+                                            {% endif %}
                                             <p>
                                                 <strong>Description:</strong><br>
                                                 {{ job.description }}
