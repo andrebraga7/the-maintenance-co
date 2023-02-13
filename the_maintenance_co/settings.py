@@ -29,7 +29,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["the-maintenance-co.herokuapp.com", "localhost"]
 
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'home_page',
     'manager_dashboard',
     'client_dashboard',
+    'employee_dashboard',
 ]
 
 
