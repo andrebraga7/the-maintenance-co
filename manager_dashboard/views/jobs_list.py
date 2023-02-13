@@ -71,11 +71,25 @@ class ManagerDeleteJob(View):
         return redirect('jobs_list')
 
 
+class CancelDeletion(View):
+
+    def get(self, request, job_id):
+        job = get_object_or_404(Job, id=job_id)
+        job.deletion = False
+        job.save()
+        return redirect('jobs_list')
+
+
 class JobDone(View):
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
-        job.status = 2
-        job.save()
+
+        if job.status == 1:
+            job.status = 2
+            job.save()
+        else:
+            job.status = 1
+            job.save()
 
         return redirect('jobs_list')
