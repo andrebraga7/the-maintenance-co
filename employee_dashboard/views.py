@@ -20,6 +20,22 @@ class EmployeeActiveJobs(View):
             })
 
 
+class EmployeeCompletedJobs(View):
+
+    def get(self, request):
+        jobs = Job.objects.filter(assignment=request.user)
+        active_jobs = jobs.filter(status=1)
+        completed_jobs = jobs.filter(status=2)
+
+        return render(
+            request,
+            'employee_dashboard/employee_completed_jobs.html',
+            {
+                'active_jobs': active_jobs,
+                'completed_jobs': completed_jobs,
+            })
+
+
 class AddFeedback(View):
 
     def get(self, request, job_id):

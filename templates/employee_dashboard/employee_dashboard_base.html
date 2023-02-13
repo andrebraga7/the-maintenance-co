@@ -13,10 +13,10 @@
                     <div class="collapse navbar-collapse" id="dropdown_options">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a href="{% url 'employee_active_jobs' %}" class="nav-link">Active Jobs</a>
+                                <a href="{% url 'employee_active_jobs' %}" class="nav-link">Active Jobs ({{ active_jobs|length }})</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Completed Jobs</a>
+                                <a href="{% url 'employee_completed_jobs' %}" class="nav-link">Completed Jobs ({{ completed_jobs|length }})</a>
                             </li>
                         </ul>
                     </div>
