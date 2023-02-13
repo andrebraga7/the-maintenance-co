@@ -290,3 +290,7 @@ a {
     color: white;
     background-color: seagreen;
 }
+
+form textarea {
+    max-width: 100%;
+}

@@ -1,21 +1,27 @@
-{% extends "manager_dashboard/manager_dashboard_base.html" %}
+{% extends "employee_dashboard/employee_dashboard_base.html" %}
 
-{% block manager_content %}
+{% block employee_content %}
 <div class="container-fluid">
     <div class="row mt-2 p-4">
         <div class="col-md-8 offset-md-2">
             <div class="card" id="card-content">
-
-                <!-- Tabs content -->
                 <div class="card-body px-md-5 py-4">
                     <p>
-                        <a href="{% url 'jobs_list' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i> Back</a>
+                        <a href="{% url 'employee_active_jobs' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i> Back</a>
                     </p>
-                    <h4>Edit job:</h4>
+                    <h4>Add feedback:</h4>
                     <div class="pt-4">
+                        <p>
+                            <strong>Job:</strong><br>
+                            {{ job.id }} - {{ job.title }}
+                        </p>
+                        <p>
+                            <strong>Description:</strong><br>
+                            {{ job.description }}
+                        </p>
                         <form method="post">
                             {% csrf_token %}
-                            {{ edit_form.as_p }}
+                            {{ feedback_form.as_p }}
                             <p>
                                 <button type="submit" class="grey-btn-small">Save</button>
                             </p>

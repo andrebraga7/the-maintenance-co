@@ -1,0 +1,68 @@
+{% extends "employee_dashboard/employee_dashboard_base.html" %}
+
+{% block employee_content %}
+<div class="container-fluid">
+    <div class="row mt-2 p-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card" id="card-content">
+                <div class="card-body px-md-5 pt-2 pb-5">
+
+                    <!-- Active jobs accordion -->
+                    <div class="accordion" id="dash_accordion2">
+                        {% for job in active_jobs %}
+                        <div class="accordion-item">
+
+                            <!-- Accordion header -->
+                            <div class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#{{ forloop.counter }}" aria-expanded="true"
+                                    aria-controls="collapseOne">
+                                    <span>
+                                        <strong class="testing">{{ job.id }} - {{ job.title }}</strong>
+                                        - {{ job.user.profile.name }}
+                                        {% if job.deletion %}
+                                        <i class="fa-regular fa-clock"></i> Awaiting deletion
+                                        {% endif %}
+                                    </span>
+                                </button>
+                            </div>
+
+                            <!-- Accordion body -->
+                            <div id="{{ forloop.counter }}" class="accordion-collapse collapse"
+                                aria-labelledby="headingOne" data-bs-parent="#dash_accordion2">
+                                <div class="accordion-body pb-4">
+                                    <p>
+                                        <strong>Description:</strong><br>
+                                        {{ job.description }}
+                                    </p>
+                                    <p>
+                                        <strong>Created on:</strong> {{ job.created_on }}<br>
+                                        <strong>Last updated on:</strong> {{ job.updated_on }}
+                                    </p>
+                                    <p>
+                                        <strong>Assigned to:</strong> {{ job.assignment }}
+                                    </p>
+                                    <p>
+                                        <strong>Feedback given:</strong><br>
+                                        {{ job.feedback }}
+                                    </p>
+                                    <a href="{% url 'add_feedback' job.id %}">
+                                        <button type="button" class="grey-btn-small">
+                                            <i class="fa-solid fa-pen-to-square"></i><span class="ps-2"> Add feedback</span>
+                                        </button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {% empty %}
+                        <p>There are currently no active jobs.</p>
+                        {% endfor %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

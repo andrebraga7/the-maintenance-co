@@ -24,6 +24,12 @@ $( document ).ready(function() {
     } else if (path == "/client/contact") {
         $("a[href$='/client/contact']").addClass("strong-underline")
         $("#dash_menu_2_toggle").html('Send Message <i class="fa-solid fa-chevron-down"></i>')
+    } else if (path == "/employee/active-jobs") {
+        $("a[href$='/employee/active-jobs']").addClass("strong-underline")
+        $("#dash_menu_2_toggle").html('Active Jobs <i class="fa-solid fa-chevron-down"></i>')
+    } else if (path == "/employee/completed-jobs") {
+        $("a[href$='/employee/completed-jobs']").addClass("strong-underline")
+        $("#dash_menu_2_toggle").html('Completed Jobs <i class="fa-solid fa-chevron-down"></i>')
     }
 
 
