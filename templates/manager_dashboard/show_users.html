@@ -28,11 +28,11 @@
                             </p>
                             <p>
                                 <strong>Type:</strong><br>
-                                {% if user.profile.type == '1' %}
+                                {% if user.profile.type == 1 %}
                                 <span>Manager</span>
-                                {% elif user.profile.type == '2' %}
+                                {% elif user.profile.type == 2 %}
                                 <span>Employee</span>
-                                {% elif user.profile.type == '3' %}
+                                {% elif user.profile.type == 3 %}
                                 <span>Client</span>
                                 {% else %}
                                 <span>Unknown type</span>
