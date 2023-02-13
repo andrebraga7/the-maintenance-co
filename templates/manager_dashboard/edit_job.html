@@ -11,8 +11,12 @@
                     <p>
                         <a href="{% url 'jobs_list' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i> Back</a>
                     </p>
-                    <h4>Edit job:</h4>
-                    <div class="pt-4">
+                    <h4>Edit job</h4>
+                    <div class="pt-3">
+                        <p>
+                            <strong>Category:</strong> {{ job.category }}<br>
+                            <strong>Equipment:</strong> {{ job.equipment }}
+                        </p>
                         <form method="post">
                             {% csrf_token %}
                             {{ edit_form.as_p }}

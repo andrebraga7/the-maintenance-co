@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from client_dashboard.models import Job
 from ..forms import AssignJobForm
-from client_dashboard.forms import JobForm
+from client_dashboard.forms import EditJobForm
 
 
 class JobsList(View):
@@ -28,17 +28,19 @@ class EditJob(View):
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
-        edit_form = JobForm(instance=job)
+        edit_form = EditJobForm(instance=job)
 
         return render(
             request,
             'manager_dashboard/edit_job.html',
-            {'edit_form': edit_form}
-            )
+            {
+                'job': job,
+                'edit_form': edit_form
+            })
 
     def post(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
-        edit_form = JobForm(request.POST, instance=job)
+        edit_form = EditJobForm(request.POST, instance=job)
 
         if edit_form.is_valid():
             equipment = edit_form.instance.equipment
