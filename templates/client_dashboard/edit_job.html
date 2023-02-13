@@ -8,16 +8,20 @@
 
                 <!-- Tabs content -->
                 <div class="card-body px-md-5 py-4">
-                    <h4>Edit job:</h4>
-                    <div class="pt-4">
+                    <p>
+                        <a href="{% url 'client_jobs_list' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i> Back</a>
+                    </p>
+                    <h4>Edit job</h4>
+                    <div class="pt-3">
+                        <p>
+                            <strong>Category:</strong> {{ job.category }}<br>
+                            <strong>Equipment:</strong> {{ job.equipment }}
+                        </p>
                         <form method="post">
                             {% csrf_token %}
                             {{ edit_form.as_p }}
                             <p>
-                                <button type="submit" class="green-btn">Save</button>
-                                <a href="{% url 'client_jobs_list' %}">
-                                    <button type="button" class="grey-btn">Go back</button>
-                                </a>
+                                <button type="submit" class="grey-btn-small">Save</button>
                             </p>
                         </form>
                     </div>

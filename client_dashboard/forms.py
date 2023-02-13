@@ -45,3 +45,10 @@ class JobForm(forms.ModelForm):
                 'equipment'
                 ].queryset = self.instance.category.equipment_set.order_by(
                     'name')
+
+
+class EditJobForm(forms.ModelForm):
+
+    class Meta:
+        model = Job
+        fields = ['description']
