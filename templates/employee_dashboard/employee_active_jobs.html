@@ -51,6 +51,37 @@
                                             <i class="fa-solid fa-pen-to-square"></i><span class="ps-2"> Add feedback</span>
                                         </button>
                                     </a>
+                                    <button class="grey-btn-small" type="button" data-bs-toggle="modal" data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="mark job as done">
+                                        <i class="fa-solid fa-check"></i><span class="ps-2">Mark job as done</span>
+                                    </button>
+
+                                    <!-- Mark job as done modal -->
+                                    <div class="modal fade" id="modal_{{ job.id }}" tabindex="-1"
+                                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header justify-content-center p-4 p-md-5">
+                                                    <strong class="text-center">Are you sure you would like to mark this job as done?</strong>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    <div class="container-fluid">
+                                                        <div class="row modal-buttons">
+                                                            <div class="col-6 modal-button-border p-2">
+                                                                <button type="button" class="modal-light-btn"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                            </div>
+                                                            <div class="col-6 p-2">
+                                                                <a href="{% url 'mark-as-done' job.id %}">
+                                                                    <button class="modal-light-btn">Mark as done</button>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

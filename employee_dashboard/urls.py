@@ -14,4 +14,8 @@ urlpatterns = [
         'employee/add-feedback/<job_id>',
         views.AddFeedback.as_view(),
         name='add_feedback'),
+    path(
+        'employee/mark-as-done/<job_id>',
+        views.JobDone.as_view(),
+        name='mark-as-done'),
 ]
