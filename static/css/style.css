@@ -282,3 +282,11 @@ a {
 .custom-link:hover {
     text-decoration: underline;
 }
+
+
+/* Forms */
+
+#form-sent {
+    color: white;
+    background-color: seagreen;
+}

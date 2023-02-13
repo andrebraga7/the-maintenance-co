@@ -1,6 +1,6 @@
 $( document ).ready(function() {
     
-    // Add the stron-underline class to the active link or url.
+    // Add the strong-underline class to the active link or url.
     path = location.pathname;
 
     if (path == "/manager/jobs-list") {
@@ -18,6 +18,12 @@ $( document ).ready(function() {
     } else if (path == "/client/categories") {
         $("a[href$='/client/categories']").addClass("strong-underline")
         $("#dash_menu_2_toggle").html('Settings <i class="fa-solid fa-chevron-down"></i>')
+    } else if (path == "/client/categories") {
+        $("a[href$='/client/equipments']").addClass("strong-underline")
+        $("#dash_menu_2_toggle").html('Settings <i class="fa-solid fa-chevron-down"></i>')
+    } else if (path == "/client/contact") {
+        $("a[href$='/client/contact']").addClass("strong-underline")
+        $("#dash_menu_2_toggle").html('Send Message <i class="fa-solid fa-chevron-down"></i>')
     }
 
 
@@ -43,6 +49,14 @@ $( document ).ready(function() {
             console.warn("An error ocurred:", err);
         })
 
+    })
+
+
+    // Capture the contact form
+    $('#contact-form').submit(function(event) {
+        event.preventDefault();
+        $('#form-sent').html('Your message was sent successfully!');
+        this.reset();
     })
 
 });

@@ -1,0 +1,27 @@
+{% extends "client_dashboard/client_dashboard_base.html" %}
+
+{% block client_content %}
+<div class="container-fluid">
+    <div class="row mt-2 p-4">
+        <div class="col-md-8 offset-md-2">
+            <div class="card" id="card-content">
+
+                <!-- Tabs content -->
+                <div class="card-body px-md-5 py-4">
+                    <h4>Send us a message:</h4>
+                    <div id="form-sent"></div>
+                    <div class="pt-3">
+                        <form id="contact-form" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <p>
+                                <button type="submit" class="grey-btn-small">Send</button>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

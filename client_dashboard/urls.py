@@ -37,4 +37,5 @@ urlpatterns = [
     path(
         'client/jobs/request_<job_id>',
         views.RequestJobDeletion.as_view(), name='request_job_deletion'),
+    path('client/contact', views.Contact.as_view(), name='contact'),
 ]

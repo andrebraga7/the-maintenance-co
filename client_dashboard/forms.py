@@ -52,3 +52,8 @@ class EditJobForm(forms.ModelForm):
     class Meta:
         model = Job
         fields = ['description']
+
+
+class ContactForm(forms.Form):
+    subject = forms.CharField(max_length=100)
+    message = forms.CharField(widget=forms.Textarea)
