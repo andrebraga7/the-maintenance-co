@@ -6,7 +6,25 @@ from client_dashboard.forms import EditJobForm
 from .access import ManagerAccessMixin
 
 
-class JobsList(ManagerAccessMixin, View):
+class NewJobs(ManagerAccessMixin, View):
+
+    def get(self, request):
+        jobs = Job.objects.all()
+        new_jobs = jobs.filter(status=0)
+        active_jobs = jobs.filter(status=1)
+        completed_jobs = jobs.filter(status=2)
+
+        return render(
+            request,
+            'manager_dashboard/new_jobs.html',
+            {
+                'new_jobs': new_jobs,
+                'active_jobs': active_jobs,
+                'completed_jobs': completed_jobs,
+            })
+
+
+class ActiveJobs(ManagerAccessMixin, View):
 
     def get(self, request):
         jobs = Job.objects.all()
@@ -22,6 +40,24 @@ class JobsList(ManagerAccessMixin, View):
                 'active_jobs': active_jobs,
                 'completed_jobs': completed_jobs,
                 'assign_form':  AssignJobForm(),
+            })
+
+
+class CompletedJobs(ManagerAccessMixin, View):
+
+    def get(self, request):
+        jobs = Job.objects.all()
+        new_jobs = jobs.filter(status=0)
+        active_jobs = jobs.filter(status=1)
+        completed_jobs = jobs.filter(status=2)
+
+        return render(
+            request,
+            'manager_dashboard/completed_jobs.html',
+            {
+                'new_jobs': new_jobs,
+                'active_jobs': active_jobs,
+                'completed_jobs': completed_jobs,
             })
 
 
@@ -49,7 +85,7 @@ class EditJob(ManagerAccessMixin, View):
             edit_form.instance.title = f'{equipment} in {category}'
             edit_form.save()
 
-            return redirect('jobs_list')
+            return redirect('active_jobs')
 
 
 class AssignJob(ManagerAccessMixin, View):
@@ -61,7 +97,7 @@ class AssignJob(ManagerAccessMixin, View):
         if assign_form.is_valid():
             assign_form.instance.status = 1
             assign_form.save()
-            return redirect('jobs_list')
+            return redirect('active_jobs')
 
 
 class ManagerDeleteJob(ManagerAccessMixin, View):
@@ -69,7 +105,7 @@ class ManagerDeleteJob(ManagerAccessMixin, View):
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
         job.delete()
-        return redirect('jobs_list')
+        return redirect('new_jobs')
 
 
 class CancelDeletion(ManagerAccessMixin, View):
@@ -78,7 +114,7 @@ class CancelDeletion(ManagerAccessMixin, View):
         job = get_object_or_404(Job, id=job_id)
         job.deletion = False
         job.save()
-        return redirect('jobs_list')
+        return redirect('active_jobs')
 
 
 class JobDone(ManagerAccessMixin, View):
@@ -93,4 +129,4 @@ class JobDone(ManagerAccessMixin, View):
             job.status = 1
             job.save()
 
-        return redirect('jobs_list')
+        return redirect('active_jobs')
