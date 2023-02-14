@@ -3,9 +3,12 @@ from django.views import View
 from allauth.account.views import SignupView
 from django.contrib.auth.models import User, Permission
 from ..forms import EditUserForm, EditProfileForm
+from .access import ManagerAccessMixin
 
 
-class CustomSignupView(SignupView):
+class CustomSignupView(ManagerAccessMixin, SignupView):
+
+    permission_required = 'manager_dashboard.manager'
 
     def form_valid(self, form):
 
@@ -27,7 +30,9 @@ class CustomSignupView(SignupView):
         return redirect('account_signup')
 
 
-class ShowUsers(View):
+class ShowUsers(ManagerAccessMixin, View):
+
+    permission_required = 'manager_dashboard.manager'
 
     def get(self, request):
         users = User.objects.all().order_by('profile__name')
@@ -39,7 +44,7 @@ class ShowUsers(View):
             )
 
 
-class EditUser(View):
+class EditUser(ManagerAccessMixin, View):
 
     def get(self, request, user_id, *args, **kwargs):
         edit_user = get_object_or_404(User, id=user_id)
@@ -68,7 +73,7 @@ class EditUser(View):
             form2 = EditUserForm()
 
 
-class DeleteUser(View):
+class DeleteUser(ManagerAccessMixin, View):
 
     def get(self, request, user_id):
         delete_user = get_object_or_404(User, id=user_id)

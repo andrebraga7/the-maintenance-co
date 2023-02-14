@@ -3,9 +3,10 @@ from django.views import View
 from django.http import JsonResponse
 from ..models import Job, Equipment
 from ..forms import JobForm, EditJobForm
+from .access import ClientAccessMixin
 
 
-class ClientJobsList(View):
+class ClientJobsList(ClientAccessMixin, View):
 
     def get(self, request):
         jobs = Job.objects.all().filter(user=request.user)
@@ -23,7 +24,7 @@ class ClientJobsList(View):
             })
 
 
-class AddJob(View):
+class AddJob(ClientAccessMixin, View):
 
     def get(self, request):
 
@@ -45,7 +46,7 @@ class AddJob(View):
             return redirect('client_jobs_list')
 
 
-class FetchEquipments(View):
+class FetchEquipments(ClientAccessMixin, View):
 
     def get(self, request):
         category_id = request.GET.get('category_id')
@@ -54,7 +55,7 @@ class FetchEquipments(View):
         return JsonResponse(list(equipments.values('id', 'name')), safe=False)
 
 
-class EditJob(View):
+class EditJob(ClientAccessMixin, View):
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
@@ -78,7 +79,7 @@ class EditJob(View):
             return redirect('client_jobs_list')
 
 
-class DeleteJob(View):
+class DeleteJob(ClientAccessMixin, View):
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
@@ -86,7 +87,7 @@ class DeleteJob(View):
         return redirect('client_jobs_list')
 
 
-class RequestJobDeletion(View):
+class RequestJobDeletion(ClientAccessMixin, View):
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)

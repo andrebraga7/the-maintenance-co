@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from client_dashboard.models import Job
 from .forms import FeedbackForm
+from .access import EmployeeAccessMixin
 
 
-class EmployeeActiveJobs(View):
+class EmployeeActiveJobs(EmployeeAccessMixin, View):
 
     def get(self, request):
         jobs = Job.objects.filter(assignment=request.user)
@@ -20,7 +21,7 @@ class EmployeeActiveJobs(View):
             })
 
 
-class EmployeeCompletedJobs(View):
+class EmployeeCompletedJobs(EmployeeAccessMixin, View):
 
     def get(self, request):
         jobs = Job.objects.filter(assignment=request.user)
@@ -36,7 +37,7 @@ class EmployeeCompletedJobs(View):
             })
 
 
-class AddFeedback(View):
+class AddFeedback(EmployeeAccessMixin, View):
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
@@ -59,7 +60,7 @@ class AddFeedback(View):
             return redirect('employee_active_jobs')
 
 
-class JobDone(View):
+class JobDone(EmployeeAccessMixin, View):
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)

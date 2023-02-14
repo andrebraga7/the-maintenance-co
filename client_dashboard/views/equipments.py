@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from ..models import Equipment, Category
 from ..forms import EquipmentForm
+from .access import ClientAccessMixin
 
 
-class EquipmentList(View):
+class EquipmentList(ClientAccessMixin, View):
 
     def get(self, request):
         equipments = Equipment.objects.all().filter(
@@ -21,7 +22,7 @@ class EquipmentList(View):
             })
 
 
-class AddEquipment(View):
+class AddEquipment(ClientAccessMixin, View):
 
     def get(self, request):
         return render(
@@ -40,7 +41,7 @@ class AddEquipment(View):
             form = EquipmentForm()
 
 
-class EditEquipment(View):
+class EditEquipment(ClientAccessMixin, View):
 
     def get(self, request, equipment_id):
         equipment = get_object_or_404(Equipment, id=equipment_id)
@@ -62,7 +63,7 @@ class EditEquipment(View):
             edit_form = EquipmentForm()
 
 
-class DeleteEquipment(View):
+class DeleteEquipment(ClientAccessMixin, View):
 
     def get(self, request, equipment_id):
         equipment = get_object_or_404(Equipment, id=equipment_id)

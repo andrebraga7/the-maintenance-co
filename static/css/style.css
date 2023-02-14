@@ -12,6 +12,7 @@ a {
 /* Home */
 
 #landing_page {
+    background-image: url("../images/hero_1.jpeg");
     background-size: cover;
     height: 85vh;
 }

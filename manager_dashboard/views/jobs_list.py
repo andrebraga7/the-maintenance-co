@@ -3,9 +3,10 @@ from django.views import View
 from client_dashboard.models import Job
 from ..forms import AssignJobForm
 from client_dashboard.forms import EditJobForm
+from .access import ManagerAccessMixin
 
 
-class JobsList(View):
+class JobsList(ManagerAccessMixin, View):
 
     def get(self, request):
         jobs = Job.objects.all()
@@ -24,7 +25,7 @@ class JobsList(View):
             })
 
 
-class EditJob(View):
+class EditJob(ManagerAccessMixin, View):
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
@@ -51,7 +52,7 @@ class EditJob(View):
             return redirect('jobs_list')
 
 
-class AssignJob(View):
+class AssignJob(ManagerAccessMixin, View):
 
     def post(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
@@ -63,7 +64,7 @@ class AssignJob(View):
             return redirect('jobs_list')
 
 
-class ManagerDeleteJob(View):
+class ManagerDeleteJob(ManagerAccessMixin, View):
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
@@ -71,7 +72,7 @@ class ManagerDeleteJob(View):
         return redirect('jobs_list')
 
 
-class CancelDeletion(View):
+class CancelDeletion(ManagerAccessMixin, View):
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
@@ -80,7 +81,7 @@ class CancelDeletion(View):
         return redirect('jobs_list')
 
 
-class JobDone(View):
+class JobDone(ManagerAccessMixin, View):
 
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)

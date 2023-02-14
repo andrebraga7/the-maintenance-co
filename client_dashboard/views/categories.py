@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from ..models import Category
 from ..forms import CategoryForm
+from .access import ClientAccessMixin
 
 
-class Categories(View):
+class Categories(ClientAccessMixin, View):
 
     def get(self, request):
         categories = Category.objects.all().filter(
@@ -28,7 +29,7 @@ class Categories(View):
             form = CategoryForm()
 
 
-class EditCategory(View):
+class EditCategory(ClientAccessMixin, View):
 
     def get(self, request, category_id):
         category = get_object_or_404(Category, id=category_id)
@@ -53,7 +54,7 @@ class EditCategory(View):
             form = CategoryForm()
 
 
-class DeleteCategory(View):
+class DeleteCategory(ClientAccessMixin, View):
 
     def get(self, request, category_id):
         category = get_object_or_404(Category, id=category_id)
