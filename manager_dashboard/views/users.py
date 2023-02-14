@@ -77,13 +77,5 @@ class DeleteUser(ManagerAccessMixin, View):
 
     def get(self, request, user_id):
         delete_user = get_object_or_404(User, id=user_id)
-
-        return render(
-            request,
-            'manager_dashboard/delete_user.html',
-            {'delete_user': delete_user})
-
-    def post(self, request, user_id):
-        delete_user = get_object_or_404(User, id=user_id)
         delete_user.delete()
         return redirect('show_users')
