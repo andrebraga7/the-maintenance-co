@@ -6,11 +6,16 @@
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
             <h5 class="pb-2 ps-2">Edit user</h5>
             <div class="card card-body">
+                <p>
+                    <a href="{% url 'show_users' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i> Back</a>
+                </p>
                 <form method="post">
                     {% csrf_token %}
                     {{ form1.as_p }}
                     {{ form2.as_p }}
-                    <button class="green-btn" type="submit">Save</button>
+                    <button class="grey-btn-small" type="submit">
+                        <i class="fa-solid fa-user-check"></i><span class="ps-2">Save</span>
+                    </button>
                 </form>
             </div>
        </div>

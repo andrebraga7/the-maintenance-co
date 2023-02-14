@@ -4,27 +4,26 @@
 <div class="container-fluid">
     <div class="row mt-2 p-4">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <div class="card" id="card-content">
-
-                <!-- Tabs content -->
-                <div class="card-body px-md-5 py-4">
+            <h5 class="pb-2 ps-2">Edit job</h5>
+            <div class="card card-body">
+                <p>
+                    <a href="{% url 'new_jobs' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i>
+                        Back</a>
+                </p>
+                <div class="pt-3">
                     <p>
-                        <a href="{% url 'jobs_list' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i> Back</a>
+                        <strong>Category:</strong> {{ job.category }}<br>
+                        <strong>Equipment:</strong> {{ job.equipment }}
                     </p>
-                    <h4>Edit job</h4>
-                    <div class="pt-3">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ edit_form.as_p }}
                         <p>
-                            <strong>Category:</strong> {{ job.category }}<br>
-                            <strong>Equipment:</strong> {{ job.equipment }}
+                            <button type="submit" class="grey-btn-small">
+                                <i class="fa-solid fa-check"></i><span class="ps-2">Save</span>
+                            </button>
                         </p>
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ edit_form.as_p }}
-                            <p>
-                                <button type="submit" class="grey-btn-small">Save</button>
-                            </p>
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
