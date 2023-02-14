@@ -21,6 +21,7 @@ class NewJobs(ManagerAccessMixin, View):
                 'new_jobs': new_jobs,
                 'active_jobs': active_jobs,
                 'completed_jobs': completed_jobs,
+                'assign_form':  AssignJobForm(),
             })
 
 

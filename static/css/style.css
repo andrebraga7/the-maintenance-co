@@ -107,22 +107,19 @@ body > nav {
 /* Jobs menu */
 
 .menu-active {
-    text-decoration: underline;
+    font-weight: bolder;
 }
 
 #jobs_options a:hover {
-    text-decoration: underline;
+    font-weight: bolder;
 }
 
 
 /* Card content */
 
-#card-content {
+.card {
     background-color: #f5f5f5;
-}
-
-.card-body {
-    min-height: 40vh;
+    min-height: 50vh;
 }
 
 

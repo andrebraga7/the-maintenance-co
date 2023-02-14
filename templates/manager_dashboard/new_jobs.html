@@ -5,7 +5,7 @@
     <div class="row p-4">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
 
-            <nav class="navbar navbar-expand-sm ps-2 pt-2 pb-3 fw-semibold">
+            <nav class="navbar navbar-expand-sm ps-2 pt-2 pb-4">
                 <a id="dash_menu_2_toggle" class="navbar-toggler" data-bs-toggle="collapse" href="#jobs_options"
                     aria-controls="jobs_options" aria-expanded="false" aria-label="Toggle navigation">New
                     ({{ new_jobs|length }}) <i class="fa-solid fa-chevron-down"></i></a>
@@ -32,8 +32,7 @@
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#{{ forloop.counter }}" aria-expanded="false" aria-controls="{{ forloop.counter }}">
                             <span>
-                                <strong>Id: {{ job.id }} | {{ job.title }}</strong>
-                                - {{ job.user.profile.name }}
+                                <strong># {{ job.id }}</strong> - {{ job.title }} - ({{ job.user.profile.name }})
                             </span>
                         </button>
                     </div>
@@ -46,15 +45,15 @@
                                 {{ job.description }}
                             </p>
                             <p>
-                                <strong>Created on:</strong> {{ job.created_on }}<br>
-                                <strong>Last updated on:</strong> {{ job.updated_on }}
+                                <strong>Feedback given:</strong><br>
+                                {{ job.feedback }}
                             </p>
                             <p>
                                 <strong>Assigned to:</strong> {{ job.assignment }}
                             </p>
                             <p>
-                                <strong>Feedback given:</strong><br>
-                                {{ job.feedback }}
+                                Created on: {{ job.created_on }}<br>
+                                Last updated on: {{ job.updated_on }}
                             </p>
                             <a href="{% url 'edit_job' job.id %}">
                                 <button type="button" class="grey-btn-small">
