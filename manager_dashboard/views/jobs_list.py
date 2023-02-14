@@ -16,7 +16,7 @@ class JobsList(ManagerAccessMixin, View):
 
         return render(
             request,
-            'manager_dashboard/jobs_list.html',
+            'manager_dashboard/active_jobs.html',
             {
                 'new_jobs': new_jobs,
                 'active_jobs': active_jobs,

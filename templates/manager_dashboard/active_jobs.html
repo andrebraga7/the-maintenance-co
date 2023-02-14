@@ -1,0 +1,123 @@
+{% extends "manager_dashboard/manager_dashboard_base.html" %}
+
+{% block manager_content %}
+<div class="container-fluid">
+    <div class="row p-4">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+
+            <nav class="navbar navbar-expand-sm ps-2 pt-2 pb-3 fw-semibold">
+                <a id="dash_menu_2_toggle" class="navbar-toggler" data-bs-toggle="collapse" href="#jobs_options"
+                    aria-controls="jobs_options" aria-expanded="false" aria-label="Toggle navigation">New
+                    ({{ new_jobs|length }}) <i class="fa-solid fa-chevron-down"></i></a>
+                <div class="collapse navbar-collapse" id="jobs_options">
+                    <ul class="navbar-nav">
+                        <li class="nav-item pe-3">
+                            <a class="menu-active" href="#">New ({{ new_jobs|length }})</a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a href="#">Active ({{ active_jobs|length }})</a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a href="#">Completed ({{ completed_jobs|length }})</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="accordion" id="dash_accordion">
+                {% for job in new_jobs %}
+                <div class="accordion-item">
+
+                    <div class="accordion-header" id="heading_{{ forloop.counter }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#{{ forloop.counter }}" aria-expanded="false" aria-controls="{{ forloop.counter }}">
+                            <span>
+                                <strong>Id: {{ job.id }} | {{ job.title }}</strong>
+                                - {{ job.user.profile.name }}
+                            </span>
+                        </button>
+                    </div>
+
+                    <div id="{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading_{{ forloop.counter }}"
+                        data-bs-parent="#dash_accordion">
+                        <div class="accordion-body pb-4">
+                            <p>
+                                <strong>Description:</strong><br>
+                                {{ job.description }}
+                            </p>
+                            <p>
+                                <strong>Created on:</strong> {{ job.created_on }}<br>
+                                <strong>Last updated on:</strong> {{ job.updated_on }}
+                            </p>
+                            <p>
+                                <strong>Assigned to:</strong> {{ job.assignment }}
+                            </p>
+                            <p>
+                                <strong>Feedback given:</strong><br>
+                                {{ job.feedback }}
+                            </p>
+                            <a href="{% url 'edit_job' job.id %}">
+                                <button type="button" class="grey-btn-small">
+                                    <i class="fa-solid fa-pen-to-square"></i><span class="ps-2"> Edit job</span>
+                                </button>
+                            </a>
+                            <button class="grey-btn-small" type="button" data-bs-toggle="modal"
+                                data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
+                                <i class="fa-solid fa-trash-can"></i><span class="ps-2">Delete job</span>
+                            </button>
+                            <button class="grey-btn-small" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#assign_{{ job.id }}" aria-expanded="false" aria-controls="assign job">
+                                <i class="fa-solid fa-user-plus"></i><span class="ps-2">Assign job</span>
+                            </button>
+
+                            <!-- Assign job collapsable field -->
+                            <div class="collapse pt-4" id="assign_{{ job.id }}">
+                                <form method="post" action="{% url 'assign_job' job.id %}">
+                                    {% csrf_token %}
+                                    <p>
+                                        <strong>Assign job to:</strong> {{ assign_form }}
+                                    </p>
+                                    <button type="submit" class="green-btn-small">Save</button>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delete job Modal -->
+                <div class="modal fade" id="modal_{{ job.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-center p-4 p-md-5">
+                                <strong class="text-center">Are you sure you would like to delete this job?</strong>
+                            </div>
+                            <div class="modal-body text-center">
+                                <div class="container-fluid">
+                                    <div class="row modal-buttons">
+                                        <div class="col-6 modal-button-border p-2">
+                                            <button type="button" class="modal-light-btn"
+                                                data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                        <div class="col-6 p-2">
+                                            <a href="{% url 'delete_job' job.id %}">
+                                                <button class="modal-red-btn">Delete</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% empty %}
+                <p>There are currently no new jobs.</p>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
