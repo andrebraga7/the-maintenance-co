@@ -327,3 +327,7 @@ body > nav {
 #id_feedback {
     height: 20vh;
 }
+
+#id_message {
+    height: 30vh;
+}
