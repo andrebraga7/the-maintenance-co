@@ -1,5 +1,7 @@
 {% extends "manager_dashboard/manager_dashboard_base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
@@ -7,12 +9,11 @@
 {% block manager_content %}
 <div class="container-fluid">
     <div class="row mt-2 p-4">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-6 offset-md-3">
             <h5 class="pb-2 ps-2">Create new user</h5>
             <div class="card card-body">
                 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-                    {% csrf_token %}
-                    {{ form.as_p }}
+                    {% crispy form %}
                     {% if redirect_field_value %}
                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                     {% endif %}

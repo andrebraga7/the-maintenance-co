@@ -332,11 +332,3 @@ body > nav {
 #id_feedback {
     height: 20vh;
 }
-
-
-@media screen and (min-width: 768px) {
-    
-    #id_assignment {
-        width: 50%;
-    }
-}

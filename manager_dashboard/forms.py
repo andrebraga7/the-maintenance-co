@@ -20,6 +20,21 @@ class CustomSignupForm(forms.Form):
         up.type = self.cleaned_data['type']
         up.save()
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            FloatingField(
+                'username',
+                'email',
+                'name',
+                'type',
+                'password1',
+                'password2',
+            )
+        )
+
 
 class EditUserForm(forms.ModelForm):
     class Meta:

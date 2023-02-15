@@ -1,5 +1,7 @@
 {% extends "manager_dashboard/manager_dashboard_base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block manager_content %}
 <div class="container-fluid">
     <div class="row pt-4">
@@ -74,30 +76,33 @@
                                 Created on: {{ job.created_on }}<br>
                                 Last updated on: {{ job.updated_on }}
                             </p>
-                            <a href="{% url 'edit_job' job.id %}">
-                                <button type="button" class="blue-btn-small">
-                                    <i class="fa-solid fa-pen-to-square"></i><span class="ps-2"> Edit job</span>
-                                </button>
-                            </a>
-                            <button class="blue-btn-small" type="button" data-bs-toggle="modal"
-                                data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
-                                <i class="fa-solid fa-trash-can"></i><span class="ps-2">Delete job</span>
-                            </button>
-                            <button class="blue-btn-small" type="button" data-bs-toggle="modal" data-bs-target="#modal_done_{{ job.id }}" aria-expanded="false" aria-controls="mark job as done">
-                                <i class="fa-solid fa-check"></i><span class="ps-2">Close job</span>
-                            </button>
-                            <button class="blue-btn-small" type="button" data-bs-toggle="collapse" data-bs-target="#assign_{{ job.id }}" aria-expanded="false" aria-controls="reassign job">
-                                <i class="fa-solid fa-user-pen"></i><span class="ps-2">Reassign job</span>
-                            </button>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <button type="button" class="blue-btn-small col-md-3 col-xl-2 ms-md-2">
+                                        <a href="{% url 'edit_job' job.id %}">
+                                            <i class="fa-solid fa-pen-to-square"></i><span class="ps-2"> Edit job</span>
+                                        </a>
+                                    </button>
+                                    <button class="blue-btn-small col-md-3 col-xl-2 ms-md-2" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
+                                        <i class="fa-solid fa-trash-can"></i><span class="ps-2">Delete job</span>
+                                    </button>
+                                    <button class="blue-btn-small col-md-3 col-xl-2 ms-md-2" type="button" data-bs-toggle="modal" data-bs-target="#modal_done_{{ job.id }}" aria-expanded="false" aria-controls="mark job as done">
+                                        <i class="fa-solid fa-check"></i><span class="ps-2">Close job</span>
+                                    </button>
+                                    <button class="blue-btn-small col-md-3 col-xl-2 ms-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#assign_{{ job.id }}" aria-expanded="false" aria-controls="reassign job">
+                                        <i class="fa-solid fa-user-pen"></i><span class="ps-2">Reassign job</span>
+                                    </button>
+                                </div>
+                            </div>
 
                             <!-- Assign job collapsable field -->
-                            <div class="collapse pt-4" id="assign_{{ job.id }}">
+                            <div class="collapse pt-4 col-md-6" id="assign_{{ job.id }}">
                                 <form method="post" action="{% url 'assign_job' job.id %}">
-                                    {% csrf_token %}
-                                    <p>
-                                        <strong>Reassign job to:</strong> {{ assign_form }}
-                                    </p>
-                                    <button type="submit" class="blue-btn-small">Save</button>
+                                    {% crispy assign_form %}
+                                    <button type="submit" class="blue-btn-small">
+                                        <i class="fa-solid fa-plus"></i></i><span class="ps-2">Assign</span>
+                                    </button>
                                 </form>
                             </div>
 

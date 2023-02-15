@@ -97,7 +97,7 @@ class AssignJob(ManagerAccessMixin, View):
         if assign_form.is_valid():
             assign_form.instance.status = 1
             assign_form.save()
-            return redirect('active_jobs')
+            return redirect('new_jobs')
 
 
 class ManagerDeleteJob(ManagerAccessMixin, View):

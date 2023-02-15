@@ -8,8 +8,6 @@ from .access import ManagerAccessMixin
 
 class CustomSignupView(ManagerAccessMixin, SignupView):
 
-    permission_required = 'manager_dashboard.manager'
-
     def form_valid(self, form):
 
         user = form.save(self.request)
@@ -31,8 +29,6 @@ class CustomSignupView(ManagerAccessMixin, SignupView):
 
 
 class ShowUsers(ManagerAccessMixin, View):
-
-    permission_required = 'manager_dashboard.manager'
 
     def get(self, request):
         users = User.objects.all().order_by('profile__name')

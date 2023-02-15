@@ -8,7 +8,7 @@
                 <a href="{% url 'show_users' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i> Back</a>
             </p>
             <div class="card card-body">
-                <h5 class="pb-2">Edit user</h5>
+                <h5 class="pb-2">Edit user:</h5>
                 <form method="post">
                     {% csrf_token %}
                     {{ form1.as_p }}

@@ -56,12 +56,16 @@
                                 Created on: {{ job.created_on }}<br>
                                 Last updated on: {{ job.updated_on }}
                             </p>
-                            <button class="blue-btn-small" type="button" data-bs-toggle="modal" data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
-                                <i class="fa-solid fa-trash-can"></i><span class="ps-2">Delete job</span>
-                            </button>
-                            <button class="blue-btn-small" type="button" data-bs-toggle="modal" data-bs-target="#modal_done_{{ job.id }}" aria-expanded="false" aria-controls="mark job as done">
-                                <i class="fa-solid fa-arrow-rotate-right"></i><span class="ps-2">Reopen job</span>
-                            </button>
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <button class="blue-btn-small col-md-3 col-xl-2 ms-md-2" type="button" data-bs-toggle="modal" data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
+                                        <i class="fa-solid fa-trash-can"></i><span class="ps-2">Delete job</span>
+                                    </button>
+                                    <button class="blue-btn-small col-md-3 col-xl-2 ms-md-2" type="button" data-bs-toggle="modal" data-bs-target="#modal_done_{{ job.id }}" aria-expanded="false" aria-controls="mark job as done">
+                                        <i class="fa-solid fa-arrow-rotate-right"></i><span class="ps-2">Reopen job</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
