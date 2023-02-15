@@ -1,5 +1,7 @@
 {% extends "manager_dashboard/manager_dashboard_base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block manager_content %}
 <div class="container-fluid">
     <div class="row pt-4">
@@ -72,11 +74,10 @@
                             <!-- Assign job collapsable field -->
                             <div class="collapse pt-4" id="assign_{{ job.id }}">
                                 <form method="post" action="{% url 'assign_job' job.id %}">
-                                    {% csrf_token %}
-                                    <p>
-                                        <strong>Assign job to:</strong> {{ assign_form }}
-                                    </p>
-                                    <button type="submit" class="green-btn-small">Save</button>
+                                    {% crispy assign_form %}
+                                    <button type="submit" class="blue-btn-small">
+                                        <i class="fa-solid fa-plus"></i></i><span class="ps-2">Assign</span>
+                                    </button>
                                 </form>
                             </div>
 

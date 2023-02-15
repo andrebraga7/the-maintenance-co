@@ -321,6 +321,10 @@ body > nav {
     background-color: seagreen;
 }
 
+.asteriskField {
+    display: none;
+}
+
 #id_description {
     height: 20vh;
 }
@@ -329,6 +333,10 @@ body > nav {
     height: 20vh;
 }
 
-.asteriskField {
-    display: none;
+
+@media screen and (min-width: 768px) {
+    
+    #id_assignment {
+        width: 50%;
+    }
 }

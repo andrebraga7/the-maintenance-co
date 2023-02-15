@@ -45,7 +45,11 @@ class AssignJobForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['assignment'].label = ""
+        self.helper = FormHelper()
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            FloatingField('assignment')
+        )
 
 
 class EditJobForm(forms.ModelForm):
@@ -58,5 +62,5 @@ class EditJobForm(forms.ModelForm):
         self.helper = FormHelper()
         self.helper.form_tag = False
         self.helper.layout = Layout(
-            FloatingField('description', 'feedback'),
+            FloatingField('description', 'feedback')
         )
