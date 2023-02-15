@@ -147,7 +147,6 @@ body > nav {
 
 .category-button {
     border: none;
-    padding: 0;
     margin: none;
     background: none;
 }
@@ -156,12 +155,8 @@ body > nav {
     color: red;
 }
 
-.category-warning {
-    color: white;
-    font-weight: inherit;
-    background-color: #202020;
-    border-radius: 5px;
-    padding: 15px;
+.category-button2 {
+    width: 100%;
 }
 
 

@@ -1,4 +1,7 @@
 from django import forms
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout
+from crispy_bootstrap5.bootstrap5 import FloatingField
 from .models import Category, Equipment, Job
 
 
@@ -10,7 +13,11 @@ class CategoryForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['name'].label = ""
+        self.helper = FormHelper()
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            FloatingField('name')
+        )
 
 
 class EquipmentForm(forms.ModelForm):

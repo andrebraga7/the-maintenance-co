@@ -1,50 +1,29 @@
 {% extends "client_dashboard/client_dashboard_base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block client_content %}
+
+<!-- Defines which dashboard button is going to have the .strong-underline class -->
+<input id="active-button" type="hidden" value="#btn-2" name="Settings">
+
 <div class="container-fluid">
-    <div class="row mt-2 p-4">
+    <div class="row mt-2 px-md-4 pt-4">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <div class="card" id="card-content">
-                <!-- Tabs navigation -->
-                <div class="card-header pb-4">
-                    <ul class="nav nav-tab" id="myTab">
-                        <li class="nav-item">
-                            <a href="{% url 'categories' %}" aria-current="page">
-                                <button class="nav-link active">Categories</button>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{% url 'equipments' %}">
-                                <button class="nav-link">Equipments</button>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Tabs content -->
-                <div class="card-body">
-                    <div class="category px-md-5 py-2">
-
-                        <!-- Category -->
-                        <h5>Edit category:</h5>
-
-                        <!-- Edit form -->
-                        <div class="pt-4">
-                            <form method="post">
-                                {% csrf_token %}
-                                {{ edit_form }}
-                                <span>
-                                    <button type="submit" class="green-btn-small">Save</button>
-                                </span>
-                                <div>
-                            </form>
-                        </div>
-                        <div class="pt-4">
-                            <a href="{% url 'categories' %}">
-                                <button type="button" class="grey-btn-small">Go back</button>
-                            </a>
-                        </div>
-
+            <p>
+                <a href="{% url 'categories' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i>Back</a>
+            </p>
+            <div class="card card-body">
+                <h5 class="pb-2">Edit category:</h5>
+                <div class="pt-3 col-md-6">
+                    <form method="post">
+                        {% crispy edit_form %}
+                        <p>
+                            <button type="submit" class="blue-btn-small">
+                                <i class="fa-solid fa-check"></i><span class="ps-2">Save</span>
+                            </button>
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
