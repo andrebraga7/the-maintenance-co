@@ -1,8 +1,6 @@
-{% extends "manager_dashboard/manager_dashboard_base.html" %}
+{% extends "client_dashboard/client_dashboard_base.html" %}
 
-{% load crispy_forms_tags %}
-
-{% block manager_content %}
+{% block client_content %}
 
 <!-- Defines which dashboard button is going to have the .strong-underline class -->
 <input id="active-button" type="hidden" value="#btn-1" name="Jobs">
@@ -18,13 +16,13 @@
                 <div class="collapse navbar-collapse" id="jobs_options">
                     <ul class="navbar-nav">
                         <li class="nav-item pe-3">
-                            <a class="menu-active" href="{% url 'new_jobs' %}">New ({{ new_jobs|length }})</a>
+                            <a href="{% url 'client_new_jobs' %}">New ({{ new_jobs|length }})</a>
                         </li>
                         <li class="nav-item pe-3">
-                            <a href="{% url 'active_jobs' %}">Active ({{ active_jobs|length }})</a>
+                            <a class="menu-active" href="{% url 'client_active_jobs' %}">Active ({{ active_jobs|length }})</a>
                         </li>
                         <li class="nav-item pe-3">
-                            <a href="{% url 'completed_jobs' %}">Completed ({{ completed_jobs|length }})</a>
+                            <a href="{% url 'client_completed_jobs' %}">Completed ({{ completed_jobs|length }})</a>
                         </li>
                     </ul>
                 </div>
@@ -38,7 +36,10 @@
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#{{ forloop.counter }}" aria-expanded="false" aria-controls="{{ forloop.counter }}">
                             <span>
-                                <strong># {{ job.id }}</strong> - {{ job.title }} - ({{ job.user.profile.name }})
+                                <strong># {{ job.id }}</strong> - {{ job.title }}
+                                {% if job.deletion %}
+                                <strong><i class="fa-regular fa-clock"></i> Awaiting deletion</strong>
+                                {% endif %}
                             </span>
                         </button>
                     </div>
@@ -63,43 +64,46 @@
                             </p>
                             <div class="container-fluid">
                                 <div class="row">
-                                    <button type="button" class="blue-btn-small col-md-3 col-xl-2 ms-md-2">
-                                        <a href="{% url 'edit_job' job.id %}">
+                                {% if job.deletion %}
+                                    <div class="col">
+                                        <p>
+                                            <i class="fa-regular fa-clock"></i><strong class="fst-italic"> Awaiting approval
+                                                to delete job.</strong>
+                                        </p>
+                                    </div>
+                                <div class="row">
+                                    <button type="button" class="blue-btn-small col-md-3 ms-md-2" aria-controls="cancel job deletion">
+                                        <a href="{% url 'request_job_deletion' job.id %}">
+                                            <i class="fa-solid fa-xmark"></i><span class="ps-2">Cancel job
+                                                deletion</span>
+                                        </a>
+                                    </button>
+                                </div>
+                                {% else %}
+                                    <button type="button" class="blue-btn-small col-md-3 ms-md-2">
+                                        <a href="{% url 'client_edit_job' job.id %}">
                                             <i class="fa-solid fa-pen-to-square"></i><span class="ps-2"> Edit job</span>
                                         </a>
                                     </button>
-                                    <button class="blue-btn-small col-md-3 col-xl-2 ms-md-2" type="button" data-bs-toggle="modal"
-                                        data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
-                                        <i class="fa-solid fa-trash-can"></i><span class="ps-2">Delete job</span>
+                                    <button class="blue-btn-small col-md-3 ms-md-2" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="request job deletion">
+                                        <i class="fa-solid fa-xmark"></i><span class="ps-2">Request job deletion</span>
                                     </button>
-                                    <button class="blue-btn-small col-md-3 col-xl-2 ms-md-2" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#assign_{{ job.id }}" aria-expanded="false" aria-controls="assign job">
-                                        <i class="fa-solid fa-user-plus"></i><span class="ps-2">Assign job</span>
-                                    </button>
+                                {% endif %}
                                 </div>
                             </div>
-
-                            <!-- Assign job collapsable field -->
-                            <div class="collapse pt-4 col-md-6" id="assign_{{ job.id }}">
-                                <form method="post" action="{% url 'assign_job' job.id %}">
-                                    {% crispy assign_form %}
-                                    <button type="submit" class="blue-btn-small">
-                                        <i class="fa-solid fa-plus"></i></i><span class="ps-2">Assign</span>
-                                    </button>
-                                </form>
-                            </div>
-
                         </div>
                     </div>
                 </div>
 
-                <!-- Delete job Modal -->
+                <!-- Request job deletion modal -->
                 <div class="modal fade" id="modal_{{ job.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header justify-content-center p-4 p-md-5">
-                                <strong class="text-center">Are you sure you would like to delete this job?</strong>
+                                <strong class="text-center">Are you sure you would like to request to delete this
+                                    job?</strong>
                             </div>
                             <div class="modal-body text-center">
                                 <div class="container-fluid">
@@ -109,8 +113,8 @@
                                                 data-bs-dismiss="modal">Close</button>
                                         </div>
                                         <div class="col-6 p-2">
-                                            <a href="{% url 'delete_job' job.id %}">
-                                                <button class="modal-red-btn">Delete</button>
+                                            <a href="{% url 'request_job_deletion' job.id %}">
+                                                <button class="modal-red-btn">Request deletion</button>
                                             </a>
                                         </div>
                                     </div>
@@ -121,7 +125,7 @@
                 </div>
 
                 {% empty %}
-                <p>There are currently no new jobs.</p>
+                <p>There are currently no active jobs.</p>
                 {% endfor %}
             </div>
 

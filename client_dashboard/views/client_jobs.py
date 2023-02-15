@@ -6,7 +6,7 @@ from ..forms import JobForm, EditJobForm
 from .access import ClientAccessMixin
 
 
-class ClientJobsList(ClientAccessMixin, View):
+class NewJobs(ClientAccessMixin, View):
 
     def get(self, request):
         jobs = Job.objects.all().filter(user=request.user)
@@ -16,7 +16,43 @@ class ClientJobsList(ClientAccessMixin, View):
 
         return render(
             request,
-            'client_dashboard/client_jobs_list.html',
+            'client_dashboard/new_jobs.html',
+            {
+                'new_jobs': new_jobs,
+                'active_jobs': active_jobs,
+                'completed_jobs': completed_jobs,
+            })
+
+
+class ActiveJobs(ClientAccessMixin, View):
+
+    def get(self, request):
+        jobs = Job.objects.all().filter(user=request.user)
+        new_jobs = jobs.filter(status=0)
+        active_jobs = jobs.filter(status=1)
+        completed_jobs = jobs.filter(status=2)
+
+        return render(
+            request,
+            'client_dashboard/active_jobs.html',
+            {
+                'new_jobs': new_jobs,
+                'active_jobs': active_jobs,
+                'completed_jobs': completed_jobs,
+            })
+
+
+class CompletedJobs(ClientAccessMixin, View):
+
+    def get(self, request):
+        jobs = Job.objects.all().filter(user=request.user)
+        new_jobs = jobs.filter(status=0)
+        active_jobs = jobs.filter(status=1)
+        completed_jobs = jobs.filter(status=2)
+
+        return render(
+            request,
+            'client_dashboard/completed_jobs.html',
             {
                 'new_jobs': new_jobs,
                 'active_jobs': active_jobs,
@@ -43,7 +79,7 @@ class AddJob(ClientAccessMixin, View):
             form.instance.title = f'{equipment} in {category}'
             form.instance.user = request.user
             form.save()
-            return redirect('client_jobs_list')
+            return redirect('client_new_jobs')
 
 
 class FetchEquipments(ClientAccessMixin, View):
@@ -76,7 +112,7 @@ class EditJob(ClientAccessMixin, View):
         if edit_form.is_valid():
             edit_form.save()
 
-            return redirect('client_jobs_list')
+            return redirect('client_new_jobs')
 
 
 class DeleteJob(ClientAccessMixin, View):
@@ -84,7 +120,7 @@ class DeleteJob(ClientAccessMixin, View):
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
         job.delete()
-        return redirect('client_jobs_list')
+        return redirect('client_new_jobs')
 
 
 class RequestJobDeletion(ClientAccessMixin, View):
@@ -98,4 +134,4 @@ class RequestJobDeletion(ClientAccessMixin, View):
         else:
             job.deletion = True
             job.save()
-        return redirect('client_jobs_list')
+        return redirect('client_active_jobs')

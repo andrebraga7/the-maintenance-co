@@ -3,9 +3,15 @@ from . import views
 
 
 urlpatterns = [
+    path('client/new_jobs', views.NewJobs.as_view(), name='client_new_jobs'),
     path(
-        'client/jobs-list',
-        views.ClientJobsList.as_view(), name='client_jobs_list'),
+        'client/active_jobs',
+        views.ActiveJobs.as_view(),
+        name='client_active_jobs'),
+    path(
+        'client/completed_jobs',
+        views.CompletedJobs.as_view(),
+        name='client_completed_jobs'),
     path('client/categories', views.Categories.as_view(), name='categories'),
     path(
         'client/categories/delete_<category_id>',
