@@ -35,8 +35,18 @@ class JobForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            FloatingField(
+                'category',
+                'equipment',
+                'description',
+            )
+        )
         self.fields['equipment'].queryset = Equipment.objects.none()
 
+        # Form validation
         if 'category' in self.data:
             try:
                 category_id = int(self.data.get('category'))
