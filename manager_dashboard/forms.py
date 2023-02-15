@@ -44,11 +44,27 @@ class EditUserForm(forms.ModelForm):
             'username': None,
         }
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            FloatingField('username', 'email')
+        )
+
 
 class EditProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['name']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            FloatingField('name')
+        )
 
 
 class AssignJobForm(forms.ModelForm):

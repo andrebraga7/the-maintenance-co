@@ -1,18 +1,19 @@
 {% extends "manager_dashboard/manager_dashboard_base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block manager_content %}
 <div class="container-fluid">
     <div class="row mt-2 p-4">
-        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <div class="col-md-6 offset-md-3">
             <p>
                 <a href="{% url 'show_users' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i> Back</a>
             </p>
             <div class="card card-body">
                 <h5 class="pb-2">Edit user:</h5>
                 <form method="post">
-                    {% csrf_token %}
-                    {{ form1.as_p }}
-                    {{ form2.as_p }}
+                    {% crispy form1 %}
+                    {% crispy form2 %}
                     <button class="blue-btn-small" type="submit">
                         <i class="fa-solid fa-user-check"></i><span class="ps-2">Save</span>
                     </button>
