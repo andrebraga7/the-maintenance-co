@@ -11,7 +11,7 @@
 
             <nav class="navbar navbar-expand-sm ps-2 pt-2 pb-4">
                 <a id="dash_menu_2_toggle" class="navbar-toggler" data-bs-toggle="collapse" href="#jobs_options"
-                    aria-controls="jobs_options" aria-expanded="false" aria-label="Toggle navigation">Categories <i class="fa-solid fa-chevron-down"></i>
+                    aria-controls="jobs_options" aria-expanded="false" aria-label="Toggle navigation">Equipments <i class="fa-solid fa-chevron-down"></i>
                 </a>
                 <div class="collapse navbar-collapse" id="jobs_options">
                     <ul class="navbar-nav">
@@ -25,7 +25,7 @@
                 </div>
             </nav>
 
-            <div class="card card-body">
+            <div class="card card-body mb-4">
                 <div class="col-md-4 ps-md-3 py-2">
                     <a href="{% url 'add_equipment' %}">
                         <button type="button" class="blue-btn-small">Add equipment</button>
@@ -50,7 +50,7 @@
                             <a href="{% url 'edit_equipment' equipment.id %}">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
-                            <button class="category-button ps-4" type="button" data-bs-toggle="modal"
+                            <button class="category-button ps-md-3" type="button" data-bs-toggle="modal"
                                 data-bs-target="#modal_{{ equipment.id }}" aria-expanded="false"
                                 aria-controls="delete confirmation">
                                 <i class="fa-solid fa-trash-can category-delete"></i>
