@@ -57,6 +57,14 @@ class EditJobForm(forms.ModelForm):
         model = Job
         fields = ['description']
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            FloatingField('description')
+        )
+
 
 class ContactForm(forms.Form):
     subject = forms.CharField(max_length=100)

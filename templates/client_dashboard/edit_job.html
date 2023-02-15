@@ -1,30 +1,29 @@
 {% extends "client_dashboard/client_dashboard_base.html" %}
 
-{% block client_content %}
-<div class="container-fluid">
-    <div class="row mt-2 p-4">
-        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <div class="card" id="card-content">
+{% load crispy_forms_tags %}
 
-                <!-- Tabs content -->
-                <div class="card-body px-md-5 py-4">
-                    <p>
-                        <a href="{% url 'client_new_jobs' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i> Back</a>
-                    </p>
-                    <h4>Edit job</h4>
-                    <div class="pt-3">
+{% block client_content %}
+<!-- Defines which dashboard button is going to have the .strong-underline class -->
+<input id="active-button" type="hidden" value="#btn-1" name="Jobs">
+
+<div class="container-fluid">
+    <div class="row mt-2 px-md-4 pt-4">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <p>
+                <a href="{% url 'client_new_jobs' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i>Back</a>
+            </p>
+            <div class="card card-body">
+                <h5 class="pb-2">Edit job:</h5>
+                <span><strong># {{ job.id }}</strong> - {{ job.title }}</span>
+                <div class="pt-3">
+                    <form method="post">
+                        {% crispy edit_form %}
                         <p>
-                            <strong>Category:</strong> {{ job.category }}<br>
-                            <strong>Equipment:</strong> {{ job.equipment }}
+                            <button type="submit" class="blue-btn-small">
+                                <i class="fa-solid fa-check"></i><span class="ps-2">Save</span>
+                            </button>
                         </p>
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ edit_form.as_p }}
-                            <p>
-                                <button type="submit" class="grey-btn-small">Save</button>
-                            </p>
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
