@@ -1,58 +1,100 @@
 {% extends "client_dashboard/client_dashboard_base.html" %}
 
 {% block client_content %}
+
+<!-- Defines which dashboard button is going to have the .strong-underline class -->
+<input id="active-button" type="hidden" value="#btn-2" name="Settings">
+
 <div class="container-fluid">
-    <div class="row mt-2 p-4">
+    <div class="row pt-4">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <div class="card" id="card-content">
-                <!-- Tabs navigation -->
-                <div class="card-header pb-4">
-                    <ul class="nav nav-tab" id="myTab">
-                        <li class="nav-item">
-                            <a href="{% url 'categories' %}">
-                                <button class="nav-link">Categories</button>
-                            </a>
+
+            <nav class="navbar navbar-expand-sm ps-2 pt-2 pb-4">
+                <a id="dash_menu_2_toggle" class="navbar-toggler" data-bs-toggle="collapse" href="#jobs_options"
+                    aria-controls="jobs_options" aria-expanded="false" aria-label="Toggle navigation">Categories <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <div class="collapse navbar-collapse" id="jobs_options">
+                    <ul class="navbar-nav">
+                        <li class="nav-item pe-3">
+                            <a href="{% url 'categories' %}">Categories</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{% url 'equipments' %}" aria-current="page">
-                                <button class="nav-link active">Equipments</button>
-                            </a>
+                        <li class="nav-item pe-3">
+                            <a class="menu-active" href="{% url 'equipments' %}">Equipments</a>
                         </li>
                     </ul>
                 </div>
+            </nav>
 
-                <!-- Tabs content -->
-                <div class="card-body">
-                    <div class="px-md-5 py-2">
-                        <a href="{% url 'add_equipment' %}">
-                            <button type="button" class="green-btn">Add equipment</button>
-                        </a>
+            <div class="card card-body">
+                <div class="col-md-4 ps-md-3 py-2">
+                    <a href="{% url 'add_equipment' %}">
+                        <button type="button" class="blue-btn-small">Add equipment</button>
+                    </a>
+                </div>
+
+                <!-- Categories loop with equipments -->
+                {% for category in categories %}
+                <div class="container-fluid py-2">
+                    <div class="row">
+                        <div class="col">
+                            <h5>{{ category }}</h5>
+                        </div>
+                    </div>
+                    {% for equipment in equipments %}
+                    {% if equipment.category == category %}
+                    <div class="row">
+                        <div class="col-9 col-md-6">
+                            {{ equipment }}
+                        </div>
+                        <div class="col-3">
+                            <a href="{% url 'edit_equipment' equipment.id %}">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <button class="category-button ps-4" type="button" data-bs-toggle="modal"
+                                data-bs-target="#modal_{{ equipment.id }}" aria-expanded="false"
+                                aria-controls="delete confirmation">
+                                <i class="fa-solid fa-trash-can category-delete"></i>
+                            </button>
+                        </div>
                     </div>
 
-                    <!-- Categories loop with equipments -->
-                    {% for category in categories %}
-                    <div class="category px-md-5 py-3">
-                        <h5>{{ category }}</h5>
-                        {% for equipment in equipments %}
-                        {% if equipment.category == category %}
-                        <div class="row">
-                            <div class="col-6">
-                                {{ equipment }}
-                            </div>
-                            <div class="col-3 offset-3 offset-md-0">
-                                <a href="{% url 'edit_equipment' equipment.id %}">
-                                    <i class="fa-solid fa-pen-to-square"></i>
-                                </a>
-                                <a href="{% url 'delete_equipment' equipment.id %}">
-                                    <i class="fa-solid fa-xmark ps-2 category-delete"></i>
-                                </a>
+                    <!-- Delete equipment modal -->
+                    <div class="modal fade" id="modal_{{ equipment.id }}" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header justify-content-center p-4 p-md-5">
+                                    <p>Are you sure you want to delete <strong>{{ equipment }}</strong>? This will
+                                        delete
+                                        all associated jobs!</p>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <div class="container-fluid">
+                                        <div class="row modal-buttons">
+                                            <div class="col-6 modal-button-border p-2">
+                                                <button type="button" class="modal-light-btn"
+                                                    data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                            <div class="col-6 p-2">
+                                                <a href="{% url 'delete_equipment' equipment.id %}">
+                                                    <button class="modal-red-btn">Delete</button>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        {% endif %}
-                        {% endfor %}
                     </div>
+
+                    {% endif %}
                     {% endfor %}
                 </div>
+
+                {% empty %}
+                <p>No equipment registered.</p>
+                {% endfor %}
+
             </div>
         </div>
     </div>

@@ -312,8 +312,15 @@ body > nav {
 /* Forms */
 
 #form-sent {
+    text-align: center;
     color: white;
     background-color: seagreen;
+    padding: 5px;
+    margin-bottom: 3vh;
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+    height: 5vh;
+    display: none;
 }
 
 .asteriskField {

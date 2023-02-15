@@ -8,9 +8,9 @@ from .access import ClientAccessMixin
 class EquipmentList(ClientAccessMixin, View):
 
     def get(self, request):
-        equipments = Equipment.objects.all().filter(
+        equipments = Equipment.objects.filter(
             user=request.user).order_by('name')
-        categories = Category.objects.all().filter(
+        categories = Category.objects.filter(
             user=request.user).order_by('name')
 
         return render(
@@ -66,14 +66,6 @@ class EditEquipment(ClientAccessMixin, View):
 class DeleteEquipment(ClientAccessMixin, View):
 
     def get(self, request, equipment_id):
-        equipment = get_object_or_404(Equipment, id=equipment_id)
-
-        return render(
-            request,
-            'client_dashboard/delete_equipment.html',
-            {'equipment': equipment, })
-
-    def post(self, request, equipment_id):
         equipment = get_object_or_404(Equipment, id=equipment_id)
         equipment.delete()
 
