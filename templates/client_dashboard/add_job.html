@@ -16,11 +16,13 @@
                 <div class="pt-3">
                     <form method="post" id="create-job" data-fetch-equipments-url="{% url 'fetch_equipments' %}">
                         {% crispy form %}
-                        <p>
-                            <button type="submit" class="blue-btn-small">
-                                <i class="fa-solid fa-check"></i><span class="ps-2">Add new job</span>
-                            </button>
-                        </p>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <button type="submit" class="blue-btn-small col-sm-6 col-md-4">
+                                    <i class="fa-solid fa-check"></i><span class="ps-2">Add job</span>
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

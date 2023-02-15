@@ -17,11 +17,13 @@
                     <div id="form-sent"></div>
                     <form id="contact-form" method="post">
                         {% crispy form %}
-                        <p>
-                            <button type="submit" class="blue-btn-small">
-                                <i class="fa-solid fa-check"></i><span class="ps-2">Send</span>
-                            </button>
-                        </p>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <button type="submit" class="blue-btn-small col-sm-6 col-md-4">
+                                    <i class="fa-solid fa-paper-plane"></i><span class="ps-2">Send</span>
+                                </button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
