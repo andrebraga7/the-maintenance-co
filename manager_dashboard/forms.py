@@ -1,5 +1,8 @@
 from django import forms
 from django.contrib.auth.models import User
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Layout, Field
+from crispy_bootstrap5.bootstrap5 import FloatingField
 from .models import Profile
 from client_dashboard.models import Job
 
@@ -43,3 +46,17 @@ class AssignJobForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['assignment'].label = ""
+
+
+class EditJobForm(forms.ModelForm):
+    class Meta:
+        model = Job
+        fields = ['description', 'feedback']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_tag = False
+        self.helper.layout = Layout(
+            FloatingField('description', 'feedback'),
+        )

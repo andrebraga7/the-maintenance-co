@@ -321,6 +321,14 @@ body > nav {
     background-color: seagreen;
 }
 
-form textarea {
-    width: 100%;
+#id_description {
+    height: 20vh;
+}
+
+#id_feedback {
+    height: 20vh;
+}
+
+.asteriskField {
+    display: none;
 }

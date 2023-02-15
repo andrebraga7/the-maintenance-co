@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from client_dashboard.models import Job
-from ..forms import AssignJobForm
-from client_dashboard.forms import EditJobForm
+from ..forms import AssignJobForm, EditJobForm
 from .access import ManagerAccessMixin
 
 

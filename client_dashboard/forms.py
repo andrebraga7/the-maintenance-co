@@ -7,12 +7,9 @@ class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
         fields = ['name']
-        widgets = {
-            'name': forms.TextInput(attrs={'placeholder': 'Name'}),
-        }
 
     def __init__(self, *args, **kwargs):
-        super(CategoryForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.fields['name'].label = ""
 
 

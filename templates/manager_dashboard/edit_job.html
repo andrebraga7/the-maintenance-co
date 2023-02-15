@@ -1,8 +1,10 @@
 {% extends "manager_dashboard/manager_dashboard_base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block manager_content %}
 <div class="container-fluid">
-    <div class="row mt-2 p-4">
+    <div class="row mt-2 px-md-4 pt-4">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
             <p>
                 <a href="{% url 'new_jobs' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i>Back</a>
@@ -11,10 +13,8 @@
                 <h5 class="pb-2">Edit job:</h5>
                 <span><strong># {{ job.id }}</strong> - {{ job.title }} - ({{ job.user.profile.name }})</span>
                 <div class="pt-3">
-                    <Strong>Description:</Strong>
                     <form method="post">
-                        {% csrf_token %}
-                        {{ edit_form }}
+                        {% crispy edit_form %}
                         <p>
                             <button type="submit" class="blue-btn-small">
                                 <i class="fa-solid fa-check"></i><span class="ps-2">Save</span>
