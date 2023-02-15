@@ -39,11 +39,11 @@
                                 {% endif %}
                             </p>
                             <a href="{% url 'edit_user' user.id %}">
-                                <button class="grey-btn-small">
+                                <button class="blue-btn-small">
                                     <i class="fa-solid fa-user-pen"></i><span class="ps-2">Edit user</span>
                                 </button>
                             </a>
-                            <button class="grey-btn-small" type="button" data-bs-toggle="modal"
+                            <button class="blue-btn-small" type="button" data-bs-toggle="modal"
                                 data-bs-target="#modal_{{ user.id }}" aria-expanded="false" aria-controls="delete user">
                                 <i class="fa-solid fa-user-xmark"></i><span class="ps-2">Delete user</span>
                             </button>

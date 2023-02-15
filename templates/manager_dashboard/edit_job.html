@@ -4,22 +4,19 @@
 <div class="container-fluid">
     <div class="row mt-2 p-4">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <h5 class="pb-2 ps-2">Edit job</h5>
+            <p>
+                <a href="{% url 'new_jobs' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i>Back</a>
+            </p>
             <div class="card card-body">
-                <p>
-                    <a href="{% url 'new_jobs' %}" class="custom-link"><i class="fa-solid fa-chevron-left"></i>
-                        Back</a>
-                </p>
+                <h5 class="pb-2">Edit job:</h5>
+                <span><strong># {{ job.id }}</strong> - {{ job.title }} - ({{ job.user.profile.name }})</span>
                 <div class="pt-3">
-                    <p>
-                        <strong>Category:</strong> {{ job.category }}<br>
-                        <strong>Equipment:</strong> {{ job.equipment }}
-                    </p>
+                    <Strong>Description:</Strong>
                     <form method="post">
                         {% csrf_token %}
-                        {{ edit_form.as_p }}
+                        {{ edit_form }}
                         <p>
-                            <button type="submit" class="grey-btn-small">
+                            <button type="submit" class="blue-btn-small">
                                 <i class="fa-solid fa-check"></i><span class="ps-2">Save</span>
                             </button>
                         </p>

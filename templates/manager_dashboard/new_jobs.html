@@ -56,15 +56,15 @@
                                 Last updated on: {{ job.updated_on }}
                             </p>
                             <a href="{% url 'edit_job' job.id %}">
-                                <button type="button" class="grey-btn-small">
+                                <button type="button" class="blue-btn-small">
                                     <i class="fa-solid fa-pen-to-square"></i><span class="ps-2"> Edit job</span>
                                 </button>
                             </a>
-                            <button class="grey-btn-small" type="button" data-bs-toggle="modal"
+                            <button class="blue-btn-small" type="button" data-bs-toggle="modal"
                                 data-bs-target="#modal_{{ job.id }}" aria-expanded="false" aria-controls="delete job">
                                 <i class="fa-solid fa-trash-can"></i><span class="ps-2">Delete job</span>
                             </button>
-                            <button class="grey-btn-small" type="button" data-bs-toggle="collapse"
+                            <button class="blue-btn-small" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#assign_{{ job.id }}" aria-expanded="false" aria-controls="assign job">
                                 <i class="fa-solid fa-user-plus"></i><span class="ps-2">Assign job</span>
                             </button>

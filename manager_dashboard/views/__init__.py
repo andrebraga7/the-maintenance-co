@@ -1,2 +1,2 @@
-from .jobs_list import *
+from .jobs import *
 from .users import *
