@@ -1,11 +1,4 @@
 $( document ).ready(function() {
-
-    // Messages timeout function
-    setTimeout(function() {
-        let messages = $("#msg");
-        let alert = new bootstrap.Alert(messages);
-        alert.close();
-    }, 3000)
     
     
     // Add the strong-underline class to the active link defined by the hidden input.
@@ -20,27 +13,32 @@ $( document ).ready(function() {
 
 
     // Feth the equipments list when a category is selected in the create job form
-    $("#id_category").change(function() {
-        let url = $("#create-job").attr("data-fetch-equipments-url");
-        let category_id = $(this).val();
-        
-        fetch(`${url}?category_id=${category_id}`).then(function(response) {
-            return response.json();
-        }).then(function(data) {
+    let url = location.pathname;
+    
+    if (url == "/client/jobs/add_job") {
 
-            // loop through the response data and generate the html
-            let html_data = '<option value selected>Select an equipment</option>';
-
-            for (equipment of data) {
-                html_data += `<option value="${equipment.id}">${equipment.name}</option>`;
-            }
+        $("#id_category").change(function() {
+            let url = $("#create-job").attr("data-fetch-equipments-url");
+            let category_id = $(this).val();
             
-            $("#id_equipment").html(html_data);
+            fetch(`${url}?category_id=${category_id}`).then(function(response) {
+                return response.json();
+            }).then(function(data) {
 
-        }).catch(function(err) {
-            console.warn("An error ocurred:", err);
+                // loop through the response data and generate the html
+                let html_data = '<option value selected>Select an equipment</option>';
+
+                for (equipment of data) {
+                    html_data += `<option value="${equipment.id}">${equipment.name}</option>`;
+                }
+                
+                $("#id_equipment").html(html_data);
+
+            }).catch(function(err) {
+                console.warn("An error ocurred:", err);
+            })
+
         })
-
-    })
+    }
 
 });

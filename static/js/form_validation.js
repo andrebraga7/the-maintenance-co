@@ -32,7 +32,7 @@ $(document).ready(function() {
     )
 
     // Signup form name field
-    $("#id_name").attr("pattern", "^[a-zA-Z]+( [a-zA-Z]+)*$")
+    $("#id_name").attr("pattern", "^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$")
 
     // Signup form password fields
     $("#id_password1").attr("minlength", "8");
