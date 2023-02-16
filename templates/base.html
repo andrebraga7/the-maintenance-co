@@ -29,14 +29,18 @@
     {% block content %}
     {% endblock %}
 
-    <footer id="home_footer">
-        <div class="container-md col-8 pt-4 text-center">
-            <div class="row align-items-center">
-                <p>Copyright 2023</p>
-            </div>
+    <!-- Footer with display as flex -->
+    <footer class="d-flex align-items-center justify-content-center">
+        <div>
+            <span>© 2023 theMaintenanceCo</span>
+            <span class="ps-2">- Develop by Andre Braga</span>
+            <a href="https://github.com/andrebraga7" target="_blank" class="ps-2 fs-4" aria-label="Go to github page, link opens in new window">
+                <i class="fa-brands fa-square-github"></i>
+            </a>
         </div>
     </footer>
 
+    <!-- Custom script -->
     <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

@@ -67,12 +67,30 @@ body > nav {
 }
 
 #home_headline h1 {
-    color: #386034;
+    color: #2266c5;
 }
 
-#home_footer {
+#home_headline button {
+    color: white;
+    background-color: #393939;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+}
+    
+#home_headline button:hover {
+    background-color: #202020;
+}
+
+footer {
+    color: #393939;
+    font-size: 0.9rem;
     background-color: #f5f5f5;
     height: 9vh;
+}
+
+footer a {
+    color: #393939;
 }
 
 
@@ -204,46 +222,6 @@ body > nav {
 
 /* Custom buttons */
 
-.green-btn {
-    color: white;
-    background-color: #386034;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    min-width: 100px;
-}
-
-.green-btn:hover {
-    color: white;
-    background-color: #393939;
-}
-
-.green-btn-small {
-    color: white;
-    font-size: .9rem;
-    background-color: #386034;
-    border: none;
-    border-radius: 2px;
-    padding: 3px 15px;
-}
-
-.green-btn-small:hover {
-    background-color: #393939;
-}
-
-.grey-btn {
-    color: white;
-    background-color: #393939;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    min-width: 100px;
-}
-
-.grey-btn:hover {
-    background-color: #202020;
-}
-
 .grey-btn-small {
     color: white;
     font-size: .9rem;
@@ -270,45 +248,6 @@ body > nav {
 
 .blue-btn-small:hover {
     background-color: #202020;
-}
-
-.red-btn {
-    color: white;
-    background-color: red;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    min-width: 100px;
-}
-
-.red-btn:hover {
-    background-color: darkred;
-}
-
-.red-btn-small {
-    color: white;
-    font-size: .9rem;
-    background-color: red;
-    border: none;
-    border-radius: 2px;
-    padding: 3px 15px;
-}
-
-.red-btn-small:hover {
-    background-color: darkred;
-}
-
-.light-btn-small {
-    color: white;
-    font-size: .9rem;
-    background-color: dimgray;
-    border: none;
-    border-radius: 2px;
-    padding: 3px 15px;
-}
-
-.light-btn-small:hover {
-    background-color: #393939;
 }
 
 .modal-light-btn {
