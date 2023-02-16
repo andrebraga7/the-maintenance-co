@@ -11,7 +11,18 @@
     <div class="row mt-2 p-4">
         <div class="col-md-6 offset-md-3">
 
-            <h5 class="pb-2 ps-2">Add new job</h5>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="pb-2 ps-2">Add new job</h5>
+                    </div>
+                    <div class="col-6 col-sm-4 ms-auto">
+                        <a href="{% url 'add_equipment' %}">
+                            <button type="button" class="grey-btn-small">Add equipment</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="card card-body">
                 <div class="pt-3">
                     <form method="post" id="create-job" data-fetch-equipments-url="{% url 'fetch_equipments' %}">
