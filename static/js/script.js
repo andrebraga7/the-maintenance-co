@@ -1,4 +1,12 @@
 $( document ).ready(function() {
+
+    // Messages timeout function
+    setTimeout(function() {
+        let messages = $("#msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 3000)
+    
     
     // Add the strong-underline class to the active link defined by the hidden input.
     let activeButtonId = $("#active-button").val();

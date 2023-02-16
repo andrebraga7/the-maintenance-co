@@ -30,6 +30,22 @@
         </div>
     </div>
 </div>
+
+<!-- Messages -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                {{ message | safe }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
     <!-- Manager dashboard content goes here -->
     {% block manager_content %}
     {% endblock %}

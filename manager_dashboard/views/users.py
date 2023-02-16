@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.contrib import messages
 from allauth.account.views import SignupView
 from django.contrib.auth.models import User, Permission
 from ..forms import EditUserForm, EditProfileForm
@@ -63,10 +64,11 @@ class EditUser(ManagerAccessMixin, View):
         if form1.is_valid() and form2.is_valid():
             form1.save()
             form2.save()
-            return redirect('show_users')
+            messages.success(request, 'Form saved successfully')
         else:
-            form1 = EditProfileForm()
-            form2 = EditUserForm()
+            messages.error(request, 'Invalid data, form not saved')
+
+        return redirect('show_users')
 
 
 class DeleteUser(ManagerAccessMixin, View):

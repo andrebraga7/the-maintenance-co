@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.contrib import messages
 from client_dashboard.models import Job
 from .forms import FeedbackForm
 from .access import EmployeeAccessMixin
@@ -57,7 +58,12 @@ class AddFeedback(EmployeeAccessMixin, View):
 
         if feedback_form.is_valid():
             feedback_form.save()
+            messages.success(request, 'Form saved successfully')
             return redirect('employee_active_jobs')
+
+        else:
+            messages.error(request, 'Invalid data, form not saved')
+            return redirect('add_feedback', job_id)
 
 
 class JobDone(EmployeeAccessMixin, View):

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.contrib import messages
 from ..models import Category
 from ..forms import CategoryForm
 from .access import ClientAccessMixin
@@ -24,9 +25,11 @@ class Categories(ClientAccessMixin, View):
         if form.is_valid():
             form.instance.user = request.user
             form.save()
-            return redirect('categories')
+            messages.success(request, 'Form saved successfully')
         else:
-            form = CategoryForm()
+            messages.error(request, 'Invalid data, form not saved')
+
+        return redirect('categories')
 
 
 class EditCategory(ClientAccessMixin, View):
@@ -49,9 +52,12 @@ class EditCategory(ClientAccessMixin, View):
 
         if form.is_valid():
             form.save()
+            messages.success(request, 'Form saved successfully')
             return redirect('categories')
+
         else:
-            form = CategoryForm()
+            messages.error(request, 'Invalid data, form not saved')
+            return redirect('edit_category', category_id)
 
 
 class DeleteCategory(ClientAccessMixin, View):

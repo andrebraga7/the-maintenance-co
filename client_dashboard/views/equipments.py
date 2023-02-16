@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.contrib import messages
 from ..models import Equipment, Category
 from ..forms import EquipmentForm
 from .access import ClientAccessMixin
@@ -36,9 +37,11 @@ class AddEquipment(ClientAccessMixin, View):
         if form.is_valid():
             form.instance.user = request.user
             form.save()
+            messages.success(request, 'Form saved successfully')
             return redirect('equipments')
         else:
-            form = EquipmentForm()
+            messages.error(request, 'Invalid data, form not saved')
+            return redirect('add_equipment')
 
 
 class EditEquipment(ClientAccessMixin, View):
@@ -58,9 +61,11 @@ class EditEquipment(ClientAccessMixin, View):
 
         if edit_form.is_valid():
             edit_form.save()
+            messages.success(request, 'Form saved successfully')
             return redirect('equipments')
         else:
-            edit_form = EquipmentForm()
+            messages.error(request, 'Invalid data, form not saved')
+            return redirect('edit_equipment', equipment_id)
 
 
 class DeleteEquipment(ClientAccessMixin, View):

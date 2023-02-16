@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.contrib import messages
 from django.http import JsonResponse
 from ..models import Job, Equipment
 from ..forms import JobForm, EditJobForm
@@ -79,7 +80,11 @@ class AddJob(ClientAccessMixin, View):
             form.instance.title = f'{equipment} in {category}'
             form.instance.user = request.user
             form.save()
+            messages.success(request, 'Form saved successfully')
             return redirect('client_new_jobs')
+        else:
+            messages.error(request, 'Invalid data, form not saved')
+            return redirect('add_job')
 
 
 class FetchEquipments(ClientAccessMixin, View):
@@ -111,8 +116,11 @@ class EditJob(ClientAccessMixin, View):
 
         if edit_form.is_valid():
             edit_form.save()
-
+            messages.success(request, 'Form saved successfully')
             return redirect('client_new_jobs')
+        else:
+            messages.error(request, 'Invalid data, form not saved')
+            return redirect('client_edit_job', job_id)
 
 
 class DeleteJob(ClientAccessMixin, View):

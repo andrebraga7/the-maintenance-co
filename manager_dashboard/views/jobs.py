@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
+from django.contrib import messages
 from client_dashboard.models import Job
 from ..forms import AssignJobForm, EditJobForm
 from .access import ManagerAccessMixin
@@ -80,12 +81,12 @@ class EditJob(ManagerAccessMixin, View):
         edit_form = EditJobForm(request.POST, instance=job)
 
         if edit_form.is_valid():
-            equipment = edit_form.instance.equipment
-            category = edit_form.instance.category
-            edit_form.instance.title = f'{equipment} in {category}'
             edit_form.save()
+            messages.success(request, 'Form saved successfully')
+        else:
+            messages.error(request, 'Invalid data, form not saved')
 
-            return redirect('active_jobs')
+        return redirect('active_jobs')
 
 
 class AssignJob(ManagerAccessMixin, View):
@@ -97,7 +98,11 @@ class AssignJob(ManagerAccessMixin, View):
         if assign_form.is_valid():
             assign_form.instance.status = 1
             assign_form.save()
-            return redirect('new_jobs')
+            messages.success(request, 'Form saved successfully')
+        else:
+            messages.error(request, 'Invalid data, form not saved')
+
+        return redirect('new_jobs')
 
 
 class ManagerDeleteJob(ManagerAccessMixin, View):
