@@ -43,14 +43,4 @@ $( document ).ready(function() {
 
     })
 
-
-    // Capture the contact form
-    $('#contact-form').submit(function(event) {
-        event.preventDefault();
-        let form = $('#form-sent');
-        form.html('Your message was sent successfully!');
-        form.css("display", "block");
-        this.reset();
-    })
-
 });

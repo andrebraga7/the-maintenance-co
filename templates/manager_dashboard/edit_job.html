@@ -17,7 +17,7 @@
                 <h5 class="pb-2">Edit job:</h5>
                 <span><strong># {{ job.id }}</strong> - {{ job.title }} - ({{ job.user.profile.name }})</span>
                 <div class="pt-3">
-                    <form method="post">
+                    <form method="post" class="form-validation">
                         {% crispy edit_form %}
                         <p>
                             <button type="submit" class="blue-btn-small">
