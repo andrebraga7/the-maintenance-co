@@ -1,12 +1,22 @@
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.models import Permission
+from client_dashboard.forms import ContactForm
 
 
 class Home(View):
 
     def get(self, request):
         return render(request, 'home_page/home.html')
+
+
+class Contact(View):
+
+    def get(self, request):
+        return render(
+            request,
+            'home_page/contact.html',
+            {'form': ContactForm()})
 
 
 class Dashboard(View):

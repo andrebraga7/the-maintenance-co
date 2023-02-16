@@ -16,6 +16,11 @@ body > nav {
     background-color: #000000;
 }
 
+.black-nav {
+    color: #d0d0d0;
+    background-color: #000000;
+}
+
 .navbar-brand {
     color: #ffffff;
 }
@@ -38,11 +43,10 @@ body > nav {
 
 
 /* Home */
-
-#landing_page {
+.hero-image {
     background-image: url("../images/hero_1.jpeg");
     background-size: cover;
-    height: 85vh;
+    height: 80vh;
 }
 
 #home_menu li a {

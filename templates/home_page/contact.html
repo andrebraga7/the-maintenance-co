@@ -1,0 +1,33 @@
+{% extends "menu_base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block dashboard_content %}
+
+<!-- Defines which dashboard button is going to have the .strong-underline class -->
+<input id="active-button" type="hidden" value="#btn-3">
+
+<div class="container-fluid">
+    <div class="row mt-2 p-4">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+
+            <h5 class="pb-2 ps-2">Let's get in touch</h5>
+            <div class="card card-body">
+                <div class="pt-3">
+                    <div id="form-sent"></div>
+                    <form id="contact-form" method="post">
+                        {% crispy form %}
+                        <div class="container-fluid">
+                            <div class="row">
+                                <button type="submit" class="blue-btn-small col-sm-6 col-md-4">
+                                    <i class="fa-solid fa-paper-plane"></i><span class="ps-2">Send</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
