@@ -85,6 +85,7 @@ class EditJobForm(forms.ModelForm):
 
 
 class ContactForm(forms.Form):
+    email = forms.EmailField(max_length=50)
     subject = forms.CharField(max_length=100)
     message = forms.CharField(widget=forms.Textarea)
 
@@ -93,5 +94,5 @@ class ContactForm(forms.Form):
         self.helper = FormHelper()
         self.helper.form_tag = False
         self.helper.layout = Layout(
-            FloatingField('subject', 'message')
+            FloatingField('email', 'subject', 'message')
         )

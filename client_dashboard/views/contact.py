@@ -7,7 +7,10 @@ from .access import ClientAccessMixin
 class Contact(ClientAccessMixin, View):
 
     def get(self, request):
+        email = request.user.email
+        data = {'email': email}
+
         return render(
             request,
             'client_dashboard/contact.html',
-            {'form': ContactForm()})
+            {'form': ContactForm(initial=data)})

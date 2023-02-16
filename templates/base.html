@@ -45,5 +45,18 @@
 
     <!-- Form validation script -->
     <script type="text/javascript" src="{% static 'js/form_validation.js' %}"></script>
+
+    <!-- EmailJS scripts -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("service_3a4d0k4");
+        })();
+    </script>
+
+    <!-- EmailJS templates script -->
+    <script type="text/javascript" src="{% static 'js/email.js' %}"></script>
+
 </body>
 </html>
