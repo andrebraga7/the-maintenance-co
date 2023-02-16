@@ -2,10 +2,6 @@
 
 {% load crispy_forms_tags %}
 
-{% load i18n %}
-
-{% block head_title %}{% trans "Signup" %}{% endblock %}
-
 {% block dashboard_content %}
 
 <div class="container-fluid mt-4">
@@ -15,15 +11,12 @@
                 <h5 class="pb-2">Are you sure you want to logout?</h5>
                 <form method="post" action="{% url 'account_logout' %}">
                     {% csrf_token %}
-                    {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                    {% endif %}
                     <div class="container-fluid">
                       <div class="row">
                           <button type="button" class="grey-btn-small col-sm-5 col-md-4 offset-md-1">
                               <a href="{% url 'dashboard' %}">Cancel</a>
                           </button>
-                          <button class="grey-btn-small col-sm-5 offset-sm-1 col-md-4 offset-md-1" type="submit">{% trans 'Sign Out' %}</button>
+                          <button class="grey-btn-small col-sm-5 offset-sm-1 col-md-4 offset-md-1" type="submit">Logout</button>
                       </div>
                   </div>
                 </form>
