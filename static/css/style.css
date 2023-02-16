@@ -48,7 +48,7 @@ header nav {
 
 /* Home */
 .hero-image {
-    background-image: url("../images/hero_1.jpeg");
+    background-image: url("https://res.cloudinary.com/andrebraga7/image/upload/v1675090781/static/images/hero_1.e5aef33d418c.jpg");
     background-size: cover;
     height: 80vh;
 }
