@@ -10,6 +10,12 @@ class Home(View):
         return render(request, 'home_page/home.html')
 
 
+class About(View):
+
+    def get(self, request):
+        return render(request, 'home_page/about.html')
+
+
 class Contact(View):
 
     def get(self, request):

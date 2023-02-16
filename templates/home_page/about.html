@@ -1,0 +1,37 @@
+{% extends "menu_base.html" %}
+
+{% block dashboard_content %}
+
+<!-- Defines which dashboard button is going to have the .strong-underline class -->
+<input id="active-button" type="hidden" value="#btn-3">
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 col-lg-6 offset-lg-3 mt-5">
+
+            <h1 class="py-4 ps-2 fs-2 text-center">A little bit of what we are all about</h1>
+            <div class="pt-4">
+                <p>
+                    Here at theMaintenanceCo we provide specialized maintenance service for fast food restaurants. Our
+                    clients range from McBell to Taco Donalds to TFC - Texas Fried Chicken. We provide regular scheduled
+                    maintenance but also emergency repairs within 2 hours from call out service.
+                </p>
+                <p>
+                    Our employees are always up-to-date in the latest fast food restaurants equipments and facilities,
+                    with an extensive knowledge base of the main equipments used in these restaurants.
+                </p>
+                <p>
+                    With our services we take care of any part orderign required to carry out maintenace, so you don't
+                    have to worry about any of the technical side, leave that to us!
+                </p>
+                <p>
+                    If you have any further queries or would like to discuss about the services we provide and how we
+                    can help take care of the maintenace and repair of your bussiness, please feel free to <a
+                        href="{% url 'home_contact' %}">contact us</a>
+                    and we'll get back to you as quickly as we can.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
