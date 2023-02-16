@@ -309,3 +309,7 @@ footer a {
 #id_message {
     height: 30vh;
 }
+
+.form-help-text {
+    font-size: small;
+}
