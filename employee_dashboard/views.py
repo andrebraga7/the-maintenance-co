@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib import messages
+from django.contrib.postgres.search import SearchQuery, SearchVector
 from client_dashboard.models import Job
 from .forms import FeedbackForm
 from .access import EmployeeAccessMixin
@@ -12,6 +13,22 @@ class EmployeeActiveJobs(EmployeeAccessMixin, View):
         jobs = Job.objects.filter(assignment=request.user)
         active_jobs = jobs.filter(status=1)
         completed_jobs = jobs.filter(status=2)
+
+        qs = request.GET.get("queryset")
+
+        if qs != '' and qs is not None:
+            user_query = SearchQuery(qs)
+            active_jobs = Job.objects.annotate(
+                search=SearchVector(
+                    'id',
+                    'title',
+                    'user__username',
+                    'user__profile__name',
+                    'user__email',
+                    'description',
+                    'assignment',
+                ),
+            ).filter(status=1).filter(search=user_query)
 
         return render(
             request,
@@ -28,6 +45,22 @@ class EmployeeCompletedJobs(EmployeeAccessMixin, View):
         jobs = Job.objects.filter(assignment=request.user)
         active_jobs = jobs.filter(status=1)
         completed_jobs = jobs.filter(status=2)
+
+        qs = request.GET.get("queryset")
+
+        if qs != '' and qs is not None:
+            user_query = SearchQuery(qs)
+            completed_jobs = Job.objects.annotate(
+                search=SearchVector(
+                    'id',
+                    'title',
+                    'user__username',
+                    'user__profile__name',
+                    'user__email',
+                    'description',
+                    'assignment',
+                ),
+            ).filter(status=2).filter(search=user_query)
 
         return render(
             request,
