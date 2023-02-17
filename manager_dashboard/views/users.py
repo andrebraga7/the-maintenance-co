@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib import messages
+from django.contrib.postgres.search import SearchQuery, SearchVector
 from allauth.account.views import SignupView
 from django.contrib.auth.models import User, Permission
 from ..forms import EditUserForm, EditProfileForm
@@ -33,6 +34,20 @@ class ShowUsers(ManagerAccessMixin, View):
 
     def get(self, request):
         users = User.objects.all().order_by('profile__name')
+
+        qs = request.GET.get("queryset")
+
+        if qs != '' and qs is not None:
+            user_query = SearchQuery(qs)
+            users = User.objects.annotate(
+                search=SearchVector(
+                    'id',
+                    'username',
+                    'profile__name',
+                    'profile__type',
+                    'email',
+                ),
+            ).filter(search=user_query).order_by('profile__name')
 
         return render(
             request,

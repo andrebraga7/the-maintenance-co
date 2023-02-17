@@ -9,7 +9,36 @@
 <div class="container-fluid">
     <div class="row mt-2 p-4">
         <div class="col-md-6 offset-md-3">
-            <h5 class="pb-2 ps-2">Users</h5>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-6">
+                        <h5 class="pb-2">Users</h5>
+                    </div>
+                    <div class="col-6 text-end">
+                        <button class="blue-btn-small" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#filter_field" aria-expanded="false"
+                            aria-controls="filter jobs">Filter</button>
+                    </div>
+                </div>
+
+                <!-- Search field -->
+                <div class="row my-3 collapse" id="filter_field">
+                    <div class="col">
+                        <form action="" method="get">
+                            <div class="input-group">
+                                <input type="search" name="queryset" id="queryset" class="form-control"
+                                    placeholder="Filter jobs..." aria-label="Filter jobs">
+                                <button class="blue-btn-search"><i class="fa-solid fa-magnifying-glass"></i>
+                                    Filter</button>
+                                <button class="blue-btn-search"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
             <div class="accordion" id="dash_accordion">
                 {% for user in users %}
                 <div class="accordion-item">
@@ -84,7 +113,8 @@
                         </div>
                     </div>
                 </div>
-
+                {% empty %}
+                    <p>No records found.</p>
                 {% endfor %}
             </div>
         </div>
