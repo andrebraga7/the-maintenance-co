@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib import messages
+from django.contrib.postgres.search import SearchQuery, SearchVector
 from django.http import JsonResponse
 from ..models import Job, Equipment
 from ..forms import JobForm, EditJobForm
@@ -14,6 +15,19 @@ class NewJobs(ClientAccessMixin, View):
         new_jobs = jobs.filter(status=0)
         active_jobs = jobs.filter(status=1)
         completed_jobs = jobs.filter(status=2)
+
+        qs = request.GET.get("queryset")
+
+        if qs != '' and qs is not None:
+            user_query = SearchQuery(qs)
+            new_jobs = Job.objects.annotate(
+                search=SearchVector(
+                    'id',
+                    'title',
+                    'description',
+                    'assignment',
+                ),
+            ).filter(status=0).filter(search=user_query)
 
         return render(
             request,
@@ -33,6 +47,19 @@ class ActiveJobs(ClientAccessMixin, View):
         active_jobs = jobs.filter(status=1)
         completed_jobs = jobs.filter(status=2)
 
+        qs = request.GET.get("queryset")
+
+        if qs != '' and qs is not None:
+            user_query = SearchQuery(qs)
+            active_jobs = Job.objects.annotate(
+                search=SearchVector(
+                    'id',
+                    'title',
+                    'description',
+                    'assignment',
+                ),
+            ).filter(status=1).filter(search=user_query)
+
         return render(
             request,
             'client_dashboard/active_jobs.html',
@@ -50,6 +77,19 @@ class CompletedJobs(ClientAccessMixin, View):
         new_jobs = jobs.filter(status=0)
         active_jobs = jobs.filter(status=1)
         completed_jobs = jobs.filter(status=2)
+
+        qs = request.GET.get("queryset")
+
+        if qs != '' and qs is not None:
+            user_query = SearchQuery(qs)
+            completed_jobs = Job.objects.annotate(
+                search=SearchVector(
+                    'id',
+                    'title',
+                    'description',
+                    'assignment',
+                ),
+            ).filter(status=2).filter(search=user_query)
 
         return render(
             request,
