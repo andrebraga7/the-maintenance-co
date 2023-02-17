@@ -29,7 +29,26 @@
                     </ul>
                 </div>
             </nav>
+        </div>
+    </div>
 
+    <!-- Search field -->
+    <div class="row mb-3">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <form action="" method="get">
+                <div class="input-group">
+                    <input type="search" name="queryset" id="queryset" class="form-control"
+                        placeholder="Filter jobs..." aria-label="Filter jobs">
+                    <button class="blue-btn-search"><i class="fa-solid fa-magnifying-glass"></i> Filter</button>
+                    <button class="blue-btn-search"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Jobs accordion -->
+    <div class="row">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
             <div class="accordion" id="dash_accordion">
                 {% for job in new_jobs %}
                 <div class="accordion-item">
@@ -121,7 +140,7 @@
                 </div>
 
                 {% empty %}
-                <p>There are currently no new jobs.</p>
+                <p>No records found in new jobs.</p>
                 {% endfor %}
             </div>
 

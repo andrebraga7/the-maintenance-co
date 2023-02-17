@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib import messages
+from django.contrib.postgres.search import SearchQuery, SearchVector
 from client_dashboard.models import Job
 from ..forms import AssignJobForm, EditJobForm
 from .access import ManagerAccessMixin
@@ -13,6 +14,22 @@ class NewJobs(ManagerAccessMixin, View):
         new_jobs = jobs.filter(status=0)
         active_jobs = jobs.filter(status=1)
         completed_jobs = jobs.filter(status=2)
+
+        qs = request.GET.get("queryset")
+
+        if qs != '' and qs is not None:
+            user_query = SearchQuery(qs)
+            new_jobs = Job.objects.annotate(
+                search=SearchVector(
+                    'id',
+                    'title',
+                    'user__username',
+                    'user__profile__name',
+                    'user__email',
+                    'description',
+                    'assignment',
+                ),
+            ).filter(status=0).filter(search=user_query)
 
         return render(
             request,

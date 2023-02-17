@@ -8,9 +8,10 @@
 <input id="active-button" type="hidden" value="#btn-1" name="Jobs">
 
 <div class="container-fluid">
+            
+    <!-- Jobs navmenu -->
     <div class="row pt-4">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-
             <nav class="navbar navbar-expand-sm ps-2 pt-2 pb-4">
                 <a id="dash_menu_2_toggle" class="navbar-toggler" data-bs-toggle="collapse" href="#jobs_options"
                     aria-controls="jobs_options" aria-expanded="false" aria-label="Toggle navigation">Active
@@ -29,7 +30,7 @@
                     </ul>
                 </div>
             </nav>
-
+        
             <div class="accordion" id="dash_accordion">
                 {% for job in active_jobs %}
                 <div class="accordion-item">
