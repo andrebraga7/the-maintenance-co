@@ -27,7 +27,9 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*About*](#about)
         - [*Contact*](#contact)
         - [*Login*](#login)
-
+    - [Manager dashboard](#manager-dashboard)
+        - [*Manager menu*](#manager-menu)
+        - [*New jobs*](#new-jobs)
 
 # **Project**
 
@@ -201,7 +203,7 @@ The contact page has a form where the sire user can send a message to the compan
 
 <details><summary><b>Contact page</b></summary>
 
-![About](readme/assets/images/contact_page.png)
+![Contact](readme/assets/images/contact_page.png)
 </details><br/>
 
 [Back to top](<#table-of-content>)
@@ -211,7 +213,34 @@ In the login page the user can enter the username and password, it then validade
 
 <details><summary><b>Login page</b></summary>
 
-![About](readme/assets/images/login.png)
+![Login](readme/assets/images/login.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+## **Manager Dashboard**
+
+### **Manager menu**
+The manager dashbaord has it's out sub navigation menu underneath the top navigation. It has links to the internal pages of the dashboard: *jobs, add user* and *users*.
+
+<details><summary><b>Manager dashboard menu</b></summary>
+
+![Manager dashboard menu](readme/assets/images/dash_manager_menu.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### **New jobs**
+The new jobs page is the landing page for the dashboard, this is where the user can see all newly created jobs. They have a status of new until the job is assigned to an employee, then it is update with an active status and moves to the active jobs list. In the open accordion the manager can view all relevant information for the job and can *edit, delete* or *assign a job*.
+
+<details><summary><b>New jobs</b></summary>
+
+![New jobs](readme/assets/images/dash_new_jobs.png)
+</details><br/>
+
+<details><summary><b>New jobs accordion details</b></summary>
+
+![New jobs accordion details](readme/assets/images/dash_new_jobs_info.png)
 </details><br/>
 
 [Back to top](<#table-of-content>)
