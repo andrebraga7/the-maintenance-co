@@ -117,3 +117,27 @@ The home page has a basic structure with a landing, about, contact and login pag
 In the manager dashboard the user can view, edit and delete all jobs, add, edit and delete users. For this project the only user that can create a new user is the manager. This is because of the way the company's bussiness model works. The logic is that after a user sign all relevant contracts and paperworks he them receives a username with password with the client dashboard being previously setup by a manager.
 In the client dashboard the user can view, edit and delete only jobs from his username. The user can also add, edit and delete categories and equipments. There is also a message page where the client can send an email and some fields are prepopuplated with user data.
 In the employee dashboard the user can view all jobs that have been assigned to him, add feedback and mark jobs as done.
+
+You can see all features in detail in the [Features](<#features>) section.
+
+[Back to top](<#table-of-content>)
+
+## Design Choices
+
+* ### Color Scheme
+TheMaintenanceCo is built on minimalist design choice, so the color palette select for this project reflects this intention. All caolors are mainly monochromatic shades of black and grey and only the buttons and some link have either a True Blue or Dodger Blue.
+
+![Color](readme/assets/images/colors.png)
+
+* ### Typography
+The fonts used for the site are the standard Bootstrap 5 native fonts stack. This system selects the best user firendly font depending on the os the user is using:
+
+* Safari for macOS and iOS: -apple-system;
+* Windows: Segoe UI;
+* Android: Roboto;
+* Linux: Noto Sans, Liberation Sans;
+* Fallback fonts: Helvetica Neue, Arial and Sans serif.
+
+To find out more about these Bootstrap option please read the documentation [here](https://getbootstrap.com/docs/5.0/content/reboot/#native-font-stack).
+
+[Back to top](<#table-of-content>)
