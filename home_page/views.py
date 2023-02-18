@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from django.contrib.auth.models import Permission
+from allauth.account.views import SignupView
+from django.contrib.auth.models import User, Permission
 from client_dashboard.forms import ContactForm
 
 
@@ -37,3 +38,31 @@ class Dashboard(View):
             return redirect('employee_active_jobs')
         else:
             return redirect('home')
+
+
+class CustomSignupView(SignupView):
+
+    def form_valid(self, form):
+
+        user = form.save(self.request)
+
+        if user.profile.type == '1':
+            permission = Permission.objects.get(codename='manager')
+            user.user_permissions.add(permission)
+            user.is_staff = True
+            user.is_superuser = True
+            user.is_active = False
+            user.save()
+        elif user.profile.type == '2':
+            permission = Permission.objects.get(codename='employee')
+            user.user_permissions.add(permission)
+            user.is_active = False
+            user.save()
+
+        elif user.profile.type == '3':
+            permission = Permission.objects.get(codename='client')
+            user.user_permissions.add(permission)
+            user.is_active = False
+            user.save()
+
+        return redirect('account_signup')

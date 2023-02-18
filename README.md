@@ -31,6 +31,7 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*Manager menu*](#manager-menu)
         - [*New jobs*](#new-jobs)
         - [*Active jobs*](#active-jobs)
+        - [*Completed jobs*](#completed-jobs)
 
 # **Project**
 
@@ -258,3 +259,11 @@ Another feature of this page is if the client has request that a job be deleted 
 
 [Back to top](<#table-of-content>)
 
+### **Completed jobs**
+
+<details><summary><b>Completed jobs</b></summary>
+
+![Completed jobs](readme/assets/images/dash_completed_jobs.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)

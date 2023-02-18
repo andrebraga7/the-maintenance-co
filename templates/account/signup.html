@@ -1,27 +1,64 @@
-{% extends "manager_dashboard/manager_dashboard_base.html" %}
+{% extends "base.html" %}
 
 {% load crispy_forms_tags %}
 
-{% load i18n %}
-
-{% block head_title %}{% trans "Signup" %}{% endblock %}
-
-{% block manager_content %}
-
-<!-- Defines which dashboard button is going to have the .strong-underline class -->
-<input id="active-button" type="hidden" value="#btn-2" name="Add User">
-
-<div class="container-fluid">
-    <div class="row mt-2 p-4">
-        <div class="col-md-6 offset-md-3">
-            <h5 class="pb-2 ps-2">Create new user</h5>
-            <div class="card card-body">
-                <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-                    {% crispy form %}
-                    <button class="blue-btn-small" type="submit">{% trans "Sign Up" %} &raquo;</button>
-                </form>
+{% block content %}
+<header>
+    
+    <!-- Navigation with toggle button for smaller screens -->
+    <nav class="navbar navbar-expand-md black-nav">
+        <div class="container-md mt-4 col-10">
+            <a class="navbar-brand fs-3 fw-bold" href="{% url 'home' %}">TheMaintenanceCo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars fs-3"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul id="top-menu" class="navbar-nav ms-auto mb-2 mb-lg-0 fw-bold">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}" id="btn-1" aria-label="go to home page">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home_about' %}" id="btn-2" aria-label="go to about page">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home_contact' %}" id="btn-3" aria-label="go to contact page">Contact</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'dashboard' %}" aria-label="go to dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_logout' %}" aria-label="logout">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}" aria-label="go to login page">Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
             </div>
-       </div>
+        </div>
+    </nav>
+</header>
+
+<main id="dash_main">
+
+    <div class="container-fluid">
+        <div class="row mt-2 p-4">
+            <div class="col-md-6 offset-md-3">
+                <h5 class="pb-2 ps-2">Sign up</h5>
+                <div class="card card-body">
+                    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                        {% crispy form %}
+                        <button class="blue-btn-small" type="submit">Sign Up &raquo;</button>
+                    </form>
+                </div>
+           </div>
+        </div>
     </div>
-</div>
+
+</main>
+
 {% endblock %}

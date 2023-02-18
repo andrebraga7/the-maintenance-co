@@ -38,9 +38,99 @@
                 </div>
             </div>
 
-
-            <div class="accordion" id="dash_accordion">
+            <!-- Users awaiting approval -->
+            <span class="ps-2">Users awaiting approval:</span>
+            <div class="accordion pt-2 pb-4" id="dash_accordion">
                 {% for user in users %}
+                {% if user.is_active == False %}
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne">
+                            <span>{{ user.profile.name }}</span>
+                        </button>
+                    </h2>
+                    <div id="{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                        data-bs-parent="#dash_accordion">
+                        <div class="accordion-body">
+                            <p>
+                                <strong>Username:</strong><br>
+                                <span>{{ user }}</span>
+                            </p>
+                            <p>
+                                <strong>Email:</strong><br>
+                                <span>{{ user.email }}</span>
+                            </p>
+                            <p>
+                                <strong>Type:</strong><br>
+                                {% if user.profile.type == 1 %}
+                                <span>Manager</span>
+                                {% elif user.profile.type == 2 %}
+                                <span>Employee</span>
+                                {% elif user.profile.type == 3 %}
+                                <span>Client</span>
+                                {% else %}
+                                <span>Unknown type</span>
+                                {% endif %}
+                            </p>
+                            <a href="{% url 'edit_user' user.id %}">
+                                <button class="blue-btn-small">
+                                    <i class="fa-solid fa-user-pen"></i><span class="ps-2">Edit user</span>
+                                </button>
+                            </a>
+                            <button class="blue-btn-small" type="button" data-bs-toggle="modal"
+                                data-bs-target="#modal_{{ user.id }}" aria-expanded="false" aria-controls="delete user">
+                                <i class="fa-solid fa-user-xmark"></i><span class="ps-2">Delete user</span>
+                            </button>
+                            <a href="{% url 'approve_user' user.id %}">
+                                <button class="blue-btn-small">
+                                    <i class="fa-solid fa-check"></i><span class="ps-2">Approve user</span>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Delete user Modal -->
+                <div class="modal fade" id="modal_{{ user.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header justify-content-center p-4 p-md-5">
+                                <strong class="text-center">
+                                    <p>Are you sure you would like to delete {{ user }}?</p>
+                                    <p>This will delete all associated data with the user and cannot be undone!</p>
+                                </strong>
+                            </div>
+                            <div class="modal-body text-center">
+                                <div class="container-fluid">
+                                    <div class="row modal-buttons">
+                                        <div class="col-6 modal-button-border p-2">
+                                            <button type="button" class="modal-light-btn"
+                                                data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                        <div class="col-6 p-2">
+                                            <a href="{% url 'delete_user' user.id %}">
+                                                <button class="modal-red-btn">Delete user</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% empty %}
+                    <p>No users awaiting approval.</p>
+                {% endfor %}
+            </div>
+
+            <!-- Approved active users -->
+            <span class="ps-2">Active users:</span>
+            <div class="accordion pt-2 pb-4" id="dash_accordion">
+                {% for user in users %}
+                {% if user.is_active %}
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
@@ -113,6 +203,7 @@
                         </div>
                     </div>
                 </div>
+                {% endif %}
                 {% empty %}
                     <p>No records found.</p>
                 {% endfor %}

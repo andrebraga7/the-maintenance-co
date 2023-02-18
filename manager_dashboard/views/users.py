@@ -2,32 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib import messages
 from django.contrib.postgres.search import SearchQuery, SearchVector
-from allauth.account.views import SignupView
 from django.contrib.auth.models import User, Permission
 from ..forms import EditUserForm, EditProfileForm
 from .access import ManagerAccessMixin
-
-
-class CustomSignupView(ManagerAccessMixin, SignupView):
-
-    def form_valid(self, form):
-
-        user = form.save(self.request)
-
-        if user.profile.type == '1':
-            permission = Permission.objects.get(codename='manager')
-            user.user_permissions.add(permission)
-            user.is_staff = True
-            user.is_superuser = True
-            user.save()
-        elif user.profile.type == '2':
-            permission = Permission.objects.get(codename='employee')
-            user.user_permissions.add(permission)
-        elif user.profile.type == '3':
-            permission = Permission.objects.get(codename='client')
-            user.user_permissions.add(permission)
-
-        return redirect('account_signup')
 
 
 class ShowUsers(ManagerAccessMixin, View):
@@ -54,6 +31,16 @@ class ShowUsers(ManagerAccessMixin, View):
             'manager_dashboard/show_users.html',
             {'users': users}
             )
+
+
+class ApproveUser(ManagerAccessMixin, View):
+
+    def get(self, request, user_id):
+        user = get_object_or_404(User, id=user_id)
+        user.is_active = True
+        user.save()
+
+        return redirect('show_users')
 
 
 class EditUser(ManagerAccessMixin, View):
