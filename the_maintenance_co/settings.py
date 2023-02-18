@@ -172,3 +172,13 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_SIGNUP_FORM_CLASS = 'manager_dashboard.forms.CustomSignupForm'
 ACCOUNT_FORMS = {'login': 'home_page.forms.CustomLoginForm'}
+
+AUTHENTICATION_BACKENDS = [
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]

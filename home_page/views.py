@@ -42,8 +42,6 @@ class Dashboard(View):
             return redirect('client_new_jobs')
         elif request.user.has_perm('manager_dashboard.employee'):
             return redirect('employee_active_jobs')
-        elif request.user:
-            return redirect('awaiting_approval')
         else:
             return redirect('home')
 
