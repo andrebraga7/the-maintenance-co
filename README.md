@@ -30,6 +30,7 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
     - [Manager dashboard](#manager-dashboard)
         - [*Manager menu*](#manager-menu)
         - [*New jobs*](#new-jobs)
+        - [*Active jobs*](#active-jobs)
 
 # **Project**
 
@@ -244,3 +245,16 @@ The new jobs page is the landing page for the dashboard, this is where the user 
 </details><br/>
 
 [Back to top](<#table-of-content>)
+
+### **Active jobs**
+In the active jobs page the user can view all jobs that are active, meaning, they have an employee asigned to them. In this page the user can: *edit, delete, close* or *reassign a job*.
+
+Another feature of this page is if the client has request that a job be deleted it then gives the manager an option to *approve deletion* or *cancel deleteion* at the top of the accordion. It also shows a message in the title saying that the job is *Awaiting deletion*.
+
+<details><summary><b>Active jobs</b></summary>
+
+![Active jobs](readme/assets/images/dash_active_jobs.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
