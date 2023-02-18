@@ -20,6 +20,27 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
     * [Site Structure](<#site-structure>)
     * [Design Choices](<#design-choices>)
 
+* [**Features**](<#existing-features>)
+    * [Navigation](<#navigation>)
+
+
+    * [About](<#about>)
+    * [All](<#all>)
+    * [Albums](<#albums>)
+    * [Concerts](<#concerts>)
+    * [Review Detail View](<#review-detail-view>)
+    * [Update / Delete Comment](<#update-and-delete-comment>)
+    * [Member Reviews](<#member-reviews>)
+    * [Create Review](<#create-review>)
+    * [Update Review](<#update-review>)
+    * [Profile Page](<#profile-page>)
+    * [Admin Area](<#admin-area>)
+    * [Sign Up](<#sign-up>)
+    * [Sign In](<#sign-in>)
+    * [Sign Out](<#sign-out>)
+    * [Footer](<#footer>)
+    * [Flash Messages](<#flash-messages-and-confirmation-pages-to-the-user>)
+
 
 
 # **Project**
@@ -141,3 +162,30 @@ The fonts used for the site are the standard Bootstrap 5 native fonts stack. Thi
 To find out more about these Bootstrap option please read the documentation [here](https://getbootstrap.com/docs/5.0/content/reboot/#native-font-stack).
 
 [Back to top](<#table-of-content>)
+
+# **Features**
+All the project features are detailed and listed bellow:
+
+## **Navigation**
+The main navigation menu has a black background with a brand text on the left and navigation link to the right, which are all offwhite. The visible links change depending if a user is looged in or not:
+
+If the user is logged out he can view: *home*, *about*, *contact* and *login*.
+If the user is logged in he can view: *home*, *about*, *contact*, *dashboard* and *logout*
+In the dashboard all user view: *logout* and the *user name* that is currently logged in.
+
+<details><summary><b>Top menu logged out</b></summary>
+
+![Top menu](readme/assets/images/top_menu.png)
+</details><br/>
+
+<details><summary><b>Top menu logged in</b></summary>
+
+![Top menu](readme/assets/images/top_menu_logged.png)
+</details><br/>
+
+<details><summary><b>Top menu in the dashboard</b></summary>
+
+![Top menu](readme/assets/images/top_menu_dash.png)
+</details><br/>
+
+## **About**
