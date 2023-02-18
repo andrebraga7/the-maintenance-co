@@ -8,38 +8,24 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
 
 # Table of Content
 
-* [**Project**](<#project>)
-    * [Objective](<#objective>)
-    * [Site Users Goal](<#site-users-goal>)
-    * [Site Owners Goal](<#site-owners-goal>)
-    * [Project Management](<#project-management>)
+- [**Project**](#project)
+    - [Objective](#objective)
+    - [Site Users Goal](#site-users-goal)
+    - [Site Owners Goal](#site-owners-goal)
+    - [Project Management](#project-management)
 
-* [**User Experience (UX)**](<#user-experience-ux>)
-    * [Wireframes](<#wireframes>)
-    * [User Stories](<#user-stories>)
-    * [Site Structure](<#site-structure>)
-    * [Design Choices](<#design-choices>)
+- [**User Experience (UX)**](#user-experience-ux)
+    - [Wireframes](#wireframes)
+    - [User Stories](#user-stories)
+    - [Site Structure](#site-structure)
+    - [Design Choices](#design-choices)
 
-* [**Features**](<#existing-features>)
-    * [Navigation](<#navigation>)
+- [**Features**](#existing-features)
+    - [Home page](#home-page)
+        - [*Home*](#home)
+        - [*Navigation*](#navigation)
+        - [*About*](#about)
 
-
-    * [About](<#about>)
-    * [All](<#all>)
-    * [Albums](<#albums>)
-    * [Concerts](<#concerts>)
-    * [Review Detail View](<#review-detail-view>)
-    * [Update / Delete Comment](<#update-and-delete-comment>)
-    * [Member Reviews](<#member-reviews>)
-    * [Create Review](<#create-review>)
-    * [Update Review](<#update-review>)
-    * [Profile Page](<#profile-page>)
-    * [Admin Area](<#admin-area>)
-    * [Sign Up](<#sign-up>)
-    * [Sign In](<#sign-in>)
-    * [Sign Out](<#sign-out>)
-    * [Footer](<#footer>)
-    * [Flash Messages](<#flash-messages-and-confirmation-pages-to-the-user>)
 
 
 
@@ -71,10 +57,10 @@ I wrote down the different models and fields I would need for the project in a n
 
 I created the following models for the project:
 
-* **Profile (user profile)** - A model created to store additional user information and is linked to the default user model from allauth.
-* **Category** - Stores all the client created categories of equipments in the restaurant. It is a foreign key to the equipments model.
-* **Equipment** - Stores all the different types of equipments in the store, it takes the category and user models as foreign key's.
-* **Job** - This models stores all data relevant to the job a user created and has the user, category, equipment as foreign keys's.
+- **Profile (user profile)** - A model created to store additional user information and is linked to the default user model from allauth.
+- **Category** - Stores all the client created categories of equipments in the restaurant. It is a foreign key to the equipments model.
+- **Equipment** - Stores all the different types of equipments in the store, it takes the category and user models as foreign key's.
+- **Job** - This models stores all data relevant to the job a user created and has the user, category, equipment as foreign keys's.
 
 <details><summary><b>Database ERD (Entity Relationship Diagram)</b></summary>
 
@@ -89,7 +75,7 @@ A created all the initial wireframes using [Balsamiq](https://balsamiq.com). The
 <details><summary><b>Wireframes</b></summary>
 
 ![Wireframes1](readme/assets/images/dashboard.png)
-![Wireframes2](readme/assets/images/home_page.png)
+![Wireframes2](readme/assets/images/home_page_wire.png)
 ![Wireframes3](readme/assets/images/mobile_add_job.png)
 ![Wireframes4](readme/assets/images/mobile_dashboard.png)
 
@@ -153,11 +139,11 @@ TheMaintenanceCo is built on minimalist design choice, so the color palette sele
 * ### Typography
 The fonts used for the site are the standard Bootstrap 5 native fonts stack. This system selects the best user firendly font depending on the os the user is using:
 
-* Safari for macOS and iOS: -apple-system;
-* Windows: Segoe UI;
-* Android: Roboto;
-* Linux: Noto Sans, Liberation Sans;
-* Fallback fonts: Helvetica Neue, Arial and Sans serif.
+- Safari for macOS and iOS: -apple-system;
+- Windows: Segoe UI;
+- Android: Roboto;
+- Linux: Noto Sans, Liberation Sans;
+- Fallback fonts: Helvetica Neue, Arial and Sans serif.
 
 To find out more about these Bootstrap option please read the documentation [here](https://getbootstrap.com/docs/5.0/content/reboot/#native-font-stack).
 
@@ -166,12 +152,22 @@ To find out more about these Bootstrap option please read the documentation [her
 # **Features**
 All the project features are detailed and listed bellow:
 
-## **Navigation**
+## **Home page**
+
+### **Home**
+This is the main ladning page with a top navigation menu with link to all pages, a hero image with a call to action button that takes the user to the contact page and a footer.
+
+<details><summary><b>Home page</b></summary>
+
+![Home page](readme/assets/images/home_page.png)
+</details><br/>
+
+### **Navigation**
 The main navigation menu has a black background with a brand text on the left and navigation link to the right, which are all offwhite. The visible links change depending if a user is looged in or not:
 
-If the user is logged out he can view: *home*, *about*, *contact* and *login*.
-If the user is logged in he can view: *home*, *about*, *contact*, *dashboard* and *logout*
-In the dashboard all user view: *logout* and the *user name* that is currently logged in.
+- If the user is logged out he can view: *home*, *about*, *contact* and *login*.
+- If the user is logged in he can view: *home*, *about*, *contact*, *dashboard* and *logout*.
+- In the dashboard all user view: *logout* and the *user name* that is currently logged in.
 
 <details><summary><b>Top menu logged out</b></summary>
 
@@ -190,7 +186,7 @@ In the dashboard all user view: *logout* and the *user name* that is currently l
 
 [Back to top](<#table-of-content>)
 
-## **About**
+### **About**
 The About page is very simple, it only contains some introduction information about the company's service and a link so the user can go to the contact page and send a message for more information.
 
 <details><summary><b>About page</b></summary>
@@ -199,3 +195,4 @@ The About page is very simple, it only contains some introduction information ab
 </details><br/>
 
 [Back to top](<#table-of-content>)
+
