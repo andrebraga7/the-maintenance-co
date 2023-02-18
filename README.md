@@ -25,8 +25,8 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*Home*](#home)
         - [*Navigation*](#navigation)
         - [*About*](#about)
-        - [*Contact*](#)
-
+        - [*Contact*](#contact)
+        - [*Login*](#login)
 
 
 # **Project**
@@ -202,6 +202,16 @@ The contact page has a form where the sire user can send a message to the compan
 <details><summary><b>Contact page</b></summary>
 
 ![About](readme/assets/images/contact_page.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### **Login**
+In the login page the user can enter the username and password, it then validades the user and check which user type it is to redirect the user to the correct dashboard.
+
+<details><summary><b>Login page</b></summary>
+
+![About](readme/assets/images/login.png)
 </details><br/>
 
 [Back to top](<#table-of-content>)
