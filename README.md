@@ -25,7 +25,7 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*Home*](#home)
         - [*Navigation*](#navigation)
         - [*About*](#about)
-
+        - [*Contact*](#)
 
 
 
@@ -196,3 +196,12 @@ The About page is very simple, it only contains some introduction information ab
 
 [Back to top](<#table-of-content>)
 
+### **Contact**
+The contact page has a form where the sire user can send a message to the company. The message is sent using [EmailJS](https://www.emailjs.com/) api to deliver to the company's email.
+
+<details><summary><b>Contact page</b></summary>
+
+![About](readme/assets/images/contact_page.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
