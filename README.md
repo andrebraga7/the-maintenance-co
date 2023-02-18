@@ -180,12 +180,22 @@ In the dashboard all user view: *logout* and the *user name* that is currently l
 
 <details><summary><b>Top menu logged in</b></summary>
 
-![Top menu](readme/assets/images/top_menu_logged.png)
+![Top menu logged](readme/assets/images/top_menu_logged.png)
 </details><br/>
 
 <details><summary><b>Top menu in the dashboard</b></summary>
 
-![Top menu](readme/assets/images/top_menu_dash.png)
+![Top menu dash](readme/assets/images/top_menu_dash.png)
 </details><br/>
 
+[Back to top](<#table-of-content>)
+
 ## **About**
+The About page is very simple, it only contains some introduction information about the company's service and a link so the user can go to the contact page and send a message for more information.
+
+<details><summary><b>About page</b></summary>
+
+![About](readme/assets/images/about_page.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
