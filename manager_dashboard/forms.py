@@ -37,19 +37,24 @@ class CustomSignupForm(forms.Form):
 
 
 class EditUserForm(forms.ModelForm):
+
+    is_active = forms.ChoiceField(
+        choices=[(True, 'Active'), (False, 'Inactive')])
+
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['username', 'email', 'is_active']
         help_texts = {
             'username': None,
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+
         self.helper = FormHelper()
         self.helper.form_tag = False
         self.helper.layout = Layout(
-            FloatingField('username', 'email')
+            FloatingField('username', 'email', 'is_active')
         )
 
 
