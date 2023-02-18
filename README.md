@@ -84,7 +84,6 @@ In order to keep everything organized I used Github's built in project board to 
 
 <details><summary><b>Github's project management board</b></summary>
 
-
 ![User Stories](readme/assets/images/project_board.png)
 </details><br/>
 
@@ -109,11 +108,15 @@ I created the following models for the project:
 # **User Experience (UX)**
 
 ## Wireframes
-The wireframes for the site were created in the software [Balsamiq](https://balsamiq.com). The wireframes have been created for desktop, tablet and mobile devices. The text content wasn't finalized during the wireframe process. It's worth mentioning that there are visual differences compared to the wireframes, the reason being design choices that was made during the creation process.
+A created all the initial wireframes using [Balsamiq](https://balsamiq.com). They were created with a desktop and responsive mobile options. There are some slight differences to the final project as some design choices where changed during the development process to pressent a better user experience.
 
 <details><summary><b>Wireframes</b></summary>
 
-![Wireframes](readme/assets/images/balsamiq.png)
+![Wireframes1](readme/assets/images/dashboard.png)
+![Wireframes2](readme/assets/images/home_page.png)
+![Wireframes3](readme/assets/images/mobile_add_job.png)
+![Wireframes4](readme/assets/images/mobile_dashboard.png)
+
 </details><br/>
 
 ## User Stories
