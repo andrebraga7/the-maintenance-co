@@ -45,6 +45,7 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*Send message*](#send-message)
     - [Employee dashboard](#client-dashboard)
         - [*Jobs*](#employee-dashboard)
+    - [**Future Features**](#future-features)
 
 # **Project**
 
@@ -425,3 +426,10 @@ The employee dashboard shows only the jobs that have been assigned to user by a 
 </details><br/>
 
 [Back to top](<#table-of-content>)
+
+# **Future Features**
+
+- Add an urgency status option to jobs;
+- Add an internal messaging page;
+- Add a password reset page with email confirmation;
+- Add more automated testing;
