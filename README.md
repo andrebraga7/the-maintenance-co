@@ -448,3 +448,23 @@ The employee dashboard shows only the jobs that have been assigned to user by a 
 - [CSS3](https://en.wikipedia.org/wiki/CSS) - Provides the styling for the website.
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - Provides interactive elements of the website
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality for the site.
+
+## Frameworks & Software
+- [Bootstrap](https://getbootstrap.com/) - A CSS framework that helps building solid, responsive, mobile-first sites
+- [Django](https://www.djangoproject.com/) - A model-view-template framework used to create the Review | Alliance site
+- [Balsamiq](https://balsamiq.com/) - Used to create the wireframe.
+- [Numbers](https://www.apple.com/uk/numbers/) - Used to create ERD models.
+- [Github](https://github.com/) - Used to host and edit the website.
+- [GitBash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) - Terminal in [Gitpod](https://www.gitpod.io) used to push changes to the GitHub repository.
+- [Heroku](https://en.wikipedia.org/wiki/Heroku) - A cloud platform that the application is deployed to.
+- [Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/) - Used to test performance of site.
+- [Responsive Design Checker](https://www.responsivedesignchecker.com/) - Used for responsiveness check.
+- [Wave Web Accessibility Evaluation Tool](https://wave.webaim.org/) - Used to validate the sites accessibility.
+- [a11y Color Contrast Accessibility Validator](https://color.a11y.com/Contrast/) - Used to test color contrast on the site
+- [Real Favicon Generator](https://realfavicongenerator.net/) - Used to create the favicon.
+- [Google Chrome DevTools](https://developer.chrome.com/docs/devtools/) - Used to debug and test responsiveness.
+- [Cloudinary](https://cloudinary.com/) - A service that hosts all static files in the project.
+- [HTML Validation](https://validator.w3.org/) - Used to validate HTML code
+- [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
+- [PEP8 Validation](http://pep8online.com/) - At the time for deploying this project the PEP8 Online Validaton service was offline, therefore not used.
+- [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
