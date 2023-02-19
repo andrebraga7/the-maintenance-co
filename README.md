@@ -34,6 +34,7 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*New jobs*](#new-jobs)
         - [*Active jobs*](#active-jobs)
         - [*Completed jobs*](#completed-jobs)
+        - [*Filter*](#filter)
 
 # **Project**
 
@@ -217,12 +218,12 @@ The account page is only accessible for users that are logged in. In this page t
 
 <details><summary><b>Account page</b></summary>
 
-![Contact](readme/assets/images/account_page.png)
+![Account](readme/assets/images/account_page.png)
 </details><br/>
 
 <details><summary><b>Change password</b></summary>
 
-![Contact](readme/assets/images/change_password.png)
+![Change password](readme/assets/images/change_password.png)
 </details><br/>
 
 [Back to top](<#table-of-content>)
@@ -294,10 +295,21 @@ Another feature of this page is if the client has request that a job be deleted 
 [Back to top](<#table-of-content>)
 
 ### **Completed jobs**
+The completed jobs page lists all jobs that are marked as done. The manager can view the information for each job and also still *delete, edit* or *reopen a job* so it can move bacj to the active jobs.
 
 <details><summary><b>Completed jobs</b></summary>
 
 ![Completed jobs](readme/assets/images/dash_completed_jobs.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### **Filter**
+All the jobs page has a folter button in the toop right corner that open a filter field. In it the user can filter for specific jobs by their *id, title, descriptopn* and *user*. The filter is also availabre in the show users page.
+
+<details><summary><b>Filter</b></summary>
+
+![Filter](readme/assets/images/dash_filter.png)
 </details><br/>
 
 [Back to top](<#table-of-content>)
