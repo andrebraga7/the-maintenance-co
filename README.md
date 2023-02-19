@@ -39,7 +39,8 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
     - [Client dashboard](#client-dashboard)
         - [*Client menu*](#client-menu)
         - [*Jobs*](#jobs)
-        - [*Users*]()
+        - [*Categories*](#categories)
+        - [*Equipments*](#equipments)
 
 # **Project**
 
@@ -355,6 +356,31 @@ In the clients jobs page he has access to all *new, active* and *completed jobs*
 <details><summary><b>Client dashboard menu</b></summary>
 
 ![Jobs](readme/assets/images/dash_client.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### **Categories**
+The categories page inside the settings link shows all created categories for the user. There is also a field where the suer can type a new category name and add it to the database. The user can also *edit* or *delete* each individual category. Every deletion option in the project brings up a modal confirmation as a safeguard to avoi unintentional deletion of data. When a category is deleted it dletes all equipments and jobs related to that category.
+
+<details><summary><b>Categories</b></summary>
+
+![Categories](readme/assets/images/dash_categories.png)
+</details><br/>
+
+<details><summary><b>Deletion modal</b></summary>
+
+![Deletion modal](readme/assets/images/dash_delete.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### **Equipments**
+Af with the categories the equipmenrs are also inside the settings link and follow the same logic as the categories. The equipmenrs, however, have a Many to One relationship with the categories, meaning there are many equipments to one category. When an equipments is deleted it also deletes all related jobs for that equipment.
+
+<details><summary><b>Equipments</b></summary>
+
+![Equipments](readme/assets/images/dash_equipments.png)
 </details><br/>
 
 [Back to top](<#table-of-content>)
