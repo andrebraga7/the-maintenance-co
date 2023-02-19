@@ -36,6 +36,10 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*Completed jobs*](#completed-jobs)
         - [*Filter*](#filter)
         - [*Users*](#users)
+    - [Client dashboard](#client-dashboard)
+        - [*Client menu*](#client-menu)
+        - [*Jobs*](#jobs)
+        - [*Users*]()
 
 # **Project**
 
@@ -257,7 +261,7 @@ In the login page the user can enter the username and password, it then validade
 ## **Manager Dashboard**
 
 ### **Manager menu**
-The manager dashbaord has it's out sub navigation menu underneath the top navigation. It has links to the internal pages of the dashboard: *jobs, add user* and *users*.
+The manager dashbaord has it's own sub navigation menu underneath the top navigation. It has links to the internal pages of the dashboard: *jobs, add user* and *users*.
 
 <details><summary><b>Manager dashboard menu</b></summary>
 
@@ -329,6 +333,28 @@ The users page displays a list of all users registered in the website. At the to
 <details><summary><b>Edit user</b></summary>
 
 ![Edit user](readme/assets/images/dash_edit_user.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+## **Client Dashboard**
+
+### **Client menu**
+The client dashbaord has it's own sub navigation menu underneath the top navigation. It has links to the internal pages of the dashboard: *jobs, settings* and *send message*.
+
+<details><summary><b>Client dashboard menu</b></summary>
+
+![Client dashboard menu](readme/assets/images/dash_client_menu.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### **Jobs**
+In the clients jobs page he has access to all *new, active* and *completed jobs* related to the loggedin user. The information and logic is exactly the same as with the manager dashboard. The only difference is that when a job has a status of active the client cannot directly delete a job, because it has already been assigned to en employee, therefor he has to request a job deletion that appear in the managers dashboard for approval. If the manager approves the deletion then the job is deleted for all users. If a job has already been request for deletion, the client user can still cancel the job deletion request.
+
+<details><summary><b>Client dashboard menu</b></summary>
+
+![Jobs](readme/assets/images/dash_client.png)
 </details><br/>
 
 [Back to top](<#table-of-content>)
