@@ -30,7 +30,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["the-maintenance-co.herokuapp.com", "localhost"]
 
@@ -64,12 +64,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 
 SITE_ID = 1
-
-
-LOGIN_REDIRECT_URL = 'dashboard'
-LOGOUT_REDIRECT_URL = '/'
-ACCOUNT_SIGNUP_REDIRECT_URL = 'dashboard'
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-dark',
@@ -168,9 +162,16 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+# Allauth settings
 
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_SIGNUP_REDIRECT_URL = 'dashboard'
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_SIGNUP_FORM_CLASS = 'manager_dashboard.forms.CustomSignupForm'
+
 ACCOUNT_FORMS = {
     'login': 'home_page.forms.CustomLoginForm',
     'change_password': 'home_page.forms.CustomPasswordChangeForm',
