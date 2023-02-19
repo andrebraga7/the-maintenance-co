@@ -41,6 +41,8 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*Jobs*](#jobs)
         - [*Categories*](#categories)
         - [*Equipments*](#equipments)
+        - [*Add job*](#add-job)
+        - [*Send message*](#send-message)
 
 # **Project**
 
@@ -381,6 +383,26 @@ Af with the categories the equipmenrs are also inside the settings link and foll
 <details><summary><b>Equipments</b></summary>
 
 ![Equipments](readme/assets/images/dash_equipments.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### **Add job**
+The add job page is where the user can create a new job. He first has to select a category for the job, that them fetches all related equipments that beleng to the select category. The user then enters the description for the job. Once the job is created it goes tot he new jobs list and awaits for a manager to assign an employee to it. After the job creating the category and equipmenrs cannot be changes, so the user must create a new job if it is related to a different equipment or cetegory.
+
+<details><summary><b>Add job page</b></summary>
+
+![Add job](readme/assets/images/dash_add_job.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### **Send message**
+This page is exactly the same as the contact page in the home page, it uses the same form. The only difference is that it populates the form with the user email it there is one registered.
+
+<details><summary><b>Send message</b></summary>
+
+![Send message](readme/assets/images/dash_contact.png)
 </details><br/>
 
 [Back to top](<#table-of-content>)
