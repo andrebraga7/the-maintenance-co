@@ -1,8 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from allauth.account.views import SignupView
 from django.contrib.auth.models import User, Permission
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 from client_dashboard.forms import ContactForm
+from .forms import HomeUserForm, HomeProfileForm
 
 
 class Home(View):
@@ -30,6 +33,36 @@ class AwaitingApproval(View):
 
     def get(self, request):
         return render(request, 'home_page/awaiting_approval.html')
+
+
+class EditAccount(LoginRequiredMixin, View):
+
+    def get(self, request, *args, **kwargs):
+        edit_user = get_object_or_404(User, id=request.user.id)
+        form1 = HomeProfileForm(instance=edit_user.profile)
+        form2 = HomeUserForm(instance=edit_user)
+
+        return render(
+            request,
+            'home_page/edit_account.html',
+            {
+                'form1': form1,
+                'form2': form2,
+            })
+
+    def post(self, request, *args, **kwargs):
+        edit_user = get_object_or_404(User, id=request.user.id)
+        form1 = HomeProfileForm(request.POST, instance=edit_user.profile)
+        form2 = HomeUserForm(request.POST, instance=edit_user)
+
+        if form1.is_valid() and form2.is_valid():
+            form1.save()
+            form2.save()
+            messages.success(request, 'Form saved successfully')
+        else:
+            messages.error(request, 'Invalid data, form not saved')
+
+        return redirect('dashboard')
 
 
 class Dashboard(View):

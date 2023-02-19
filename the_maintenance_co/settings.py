@@ -171,7 +171,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 ACCOUNT_SIGNUP_FORM_CLASS = 'manager_dashboard.forms.CustomSignupForm'
-ACCOUNT_FORMS = {'login': 'home_page.forms.CustomLoginForm'}
+ACCOUNT_FORMS = {
+    'login': 'home_page.forms.CustomLoginForm',
+    'change_password': 'home_page.forms.CustomPasswordChangeForm',
+    }
 
 AUTHENTICATION_BACKENDS = [
 

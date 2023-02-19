@@ -30,6 +30,9 @@
                         <a class="nav-link" href="{% url 'dashboard' %}" aria-label="go to dashboard">Dashboard</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'edit_account' %}">Account</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}" aria-label="logout">Logout</a>
                     </li>
                     {% else %}

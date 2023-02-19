@@ -47,26 +47,28 @@
 </header>
 
 <main id="dash_main">
-{% if messages %}
-    <div>
-      <strong>Messages:</strong>
-      <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-      </ul>
-    </div>
-{% endif %}
 
     <div class="container-fluid">
         <div class="row mt-2 p-4">
             <div class="col-md-6 offset-md-3">
-                <h5 class="pb-2 ps-2">Change password</h5>
+                <h5 class="pb-2 ps-2">Edit account:</h5>
                 <div class="card card-body">
-                    <form method="POST" action="{% url 'account_change_password' %}" class="password_change">
-                        {% crispy form %}
-                        <button class="blue-btn-small" type="submit" name="action">Change Password</button>
+                    <form method="post">
+                        {% crispy form1 %}
+                        {% crispy form2 %}
+                        <button class="blue-btn-small" type="submit">
+                            <i class="fa-solid fa-user-check"></i><span class="ps-2">Save</span>
+                        </button>
                     </form>
+                    <div class="row">
+                        <div class="col">
+                            <a href="{% url 'account_change_password' %}">
+                                <button class="blue-btn-small" type="submit">
+                                    <i class="fa-solid fa-key"></i><span class="ps-2">Change password</span>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
            </div>
         </div>

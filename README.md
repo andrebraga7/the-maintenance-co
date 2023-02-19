@@ -26,6 +26,7 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*Navigation*](#navigation)
         - [*About*](#about)
         - [*Contact*](#contact)
+        - [*Sign up*]()
         - [*Login*](#login)
     - [Manager dashboard](#manager-dashboard)
         - [*Manager menu*](#manager-menu)
@@ -125,7 +126,7 @@ This first step for this project was to write the user stories. They were used t
 ## Site Structure
 TheMaintenanceCo is divided in four parts: **home page, manager dashboard, client dashboard and employee dashboard**. When a user logs in it check the user type and redirect the user to the correct dashbaord. All views have relevant permissions so user cannot access a page that is not allowed by their user type, if they try to access something outside of the user permission it will redirect them to a 404 page not found.
 The home page has a basic structure with a landing, about, contact and login page or logout if the user is already loggedin.
-In the manager dashboard the user can view, edit and delete all jobs, add, edit and delete users. For this project the only user that can create a new user is the manager. This is because of the way the company's bussiness model works. The logic is that after a user sign all relevant contracts and paperworks he them receives a username with password with the client dashboard being previously setup by a manager.
+In the manager dashboard the user can view, edit and delete all jobs, add, edit and delete users. For this project the manager has to approve the user signup in order for it to become active and grant the user access to the dashboard. This is because of the way the company's bussiness model works. The logic is that after a user signs all relevant contracts and paperworks he them receives access to the dashboard.
 In the client dashboard the user can view, edit and delete only jobs from his username. The user can also add, edit and delete categories and equipments. There is also a message page where the client can send an email and some fields are prepopuplated with user data.
 In the employee dashboard the user can view all jobs that have been assigned to him, add feedback and mark jobs as done.
 
@@ -206,6 +207,23 @@ The contact page has a form where the sire user can send a message to the compan
 <details><summary><b>Contact page</b></summary>
 
 ![Contact](readme/assets/images/contact_page.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### **Sign up**
+In the sign up page the user can register for an account. However every new user has to be approved by a manager, until a manager has reviewd the registraion the user cannot access the dashboard and instead, is presented with a message that the aplication is awaiting approval.
+
+<details><summary><b>Sign up page</b></summary>
+
+![Signup](readme/assets/images/signup_page.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+<details><summary><b>Awaiting approval message</b></summary>
+
+![Awaiting approval](readme/assets/images/awaiting_approval.png)
 </details><br/>
 
 [Back to top](<#table-of-content>)
