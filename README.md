@@ -48,10 +48,10 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
 
     - [**Future Features**](#future-features)
 
-    - [**Technologies Used**]()
-        - [Languages]()
-        - [Frameworks & Software]()
-        - [Libraries]()
+    - [**Technologies Used**](#technologies-used)
+        - [Languages](#languages)
+        - [Frameworks & Software](#frameworks--software)
+        - [Libraries](#libraries)
 
 # **Project**
 
@@ -440,6 +440,8 @@ The employee dashboard shows only the jobs that have been assigned to user by a 
 - Add a password reset page with email confirmation;
 - Add more automated testing;
 
+[Back to top](<#table-of-content>)
+
  # **Technologies used**
 
  ## Languages
@@ -448,6 +450,8 @@ The employee dashboard shows only the jobs that have been assigned to user by a 
 - [CSS3](https://en.wikipedia.org/wiki/CSS) - Provides the styling for the website.
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - Provides interactive elements of the website
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality for the site.
+
+[Back to top](<#table-of-content>)
 
 ## Frameworks & Software
 - [Bootstrap](https://getbootstrap.com/) - A CSS framework that helps building solid, responsive, mobile-first sites
@@ -468,3 +472,27 @@ The employee dashboard shows only the jobs that have been assigned to user by a 
 - [CSS Validation](https://jigsaw.w3.org/css-validator/) - Used to validate CSS code
 - [PEP8 Validation](http://pep8online.com/) - At the time for deploying this project the PEP8 Online Validaton service was offline, therefore not used.
 - [JSHint Validation](https://jshint.com/) - Used to validate JavaScript code
+
+[Back to top](<#table-of-content>)
+
+## Libraries
+
+In the list below are all the libraries used in the project, these are located in *requirements.txt*:
+
+- [asgiref](https://pypi.org/project/asgiref/) - ASGI is a standard for Python asynchronous web apps and servers to communicate with each other, and positioned as an asynchronous successor to WSGI;
+- [cloudinary](https://pypi.org/project/cloudinary/) - The Cloudinary Python SDK allows you to quickly and easily integrate your application with Cloudinary. Effortlessly optimize, transform, upload and manage your cloud's assets;
+- [crispy-bootstrap5](https://pypi.org/project/crispy-bootstrap5/) - Bootstrap 5 template pack for django crispy forms;
+- [dj3-cloudinary-storage](https://pypi.org/project/dj3-cloudinary-storage/) - Django Cloudinary Storage is a Django package that facilitates integration with Cloudinary by implementing Django Storage API.
+- [Django](https://pypi.org/project/Django/) - Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design.
+- [django-allauth](https://pypi.org/project/django-allauth/) - Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
+- [django-crispy-forms](https://pypi.org/project/django-crispy-forms/) - Used to integrate Django DRY forms in the project.
+- [gunicorn](https://pypi.org/project/gunicorn/) - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. It’s a pre-fork worker model ported from Ruby’s Unicorn project. The Gunicorn server is broadly compatible with various web frameworks, simply implemented, light on server resource usage, and fairly speedy.
+- [oauthlib](https://pypi.org/project/oauthlib/) - OAuthLib is a framework which implements the logic of OAuth1 or OAuth2 without assuming a specific HTTP request object or web framework.
+- [psycopg2](https://pypi.org/project/psycopg2/) - Psycopg is the most popular PostgreSQL database adapter for the Python programming language.
+- [PyJWT](https://pypi.org/project/PyJWT/) - A Python implementation of RFC 7519.
+- [python3-openid](https://pypi.org/project/python3-openid/) - OpenID support for modern servers and consumers.
+- [pytz](https://pypi.org/project/pytz/) - This is a set of Python packages to support use of the OpenID decentralized identity system in your application, update to Python 3
+- [requests-oauhlib](https://pypi.org/project/requests-oauthlib/) - Provides first-class OAuth library support for Requests.
+- [sqlparse](https://pypi.org/project/sqlparse/) - sqlparse is a non-validating SQL parser for Python. It provides support for parsing, splitting and formatting SQL statements.
+
+[Back to top](<#table-of-content>)
