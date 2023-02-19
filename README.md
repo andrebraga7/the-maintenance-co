@@ -43,6 +43,8 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*Equipments*](#equipments)
         - [*Add job*](#add-job)
         - [*Send message*](#send-message)
+    - [Employee dashboard](#client-dashboard)
+        - [*Jobs*](#employee-dashboard)
 
 # **Project**
 
@@ -403,6 +405,23 @@ This page is exactly the same as the contact page in the home page, it uses the 
 <details><summary><b>Send message</b></summary>
 
 ![Send message](readme/assets/images/dash_contact.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+## **Employee Dashboard**
+
+### **Jobs**
+The employee dashboard shows only the jobs that have been assigned to user by a manager. He then access all the information regarding that job and also add feedback. Once a job is complete the user can mark a job as done, which then moves it to the completed list for all users. The employee still has access to the accounts, where the user can *edit* and *change the password* if needed.
+
+<details><summary><b>Employee dashboard</b></summary>
+
+![Employee dashboard](readme/assets/images/dash_employee.png)
+</details><br/>
+
+<details><summary><b>Feedback</b></summary>
+
+![Feedback](readme/assets/images/dash_feedback.png)
 </details><br/>
 
 [Back to top](<#table-of-content>)
