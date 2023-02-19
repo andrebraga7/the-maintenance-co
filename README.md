@@ -35,6 +35,7 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*Active jobs*](#active-jobs)
         - [*Completed jobs*](#completed-jobs)
         - [*Filter*](#filter)
+        - [*Users*](#users)
 
 # **Project**
 
@@ -236,8 +237,6 @@ In the sign up page the user can register for an account. However every new user
 ![Signup](readme/assets/images/signup_page.png)
 </details><br/>
 
-[Back to top](<#table-of-content>)
-
 <details><summary><b>Awaiting approval message</b></summary>
 
 ![Awaiting approval](readme/assets/images/awaiting_approval.png)
@@ -310,6 +309,26 @@ All the jobs page has a folter button in the toop right corner that open a filte
 <details><summary><b>Filter</b></summary>
 
 ![Filter](readme/assets/images/dash_filter.png)
+</details><br/>
+
+[Back to top](<#table-of-content>)
+
+### **Users**
+The users page displays a list of all users registered in the website. At the top there's a list of the users awaiting for approval and bellow that list an accordion with all active users. This page gives the user the ability to *edit, delete* and *approve users*.
+
+<details><summary><b>Users</b></summary>
+
+![Users](readme/assets/images/dash_users.png)
+</details><br/>
+
+<details><summary><b>User info</b></summary>
+
+![Users info](readme/assets/images/dash_users_open.png)
+</details><br/>
+
+<details><summary><b>Edit user</b></summary>
+
+![Edit user](readme/assets/images/dash_edit_user.png)
 </details><br/>
 
 [Back to top](<#table-of-content>)
