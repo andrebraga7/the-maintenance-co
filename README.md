@@ -45,7 +45,13 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
         - [*Send message*](#send-message)
     - [Employee dashboard](#client-dashboard)
         - [*Jobs*](#employee-dashboard)
+
     - [**Future Features**](#future-features)
+
+    - [**Technologies Used**]()
+        - [Languages]()
+        - [Frameworks & Software]()
+        - [Libraries]()
 
 # **Project**
 
@@ -149,12 +155,12 @@ You can see all features in detail in the [Features](<#features>) section.
 
 ## Design Choices
 
-* ### Color Scheme
+- ### Color Scheme
 TheMaintenanceCo is built on minimalist design choice, so the color palette select for this project reflects this intention. All caolors are mainly monochromatic shades of black and grey and only the buttons and some link have either a True Blue or Dodger Blue.
 
 ![Color](readme/assets/images/colors.png)
 
-* ### Typography
+- ### Typography
 The fonts used for the site are the standard Bootstrap 5 native fonts stack. This system selects the best user firendly font depending on the os the user is using:
 
 - Safari for macOS and iOS: -apple-system;
@@ -170,9 +176,9 @@ To find out more about these Bootstrap option please read the documentation [her
 # **Features**
 All the project features are detailed and listed bellow:
 
-## **Home page**
+## Home page
 
-### **Home**
+### Home
 This is the main ladning page with a top navigation menu with link to all pages, a hero image with a call to action button that takes the user to the contact page and a footer.
 
 <details><summary><b>Home page</b></summary>
@@ -180,7 +186,7 @@ This is the main ladning page with a top navigation menu with link to all pages,
 ![Home page](readme/assets/images/home_page.png)
 </details><br/>
 
-### **Navigation**
+### Navigation
 The main navigation menu has a black background with a brand text on the left and navigation link to the right, which are all offwhite. The visible links change depending if a user is looged in or not:
 
 - If the user is logged out he can view: *home*, *about*, *contact* and *login*.
@@ -204,7 +210,7 @@ The main navigation menu has a black background with a brand text on the left an
 
 [Back to top](<#table-of-content>)
 
-### **About**
+### About
 The About page is very simple, it only contains some introduction information about the company's service and a link so the user can go to the contact page and send a message for more information.
 
 <details><summary><b>About page</b></summary>
@@ -214,7 +220,7 @@ The About page is very simple, it only contains some introduction information ab
 
 [Back to top](<#table-of-content>)
 
-### **Contact**
+### Contact
 The contact page has a form where the sire user can send a message to the company. The message is sent using [EmailJS](https://www.emailjs.com/) api to deliver to the company's email.
 
 <details><summary><b>Contact page</b></summary>
@@ -224,7 +230,7 @@ The contact page has a form where the sire user can send a message to the compan
 
 [Back to top](<#table-of-content>)
 
-### **Account**
+### Account
 The account page is only accessible for users that are logged in. In this page the user can edit his *name, username* and *email address* and also *change his password*.
 
 <details><summary><b>Account page</b></summary>
@@ -239,7 +245,7 @@ The account page is only accessible for users that are logged in. In this page t
 
 [Back to top](<#table-of-content>)
 
-### **Sign up**
+### Sign up
 In the sign up page the user can register for an account. However every new user has to be approved by a manager, until a manager has reviewd the registraion the user cannot access the dashboard and instead, is presented with a message that the aplication is awaiting approval.
 
 <details><summary><b>Sign up page</b></summary>
@@ -254,7 +260,7 @@ In the sign up page the user can register for an account. However every new user
 
 [Back to top](<#table-of-content>)
 
-### **Login**
+### Login
 In the login page the user can enter the username and password, it then validades the user and check which user type it is to redirect the user to the correct dashboard.
 
 <details><summary><b>Login page</b></summary>
@@ -264,9 +270,9 @@ In the login page the user can enter the username and password, it then validade
 
 [Back to top](<#table-of-content>)
 
-## **Manager Dashboard**
+## Manager Dashboard
 
-### **Manager menu**
+### Manager menu
 The manager dashbaord has it's own sub navigation menu underneath the top navigation. It has links to the internal pages of the dashboard: *jobs, add user* and *users*.
 
 <details><summary><b>Manager dashboard menu</b></summary>
@@ -276,7 +282,7 @@ The manager dashbaord has it's own sub navigation menu underneath the top naviga
 
 [Back to top](<#table-of-content>)
 
-### **New jobs**
+### New jobs
 The new jobs page is the landing page for the dashboard, this is where the user can see all newly created jobs. They have a status of new until the job is assigned to an employee, then it is update with an active status and moves to the active jobs list. In the open accordion the manager can view all relevant information for the job and can *edit, delete* or *assign a job*.
 
 <details><summary><b>New jobs</b></summary>
@@ -291,7 +297,7 @@ The new jobs page is the landing page for the dashboard, this is where the user 
 
 [Back to top](<#table-of-content>)
 
-### **Active jobs**
+### Active jobs
 In the active jobs page the user can view all jobs that are active, meaning, they have an employee asigned to them. In this page the user can: *edit, delete, close* or *reassign a job*.
 
 Another feature of this page is if the client has request that a job be deleted it then gives the manager an option to *approve deletion* or *cancel deleteion* at the top of the accordion. It also shows a message in the title saying that the job is *Awaiting deletion*.
@@ -303,7 +309,7 @@ Another feature of this page is if the client has request that a job be deleted 
 
 [Back to top](<#table-of-content>)
 
-### **Completed jobs**
+### Completed jobs
 The completed jobs page lists all jobs that are marked as done. The manager can view the information for each job and also still *delete, edit* or *reopen a job* so it can move bacj to the active jobs.
 
 <details><summary><b>Completed jobs</b></summary>
@@ -313,7 +319,7 @@ The completed jobs page lists all jobs that are marked as done. The manager can 
 
 [Back to top](<#table-of-content>)
 
-### **Filter**
+### Filter
 All the jobs page has a folter button in the toop right corner that open a filter field. In it the user can filter for specific jobs by their *id, title, descriptopn* and *user*. The filter is also availabre in the show users page.
 
 <details><summary><b>Filter</b></summary>
@@ -323,7 +329,7 @@ All the jobs page has a folter button in the toop right corner that open a filte
 
 [Back to top](<#table-of-content>)
 
-### **Users**
+### Users
 The users page displays a list of all users registered in the website. At the top there's a list of the users awaiting for approval and bellow that list an accordion with all active users. This page gives the user the ability to *edit, delete* and *approve users*.
 
 <details><summary><b>Users</b></summary>
@@ -343,9 +349,9 @@ The users page displays a list of all users registered in the website. At the to
 
 [Back to top](<#table-of-content>)
 
-## **Client Dashboard**
+## Client Dashboard
 
-### **Client menu**
+### Client menu
 The client dashbaord has it's own sub navigation menu underneath the top navigation. It has links to the internal pages of the dashboard: *jobs, settings* and *send message*.
 
 <details><summary><b>Client dashboard menu</b></summary>
@@ -355,7 +361,7 @@ The client dashbaord has it's own sub navigation menu underneath the top navigat
 
 [Back to top](<#table-of-content>)
 
-### **Jobs**
+### Jobs
 In the clients jobs page he has access to all *new, active* and *completed jobs* related to the loggedin user. The information and logic is exactly the same as with the manager dashboard. The only difference is that when a job has a status of active the client cannot directly delete a job, because it has already been assigned to en employee, therefor he has to request a job deletion that appear in the managers dashboard for approval. If the manager approves the deletion then the job is deleted for all users. If a job has already been request for deletion, the client user can still cancel the job deletion request.
 
 <details><summary><b>Client dashboard menu</b></summary>
@@ -365,7 +371,7 @@ In the clients jobs page he has access to all *new, active* and *completed jobs*
 
 [Back to top](<#table-of-content>)
 
-### **Categories**
+### Categories
 The categories page inside the settings link shows all created categories for the user. There is also a field where the suer can type a new category name and add it to the database. The user can also *edit* or *delete* each individual category. Every deletion option in the project brings up a modal confirmation as a safeguard to avoi unintentional deletion of data. When a category is deleted it dletes all equipments and jobs related to that category.
 
 <details><summary><b>Categories</b></summary>
@@ -380,7 +386,7 @@ The categories page inside the settings link shows all created categories for th
 
 [Back to top](<#table-of-content>)
 
-### **Equipments**
+### Equipments
 Af with the categories the equipmenrs are also inside the settings link and follow the same logic as the categories. The equipmenrs, however, have a Many to One relationship with the categories, meaning there are many equipments to one category. When an equipments is deleted it also deletes all related jobs for that equipment.
 
 <details><summary><b>Equipments</b></summary>
@@ -390,7 +396,7 @@ Af with the categories the equipmenrs are also inside the settings link and foll
 
 [Back to top](<#table-of-content>)
 
-### **Add job**
+### Add job
 The add job page is where the user can create a new job. He first has to select a category for the job, that them fetches all related equipments that beleng to the select category. The user then enters the description for the job. Once the job is created it goes tot he new jobs list and awaits for a manager to assign an employee to it. After the job creating the category and equipmenrs cannot be changes, so the user must create a new job if it is related to a different equipment or cetegory.
 
 <details><summary><b>Add job page</b></summary>
@@ -400,7 +406,7 @@ The add job page is where the user can create a new job. He first has to select 
 
 [Back to top](<#table-of-content>)
 
-### **Send message**
+### Send message
 This page is exactly the same as the contact page in the home page, it uses the same form. The only difference is that it populates the form with the user email it there is one registered.
 
 <details><summary><b>Send message</b></summary>
@@ -410,9 +416,9 @@ This page is exactly the same as the contact page in the home page, it uses the 
 
 [Back to top](<#table-of-content>)
 
-## **Employee Dashboard**
+## Employee Dashboard
 
-### **Jobs**
+### Jobs
 The employee dashboard shows only the jobs that have been assigned to user by a manager. He then access all the information regarding that job and also add feedback. Once a job is complete the user can mark a job as done, which then moves it to the completed list for all users. The employee still has access to the accounts, where the user can *edit* and *change the password* if needed.
 
 <details><summary><b>Employee dashboard</b></summary>
@@ -433,3 +439,12 @@ The employee dashboard shows only the jobs that have been assigned to user by a 
 - Add an internal messaging page;
 - Add a password reset page with email confirmation;
 - Add more automated testing;
+
+ # **Technologies used**
+
+ ## Languages
+
+- [HTML5](https://en.wikipedia.org/wiki/HTML) - Provides the content and structure for the website.
+- [CSS3](https://en.wikipedia.org/wiki/CSS) - Provides the styling for the website.
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript) - Provides interactive elements of the website
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language)) - Provides the functionality for the site.
