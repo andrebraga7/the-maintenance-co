@@ -25,9 +25,9 @@ class Categories(ClientAccessMixin, View):
         if form.is_valid():
             form.instance.user = request.user
             form.save()
-            messages.success(request, 'Form saved successfully')
+            messages.success(request, 'Category added successfully.')
         else:
-            messages.error(request, 'Invalid data, form not saved')
+            messages.error(request, 'Something went wrong, form not saved.')
 
         return redirect('categories')
 
@@ -52,11 +52,11 @@ class EditCategory(ClientAccessMixin, View):
 
         if form.is_valid():
             form.save()
-            messages.success(request, 'Form saved successfully')
+            messages.success(request, 'Category edited successfully.')
             return redirect('categories')
 
         else:
-            messages.error(request, 'Invalid data, form not saved')
+            messages.error(request, 'Something went wrong, form not saved.')
             return redirect('edit_category', category_id)
 
 
@@ -65,4 +65,6 @@ class DeleteCategory(ClientAccessMixin, View):
     def get(self, request, category_id):
         category = get_object_or_404(Category, id=category_id)
         category.delete()
+        messages.success(request, 'Category deleted successfully.')
+
         return redirect('categories')

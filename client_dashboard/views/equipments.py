@@ -37,10 +37,10 @@ class AddEquipment(ClientAccessMixin, View):
         if form.is_valid():
             form.instance.user = request.user
             form.save()
-            messages.success(request, 'Form saved successfully')
+            messages.success(request, 'Equipment added successfully.')
             return redirect('equipments')
         else:
-            messages.error(request, 'Invalid data, form not saved')
+            messages.error(request, 'Something went wrong, form not saved.')
             return redirect('add_equipment')
 
 
@@ -61,10 +61,10 @@ class EditEquipment(ClientAccessMixin, View):
 
         if edit_form.is_valid():
             edit_form.save()
-            messages.success(request, 'Form saved successfully')
+            messages.success(request, 'Equipment edited successfully.')
             return redirect('equipments')
         else:
-            messages.error(request, 'Invalid data, form not saved')
+            messages.error(request, 'Something went wrong, form not saved.')
             return redirect('edit_equipment', equipment_id)
 
 
@@ -73,5 +73,6 @@ class DeleteEquipment(ClientAccessMixin, View):
     def get(self, request, equipment_id):
         equipment = get_object_or_404(Equipment, id=equipment_id)
         equipment.delete()
+        messages.success(request, 'Equipment edited successfully.')
 
         return redirect('equipments')

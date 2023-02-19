@@ -21,6 +21,8 @@ $(document).ready(function() {
             console.log('FAILED...', error);
             });
         
+        $("#form-sent").css("display", "inline-block").html("Your message was sent successfully!");
+        
         // Resets the contact form
         this.reset();
 

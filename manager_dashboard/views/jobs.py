@@ -131,9 +131,9 @@ class EditJob(ManagerAccessMixin, View):
 
         if edit_form.is_valid():
             edit_form.save()
-            messages.success(request, 'Form saved successfully')
+            messages.success(request, 'Job edited successfully.')
         else:
-            messages.error(request, 'Invalid data, form not saved')
+            messages.error(request, 'Something went wrong, form not saved.')
 
         return redirect('active_jobs')
 
@@ -147,9 +147,9 @@ class AssignJob(ManagerAccessMixin, View):
         if assign_form.is_valid():
             assign_form.instance.status = 1
             assign_form.save()
-            messages.success(request, 'Form saved successfully')
+            messages.success(request, 'Job assigned successfully.')
         else:
-            messages.error(request, 'Invalid data, form not saved')
+            messages.error(request, 'Something went wrong, form not saved.')
 
         return redirect('new_jobs')
 
@@ -159,6 +159,7 @@ class ManagerDeleteJob(ManagerAccessMixin, View):
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
         job.delete()
+        messages.success(request, 'Job deleted successfully.')
         return redirect('new_jobs')
 
 
@@ -168,6 +169,7 @@ class CancelDeletion(ManagerAccessMixin, View):
         job = get_object_or_404(Job, id=job_id)
         job.deletion = False
         job.save()
+        messages.success(request, 'Deletion canceled.')
         return redirect('active_jobs')
 
 
@@ -183,4 +185,5 @@ class JobDone(ManagerAccessMixin, View):
             job.status = 1
             job.save()
 
+        messages.success(request, 'Job marked as done.')
         return redirect('active_jobs')

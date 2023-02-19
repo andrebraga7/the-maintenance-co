@@ -91,11 +91,11 @@ class AddFeedback(EmployeeAccessMixin, View):
 
         if feedback_form.is_valid():
             feedback_form.save()
-            messages.success(request, 'Form saved successfully')
+            messages.success(request, 'Feedback added successfully.')
             return redirect('employee_active_jobs')
 
         else:
-            messages.error(request, 'Invalid data, form not saved')
+            messages.error(request, 'Something went wrong, form not saved.')
             return redirect('add_feedback', job_id)
 
 
@@ -105,5 +105,6 @@ class JobDone(EmployeeAccessMixin, View):
         job = get_object_or_404(Job, id=job_id)
         job.status = 2
         job.save()
+        messages.success(request, 'Job marked as done.')
 
         return redirect('employee_active_jobs')

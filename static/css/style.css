@@ -303,6 +303,7 @@ footer a {
     border: 1px solid darkgreen;
     border-radius: 5px;
     height: 5vh;
+    width: 100%;
     display: none;
 }
 
@@ -324,4 +325,21 @@ footer a {
 
 .form-help-text {
     font-size: small;
+}
+
+/* Messages */
+
+#msg {
+    border-radius: 3px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    min-width: 30vw;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#msg button {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    font-size: 0.8rem;
 }

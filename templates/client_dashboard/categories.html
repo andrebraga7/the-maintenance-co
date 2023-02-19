@@ -28,6 +28,20 @@
             </nav>
 
             <div class="card card-body">
+                <form method="post">
+                    <div class="container-fluid">
+                        <div class="row ps-md-2">
+                            <div class="col-md-5">
+                                {% crispy form %}
+                            </div>
+                            <div class="col-sm-6 col-md-4 col-lg-3 pt-sm-4">
+                                <button type="submit" class="blue-btn-small category-button2">
+                                    <i class="fa-solid fa-plus"></i><span class="ps-2">Add category</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
 
                 {% for category in categories %}
                 <div class="row ps-md-4 py-2">
@@ -49,7 +63,7 @@
 
                 </div>
 
-                <!-- Delete job Modal -->
+                <!-- Delete category Modal -->
                 <div class="modal fade" id="modal_{{ category.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
@@ -84,21 +98,6 @@
                 {% empty %}
                 <p>No categories registered.</p>
                 {% endfor %}
-                <form method="post">
-                    <div class="container-fluid">
-                        <div class="row ps-md-2">
-                            <div class="col-md-5">
-                                {% crispy form %}
-                            </div>
-                            <div class="col-sm-6 col-md-4 col-lg-3 pt-sm-4">
-                                <button type="submit" class="blue-btn-small category-button2">
-                                    <i class="fa-solid fa-plus"></i><span class="ps-2">Add category</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
             </div>
         </div>
     </div>

@@ -120,10 +120,10 @@ class AddJob(ClientAccessMixin, View):
             form.instance.title = f'{equipment} in {category}'
             form.instance.user = request.user
             form.save()
-            messages.success(request, 'Form saved successfully')
+            messages.success(request, 'Job added successfully.')
             return redirect('client_new_jobs')
         else:
-            messages.error(request, 'Invalid data, form not saved')
+            messages.error(request, 'Something went wrong, form not saved.')
             return redirect('add_job')
 
 
@@ -156,10 +156,10 @@ class EditJob(ClientAccessMixin, View):
 
         if edit_form.is_valid():
             edit_form.save()
-            messages.success(request, 'Form saved successfully')
+            messages.success(request, 'Job edited successfully.')
             return redirect('client_new_jobs')
         else:
-            messages.error(request, 'Invalid data, form not saved')
+            messages.error(request, 'Something went wrong, form not saved.')
             return redirect('client_edit_job', job_id)
 
 
@@ -168,6 +168,7 @@ class DeleteJob(ClientAccessMixin, View):
     def get(self, request, job_id):
         job = get_object_or_404(Job, id=job_id)
         job.delete()
+        messages.success(request, 'Job deleted successfully.')
         return redirect('client_new_jobs')
 
 
@@ -182,4 +183,7 @@ class RequestJobDeletion(ClientAccessMixin, View):
         else:
             job.deletion = True
             job.save()
+
+        messages.success(request, 'Job deletion request, awaiting approval.')
+
         return redirect('client_active_jobs')

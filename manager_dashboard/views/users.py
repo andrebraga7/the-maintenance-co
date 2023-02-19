@@ -39,6 +39,8 @@ class ApproveUser(ManagerAccessMixin, View):
         user = get_object_or_404(User, id=user_id)
         user.is_active = True
         user.save()
+        
+        messages.success(request, 'User approved.')
 
         return redirect('show_users')
 
@@ -66,9 +68,9 @@ class EditUser(ManagerAccessMixin, View):
         if form1.is_valid() and form2.is_valid():
             form1.save()
             form2.save()
-            messages.success(request, 'Form saved successfully')
+            messages.success(request, 'User edited successfully.')
         else:
-            messages.error(request, 'Invalid data, form not saved')
+            messages.error(request, 'Something went wrong, form not saved.')
 
         return redirect('show_users')
 
@@ -78,4 +80,5 @@ class DeleteUser(ManagerAccessMixin, View):
     def get(self, request, user_id):
         delete_user = get_object_or_404(User, id=user_id)
         delete_user.delete()
+        messages.success(request, 'User deleted successfully.')   
         return redirect('show_users')

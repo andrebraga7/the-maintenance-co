@@ -28,6 +28,10 @@ class Contact(View):
             'home_page/contact.html',
             {'form': ContactForm()})
 
+    def post(View):
+        messages.success(request, 'Message sent successfully!')
+        return redirect('home_contact')
+
 
 class AwaitingApproval(View):
 
@@ -58,9 +62,9 @@ class EditAccount(LoginRequiredMixin, View):
         if form1.is_valid() and form2.is_valid():
             form1.save()
             form2.save()
-            messages.success(request, 'Form saved successfully')
+            messages.success(request, 'Account edited successfully.')
         else:
-            messages.error(request, 'Invalid data, form not saved')
+            messages.error(request, 'Something went wrong, form not saved.')
 
         return redirect('dashboard')
 
@@ -79,7 +83,7 @@ class Dashboard(View):
             return redirect('home')
 
 
-class CustomSignupView(SignupView):
+class CustomSignupView(SignupView, View):
 
     def form_valid(self, form):
 
@@ -103,5 +107,7 @@ class CustomSignupView(SignupView):
             user.user_permissions.add(permission)
             user.is_active = False
             user.save()
+
+        messages.success(self.request, 'User created successfully.')
 
         return redirect('account_signup')
