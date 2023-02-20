@@ -39,7 +39,7 @@ class ApproveUser(ManagerAccessMixin, View):
         user = get_object_or_404(User, id=user_id)
         user.is_active = True
         user.save()
-        
+
         messages.success(request, 'User approved.')
 
         return redirect('show_users')
@@ -80,5 +80,5 @@ class DeleteUser(ManagerAccessMixin, View):
     def get(self, request, user_id):
         delete_user = get_object_or_404(User, id=user_id)
         delete_user.delete()
-        messages.success(request, 'User deleted successfully.')   
+        messages.success(request, 'User deleted successfully.')
         return redirect('show_users')

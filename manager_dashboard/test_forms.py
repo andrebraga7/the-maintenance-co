@@ -1,5 +1,6 @@
 from django.test import TestCase
-from .forms import CustomSignupForm, EditUserForm, EditProfileForm, AssignJobForm, EditJobForm
+from .forms import CustomSignupForm, EditUserForm, EditProfileForm
+from .forms import AssignJobForm, EditJobForm
 
 
 class TestCustomSignupForm(TestCase):
