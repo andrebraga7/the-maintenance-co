@@ -45,9 +45,9 @@ $( document ).ready(function() {
 
             }).catch(function(err) {
                 console.warn("An error ocurred:", err);
-            })
+            });
 
-        })
+        });
     }
 
 });

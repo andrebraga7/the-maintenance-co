@@ -6,6 +6,8 @@ This fictional project was developed as a Portfolio Project 4 - Full Stack Websi
 
 [You can view the live website here](https://the-maintenance-co.herokuapp.com)
 
+![TheMaintenanceCo](readme/assets/images/cover.png)
+
 # Table of Content
 
 - [**Project**](#project)
