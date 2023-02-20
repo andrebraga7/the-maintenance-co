@@ -24,7 +24,7 @@ class TestModel(TestCase):
         self.assertEqual(self.test_user.profile.type, 3)
 
     def test_category_has_foreign_user(self):
-        self.assertEqual(self.category.user, self.test_user)
+        self.assertEqual(self.category.user.username, 'testuser')
 
-    def test_equipment_has_correct_name(self):
-        self.assertEqual(self.equipment.name, 'Test Equipment')
+    def test_equipment_has_correct_category(self):
+        self.assertEqual(self.equipment.category.name, 'Test Category')

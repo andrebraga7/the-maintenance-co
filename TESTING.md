@@ -1,88 +1,80 @@
-* [**Testing**](<#testing>)
-    * [Testing User Stories](<#testing-user-stories>)
-    * [Code Validation](<#code-validation>)
-    * [Additional Testing](<#additional-testing>)
-    * [Known Bugs](<#known-bugs>)
+- [**Testing**](<#testing>)
+    - [Testing User Stories]()
+    - [Code Validation]()
+    - [Additional Testing]()
+    - [Known Bugs]()
 
 
 
 
 ## Testing User Stories
 
-* As a Site User | I can view a list of the music reviews so that I can select one to read
-    * At the top of the site there is a navigation bar with a link that lists all reviews when the user clicks on it.
+- As a Manager I can access the managers dashboard so I can view new, active, and completed jobs.
+    - When the user signs in to the website it redirects to the dashboard where the user is presented with new, active and completed jobs.
 
-* As a Site User | I can view a list of the concert reviews so that I can select one to read
-   * At the top of the site there is a navigation bar with a link that lists all concert reviews when the user clicks on it.
+- As a Manager I can create, update and delete users so I can manage access and permissions.
+    - In the manager dashbaord thje user has access to the sign up page and user editing page, to create, edit or delete users.
 
-* As a Site User | I can click on a specific review so that I can read it in detail
-   * At the top of the site there is a navigation bar with a link that lists all album reviews when the user clicks on it.
+- As a Manager I can assign jobs to employees so I can plan what each employee will work on.
+    - In the new jobs accordion the user can click on assign job and select an employee to assign to.
 
-* As a Site User | I can like and unlike a review so that it is possible for me to interact with the review
-    * When the user is logged it is possible to click on a heart on the review detail page to like / unlike a review.
+- As a Manager I can mark jobs as complete so I can review any feedback before closing the job.
+    - In the active jobs accordion the user can mark a job as done.
 
-* As a Site User | I can view the number of likes on each review so that I can see how popular a specific review is
-    * On the review detail page the user can see how many likes the specific review has.
+- As a Manager I can approve job deletion request so I can verify the actual necessity of the job.
+    - When a client user request a job deletion an option becomes available in the active jobs accordion so the user can approva the job deletion.
 
-* As a Site User | I can contact Review Alliance in an easy way so that I can interact with them if I have a need for it
-    * In the footer there is clear information about how to contact Review | Alliance.
+- As a Manager I can reopen jobs so that I can move them from the completed to the active jobs list.
+    - In the completed jobs list the user can select to reopen a job as required.
 
-* As a Site User | I can navigate easy on the site through paginated list of posts so that I feel comfortable using the site
-    * On the review pages the pagination is activated when there are more than 6 reviews on a page.
+- As a Manager I can reassign a job so that I can assign it to a different employee.
+    - In the active jobs accordion the manager can reassign a job to a different employee.
 
-* As a Site User | I can view comments on a specific review so that I can read the conversations between different users on the site
-    * When the user clicks on a specific review the comment section can, in an easily way, be viewed.
+- As a Client I can view the home page with a menu so I can navigate to different pages.
+    - On the top of the home page there is a menu with links to all the different pages.
 
-* As a Site User | I can sign up an account so that I can like and comment on reviews, create a profile page, create own reviews and edit / remove my reviews
-    * In the navigation bar the user can click the Login / Sign up link to either login or sign up for a new account. When this is done the user can interact on the page as stated in the user story).
+- As a Client I can access the dashboard so I can view new, active and completed jobs information.
+    - When the user signs in to the website it redirects to the dashboard where the user is presented with new, active and completed jobs.
 
-* As a Site User | I can create a profile page so that other reviewers can read about who I am
-    * If a user is registered and logged in there is a 'Show Profile'-page in the navigation menu where the user can fill in profile details. The profile is shown for the site users in the about section.
+- As a Client I can add a new job so I can communicate the relevant maintenance needs.
+    - In the client dashboard the user can click on add new job where the he can add the job details and save.
 
-* As a Site User | I can comment on a review so that I can be involved in the conversation
-    * When the user is logged in they can write a comment on a specific review on the review detail page.
+- As a Client I can edit a job so I can update relevant information for that job.
+    - In the new and active jobs list, the user can click on edit job to edit any relevant information.
 
-* As a Site User | I can edit my comment so that I can change the content if needed
-    * When the user is logged in an edit button appears on the all comments that the specific user has written. When the user clicks the edit button they can change the content in the comment.
+- As a Client - I can request that a job be deleted so I can remove it from the active list.
+    - When a job is in the active jobs list the user can click on request job deletion so a manager can approve the deletion.
 
-* As a Site User | I can remove my review so that I have full control of my reviews
-    * When the user is logged in a delete button appears on the all comments that the specific user has written. When the user clicks the delete button they get the option to delete the comment.
+- As a Client  I can send a message so I can communicate with the company.
+    - In the dashboard the client can click on send message and a contact forms loads with the user email prepopulated.
 
-* As a Site User | I can choose to see my own reviews so that I can find them easily
-    * When a user is logged in they can choose to view their own reviews through the link 'My Reviews'.
+- As a Client - I can add / edit categories so that I can organize equipments in them.
+    - In the settings page the user can add, edit or delete categories as required.
 
-* As a Site User | I can create a new review so that I can contribute to with new content to Review Alliance
-    * When a user is logged in they can create a new review through the 'Create New Review'-link in the navigation bar.
+- As a Client - I can add an equipment so that I can create a job for it.
+    - In the settings page the user can add equipments as required.
 
-* As a Site User | I can log out from the site so that I can feel safe that nobody can access my information
-    * When the user is logged in it is possible to choose the 'Log Out'-option in the navigation menu.
+- As a Client - I can edit / delete and equipment so that I can organize the equipment list.
+    - In the settings page the user can edit or delete equipments as required.
 
-* As a Site User | I can create draft reviews so that I can finish writing the content later
-    * When a logged in user creates a review they have the possibility to set the status on the review either on published or draft.
+- As a User - I can filter the jobs so that I can search for the relevant ones.
+    - In the jobs list pages the user has a filter button that opens an input field that will filter throught the jobs id, title and description.
 
-* As a Site User | I can get visual feedback when interacting with the content so that I can be sure how I have interacted with the page
-    * When the user sign in, sign out, create / update / deletes reviews and comments they always get a confirmation message to secure visual feedback.
+- As an Employee I can access the employee dashboard so I can view jobs that have been assigned to me.
+    - When the user signs in to the website it redirects to the dashboard where the user is presented with active and completed jobs.
 
-* As a Site Admin | I can log out from the site so that I can feel safe that nobody can access my information
-   * When the admin is logged in it is possible to choose the 'Log Out'-option in the navigation menu.
+- As an Employee I can add feedback to jobs so I can communicate any extra needs.
+    - In the active jobs accordion the user can click on add feedback to add any relevant information.
 
-* As a Site Admin | I can create, read, update and delete reviews so that I can manage my review content
-    * When the user is logged in as an administrator / superuser a new item show up in the navigation menu called 'Admin Area'. In this area the user can read, update and delete reviews. Creation of reviews can be made the same way as any logged in user. Updating reviews can only be made if the administrator has written the original review.
+- As an Employee I can mark jobs as done so I they can be moved to the completed list.
+    - In the active jobs accordion the user can click on mark job as done to move it to the completed list.
 
-* As a Site Admin | I can approve reviews so that I can secure high quality of the content
-    * When the user is logged in as an administrator / superuser a new item show up in the navigation menu called 'Admin Area'. In this area the user can approve / unapprove / publish / unpublish reviews.
 
-* As a Site Admin | I can approve and disapprove comments so that I can secure a safe environment for the Site Users
-    * When the user is logged in as an administrator / superuser a new item show up in the navigation menu called 'Admin Area'. In this area the user can approve / unapprove comments.
 
-* As a Site Admin | I can create draft reviews so that I can finish writing the content later
-    * When a user is logged in as an administrator they have the possibility to create a review they and set the status to published or draft.
 
-* As a Site Admin | I can access an admin area so that I can get a general understanding of logged in users, number of likes and number of posts
-    * In the admin area there is an summary area in the top with general information about the site (i.e. number of users, number of reviews / comments that need approval)
 
-* As a Site Admin | I can get visual feedback when interacting with the content so that I can be sure how I have interacted with the page
-    * When the admin signs in, signs out, create / update / deletes reviews and comments they always get a confirmation message to secure visual feedback.
+
+
 
 ## Code Validation
 The code on the 'Review | Alliance' site has been tested through W3C Markup Validation Service, W3C CSS Validation Service and JSHint. Errors were at first found on the site in the W3C Markup Validation Service but could quite easily be fixed (see bugs section). One error appeared as well in the W3C CSS Validation but that was connected to Font Awesome and not to the site code itself (see bugs section).
@@ -376,4 +368,8 @@ No known bugs besides those in the fixed / unfixed bugs section.
 ![HTML Validation](readme/assets/images/google_chrome_warning.png)
 </details><br />
 
-[Back to top](<#table-of-content>)
+
+
+
+
+Back to [**README file.**](README.md)
