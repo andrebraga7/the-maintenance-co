@@ -13,8 +13,8 @@
                 <!-- Jobs navbar -->
                 <div class="col-8">
                     <nav class="navbar navbar-expand-sm ps-2 pt-2 pb-4">
-                        <a id="dash_menu_2_toggle" class="navbar-toggler" data-bs-toggle="collapse" href="#jobs_options"
-                            aria-controls="jobs_options" aria-expanded="false" aria-label="Toggle navigation">Completed
+                        <a id="dash_menu_3_toggle" class="navbar-toggler" data-bs-toggle="collapse" href="#jobs_options"
+                             aria-expanded="false" aria-label="Toggle navigation">Completed
                             ({{ completed_jobs|length }}) <i class="fa-solid fa-chevron-down"></i>
                         </a>
                         <div class="collapse navbar-collapse" id="jobs_options">
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-4 ms-auto text-end">
                     <button class="blue-btn-small" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#filter_field" aria-expanded="false" aria-controls="filter jobs">Filter</button>
+                        data-bs-target="#filter_field" aria-expanded="false">Filter</button>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
     <!-- Search field -->
     <div class="row mb-3 collapse" id="filter_field">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <form action="" method="get">
+            <form method="get">
                 <div class="input-group">
                     <input type="search" name="queryset" id="queryset" class="form-control" placeholder="Filter jobs..."
                         aria-label="Filter jobs">
@@ -64,14 +64,14 @@
 
                     <div class="accordion-header" id="heading_{{ forloop.counter }}">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#{{ forloop.counter }}" aria-expanded="false" aria-controls="{{ forloop.counter }}">
+                            data-bs-target="#{{ forloop.counter }}" aria-expanded="false">
                             <span>
                                 <strong># {{ job.id }}</strong> - {{ job.title }}
                             </span>
                         </button>
                     </div>
 
-                    <div id="{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading_{{ forloop.counter }}"
+                    <div id="{{ forloop.counter }}" class="accordion-collapse collapse"
                         data-bs-parent="#dash_accordion">
                         <div class="accordion-body pb-4">
                             <p>

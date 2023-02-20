@@ -17,15 +17,14 @@
                     </div>
                     <div class="col-6 text-end">
                         <button class="blue-btn-small" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#filter_field" aria-expanded="false"
-                            aria-controls="filter jobs">Filter</button>
+                            data-bs-target="#filter_field" aria-expanded="false">Filter</button>
                     </div>
                 </div>
 
                 <!-- Search field -->
                 <div class="row my-3 collapse" id="filter_field">
                     <div class="col">
-                        <form action="" method="get">
+                        <form method="get">
                             <div class="input-group">
                                 <input type="search" name="queryset" id="queryset" class="form-control"
                                     placeholder="Filter jobs..." aria-label="Filter jobs">
@@ -40,17 +39,17 @@
 
             <!-- Users awaiting approval -->
             <span class="ps-2">Users awaiting approval:</span>
-            <div class="accordion pt-2 pb-4" id="dash_accordion">
+            <div class="accordion pt-2 pb-4" id="dash_accordion1">
                 {% for user in users %}
                 {% if user.is_active == False %}
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne">
+                            data-bs-target="#{{ forloop.counter }}" aria-expanded="true">
                             <span>{{ user.profile.name }}</span>
                         </button>
                     </h2>
-                    <div id="{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    <div id="{{ forloop.counter }}" class="accordion-collapse collapse"
                         data-bs-parent="#dash_accordion">
                         <div class="accordion-body">
                             <p>
@@ -73,33 +72,29 @@
                                 <span>Unknown type</span>
                                 {% endif %}
                             </p>
-                            <a href="{% url 'edit_user' user.id %}">
-                                <button class="blue-btn-small">
-                                    <i class="fa-solid fa-user-pen"></i><span class="ps-2">Edit user</span>
-                                </button>
+                            <a class="blue-btn-small" href="{% url 'edit_user' user.id %}">
+                                <i class="fa-solid fa-user-pen"></i><span class="ps-2">Edit user</span>
                             </a>
                             <button class="blue-btn-small" type="button" data-bs-toggle="modal"
-                                data-bs-target="#modal_{{ user.id }}" aria-expanded="false" aria-controls="delete user">
+                                data-bs-target="#modal_{{ user.id }}" aria-expanded="false">
                                 <i class="fa-solid fa-user-xmark"></i><span class="ps-2">Delete user</span>
                             </button>
-                            <a href="{% url 'approve_user' user.id %}">
-                                <button class="blue-btn-small">
-                                    <i class="fa-solid fa-check"></i><span class="ps-2">Approve user</span>
-                                </button>
+                            <a class="blue-btn-small" href="{% url 'approve_user' user.id %}">
+                                <i class="fa-solid fa-check"></i><span class="ps-2">Approve user</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Delete user Modal -->
-                <div class="modal fade" id="modal_{{ user.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="modal_{{ user.id }}" tabindex="-1"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header justify-content-center p-4 p-md-5">
                                 <strong class="text-center">
-                                    <p>Are you sure you would like to delete {{ user }}?</p>
-                                    <p>This will delete all associated data with the user and cannot be undone!</p>
+                                    Are you sure you would like to delete {{ user }}?<br>
+                                    This will delete all associated data with the user and cannot be undone!
                                 </strong>
                             </div>
                             <div class="modal-body text-center">
@@ -110,8 +105,8 @@
                                                 data-bs-dismiss="modal">Close</button>
                                         </div>
                                         <div class="col-6 p-2">
-                                            <a href="{% url 'delete_user' user.id %}">
-                                                <button class="modal-red-btn">Delete user</button>
+                                            <a class="modal-red-btn" href="{% url 'delete_user' user.id %}">
+                                                Delete user
                                             </a>
                                         </div>
                                     </div>
@@ -128,17 +123,17 @@
 
             <!-- Approved active users -->
             <span class="ps-2">Active users:</span>
-            <div class="accordion pt-2 pb-4" id="dash_accordion">
+            <div class="accordion pt-2 pb-4" id="dash_accordion2">
                 {% for user in users %}
                 {% if user.is_active %}
                 <div class="accordion-item">
                     <h2 class="accordion-header">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#{{ forloop.counter }}" aria-expanded="true" aria-controls="collapseOne">
+                            data-bs-target="#{{ forloop.counter }}" aria-expanded="true">
                             <span>{{ user.profile.name }}</span>
                         </button>
                     </h2>
-                    <div id="{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    <div id="{{ forloop.counter }}" class="accordion-collapse collapse"
                         data-bs-parent="#dash_accordion">
                         <div class="accordion-body">
                             <p>
@@ -161,13 +156,11 @@
                                 <span>Unknown type</span>
                                 {% endif %}
                             </p>
-                            <a href="{% url 'edit_user' user.id %}">
-                                <button class="blue-btn-small">
-                                    <i class="fa-solid fa-user-pen"></i><span class="ps-2">Edit user</span>
-                                </button>
+                            <a class="blue-btn-small" href="{% url 'edit_user' user.id %}">
+                                <i class="fa-solid fa-user-pen"></i><span class="ps-2">Edit user</span>
                             </a>
                             <button class="blue-btn-small" type="button" data-bs-toggle="modal"
-                                data-bs-target="#modal_{{ user.id }}" aria-expanded="false" aria-controls="delete user">
+                                data-bs-target="#modal_{{ user.id }}" aria-expanded="false">
                                 <i class="fa-solid fa-user-xmark"></i><span class="ps-2">Delete user</span>
                             </button>
                         </div>
@@ -175,14 +168,14 @@
                 </div>
 
                 <!-- Delete user Modal -->
-                <div class="modal fade" id="modal_{{ user.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="modal_{{ user.id }}" tabindex="-1"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header justify-content-center p-4 p-md-5">
                                 <strong class="text-center">
-                                    <p>Are you sure you would like to delete {{ user }}?</p>
-                                    <p>This will delete all associated data with the user and cannot be undone!</p>
+                                    Are you sure you would like to delete {{ user }}?<br>
+                                    This will delete all associated data with the user and cannot be undone!
                                 </strong>
                             </div>
                             <div class="modal-body text-center">
@@ -193,8 +186,8 @@
                                                 data-bs-dismiss="modal">Close</button>
                                         </div>
                                         <div class="col-6 p-2">
-                                            <a href="{% url 'delete_user' user.id %}">
-                                                <button class="modal-red-btn">Delete user</button>
+                                            <a class="modal-red-btn" href="{% url 'delete_user' user.id %}">
+                                                Delete user
                                             </a>
                                         </div>
                                     </div>

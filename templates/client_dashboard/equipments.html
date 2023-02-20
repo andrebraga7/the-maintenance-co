@@ -10,8 +10,8 @@
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
 
             <nav class="navbar navbar-expand-sm ps-2 pt-2 pb-4">
-                <a id="dash_menu_2_toggle" class="navbar-toggler" data-bs-toggle="collapse" href="#jobs_options"
-                    aria-controls="jobs_options" aria-expanded="false" aria-label="Toggle navigation">Equipments <i class="fa-solid fa-chevron-down"></i>
+                <a id="dash_menu_3_toggle" class="navbar-toggler" data-bs-toggle="collapse" href="#jobs_options"
+                    aria-expanded="false" aria-label="Toggle navigation">Equipments <i class="fa-solid fa-chevron-down"></i>
                 </a>
                 <div class="collapse navbar-collapse" id="jobs_options">
                     <ul class="navbar-nav">
@@ -27,8 +27,8 @@
 
             <div class="card card-body mb-4">
                 <div class="col-md-4 ps-md-3 py-2">
-                    <a href="{% url 'add_equipment' %}">
-                        <button type="button" class="blue-btn-small">Add equipment</button>
+                    <a class="blue-btn-small" href="{% url 'add_equipment' %}">
+                        Add equipment
                     </a>
                 </div>
 
@@ -51,8 +51,7 @@
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
                             <button class="category-button ps-md-3" type="button" data-bs-toggle="modal"
-                                data-bs-target="#modal_{{ equipment.id }}" aria-expanded="false"
-                                aria-controls="delete confirmation">
+                                data-bs-target="#modal_{{ equipment.id }}" aria-expanded="false">
                                 <i class="fa-solid fa-trash-can category-delete"></i>
                             </button>
                         </div>
@@ -60,7 +59,7 @@
 
                     <!-- Delete equipment modal -->
                     <div class="modal fade" id="modal_{{ equipment.id }}" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header justify-content-center p-4 p-md-5">
@@ -76,8 +75,8 @@
                                                     data-bs-dismiss="modal">Close</button>
                                             </div>
                                             <div class="col-6 p-2">
-                                                <a href="{% url 'delete_equipment' equipment.id %}">
-                                                    <button class="modal-red-btn">Delete</button>
+                                                <a class="modal-red-btn" href="{% url 'delete_equipment' equipment.id %}">
+                                                    Delete
                                                 </a>
                                             </div>
                                         </div>

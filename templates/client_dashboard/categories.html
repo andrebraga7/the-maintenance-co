@@ -12,8 +12,8 @@
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
 
             <nav class="navbar navbar-expand-sm ps-2 pt-2 pb-4">
-                <a id="dash_menu_2_toggle" class="navbar-toggler" data-bs-toggle="collapse" href="#jobs_options"
-                    aria-controls="jobs_options" aria-expanded="false" aria-label="Toggle navigation">Categories <i class="fa-solid fa-chevron-down"></i>
+                <a id="dash_menu_3_toggle" class="navbar-toggler" data-bs-toggle="collapse" href="#jobs_options"
+                    aria-expanded="false" aria-label="Toggle navigation">Categories <i class="fa-solid fa-chevron-down"></i>
                 </a>
                 <div class="collapse navbar-collapse" id="jobs_options">
                     <ul class="navbar-nav">
@@ -55,8 +55,7 @@
                             <i class="fa-solid fa-pen-to-square"></i>
                         </a>
                         <button class="category-button ps-4" type="button" data-bs-toggle="modal"
-                            data-bs-target="#modal_{{ category.id }}" aria-expanded="false"
-                            aria-controls="delete confirmation">
+                            data-bs-target="#modal_{{ category.id }}" aria-expanded="false">
                             <i class="fa-solid fa-trash-can category-delete"></i>
                         </button>
                     </div>
@@ -64,7 +63,7 @@
                 </div>
 
                 <!-- Delete category Modal -->
-                <div class="modal fade" id="modal_{{ category.id }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="modal_{{ category.id }}" tabindex="-1"
                     aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
@@ -84,8 +83,8 @@
                                                 data-bs-dismiss="modal">Close</button>
                                         </div>
                                         <div class="col-6 p-2">
-                                            <a href="{% url 'delete_category' category.id %}">
-                                                <button class="modal-red-btn">Delete</button>
+                                            <a class="modal-red-btn" href="{% url 'delete_category' category.id %}">
+                                                Delete
                                             </a>
                                         </div>
                                     </div>

@@ -1,6 +1,6 @@
 - [**Testing**](<#testing>)
-    - [Testing User Stories]()
-    - [Code Validation]()
+    - [Testing User Stories](#testing-user-stories)
+    - [Code Validation](#code-validation)
     - [Additional Testing]()
     - [Known Bugs]()
 
@@ -69,15 +69,22 @@
 - As an Employee I can mark jobs as done so I they can be moved to the completed list.
     - In the active jobs accordion the user can click on mark job as done to move it to the completed list.
 
-
-
-
-
-
-
-
 ## Code Validation
-The code on the 'Review | Alliance' site has been tested through W3C Markup Validation Service, W3C CSS Validation Service and JSHint. Errors were at first found on the site in the W3C Markup Validation Service but could quite easily be fixed (see bugs section). One error appeared as well in the W3C CSS Validation but that was connected to Font Awesome and not to the site code itself (see bugs section).
+The website's code has been tested using the W3C Markup Validator and JSHint. Some error were found regarding button elements being descendents of anchors and some form placeholder attributes now being allowed for select elements, this however is generated throught crispy forms automatic forms. The button elements was a quick fix, I just removed the button and styled the links as I wanted.
+Some other error are apearing in the W3C validator regarding script element havind unecessary type=text/javascript attribute, however, this is now normal practices.
+Another issue was some id and aria-label repetition errors, this is to do with the use of boostrap accordions and Jinja2 for loops.
+Some other aria-labelledby error where caught and fixed.
+
+
+
+
+
+
+
+
+
+
+
 
 ### Markup Validation
 After fixing the inital errors that W3C Markup Validation Service reported, no errors were returned.
